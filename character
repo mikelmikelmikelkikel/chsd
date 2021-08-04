@@ -1,0 +1,2291 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local characterTabHolder = Instance.new("ScrollingFrame")
+local _1 = Instance.new("ImageLabel")
+local UIListLayout = Instance.new("UIListLayout")
+local _3_vehicleOptions = Instance.new("Frame")
+local roundBackground = Instance.new("ImageLabel")
+local nameLabel = Instance.new("TextLabel")
+local checkBox = Instance.new("ImageLabel")
+local checkedBox = Instance.new("ImageButton")
+local roundBackgroundDark = Instance.new("ImageLabel")
+local Slider = Instance.new("TextButton")
+local Indicator = Instance.new("Frame")
+local HolderButton = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local Value = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local SliderImg = Instance.new("ImageLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Sliderbg = Instance.new("ImageLabel")
+local roundBackgroundDark_2 = Instance.new("ImageLabel")
+local nameLabel_2 = Instance.new("TextLabel")
+local roundBackgroundDark_3 = Instance.new("ImageLabel")
+local checkBox_2 = Instance.new("ImageLabel")
+local checkedBox_2 = Instance.new("ImageButton")
+local titleLabel = Instance.new("TextLabel")
+local _3_flyToggle = Instance.new("Frame")
+local roundBackground_2 = Instance.new("ImageLabel")
+local nameLabel_3 = Instance.new("TextLabel")
+local checkBox_3 = Instance.new("ImageLabel")
+local checkedBox_3 = Instance.new("ImageButton")
+local roundBackgroundDark_4 = Instance.new("ImageLabel")
+local Slider_2 = Instance.new("TextButton")
+local Indicator_2 = Instance.new("Frame")
+local HolderButton_2 = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local Value_2 = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local SliderImg_2 = Instance.new("ImageLabel")
+local UICorner_6 = Instance.new("UICorner")
+local Sliderbg_2 = Instance.new("ImageLabel")
+local roundBackgroundDark_5 = Instance.new("ImageLabel")
+local _2_jumpheightSlider = Instance.new("Frame")
+local Slider_3 = Instance.new("TextButton")
+local Indicator_3 = Instance.new("Frame")
+local HolderButton_3 = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local Value_3 = Instance.new("TextLabel")
+local UICorner_8 = Instance.new("UICorner")
+local SliderImg_3 = Instance.new("ImageLabel")
+local UICorner_9 = Instance.new("UICorner")
+local Sliderbg_3 = Instance.new("ImageLabel")
+local Value_4 = Instance.new("TextLabel")
+local roundBackground_3 = Instance.new("ImageLabel")
+local roundBackgroundDark_6 = Instance.new("ImageLabel")
+local sliderLabel = Instance.new("TextLabel")
+local _1_walkspeedSlider = Instance.new("Frame")
+local Slider_4 = Instance.new("TextButton")
+local Indicator_4 = Instance.new("Frame")
+local HolderButton_4 = Instance.new("TextLabel")
+local UICorner_10 = Instance.new("UICorner")
+local Value_5 = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+local SliderImg_4 = Instance.new("ImageLabel")
+local UICorner_12 = Instance.new("UICorner")
+local Sliderbg_4 = Instance.new("ImageLabel")
+local Value_6 = Instance.new("TextLabel")
+local roundBackground_4 = Instance.new("ImageLabel")
+local roundBackgroundDark_7 = Instance.new("ImageLabel")
+local sliderLabel_2 = Instance.new("TextLabel")
+local _99_randomSettings = Instance.new("Frame")
+local roundBackground_5 = Instance.new("ImageLabel")
+local nameLabel_4 = Instance.new("TextLabel")
+local Sample = Instance.new("ImageLabel")
+local squareHatBtnBackground = Instance.new("ImageLabel")
+local squareHatBtnMain = Instance.new("TextButton")
+local squareHeadBtnBackground = Instance.new("ImageLabel")
+local squareHeadBtnMain = Instance.new("TextButton")
+local noFaceBtnBackground = Instance.new("ImageLabel")
+local noFaceBtnMain = Instance.new("TextButton")
+local _7_swimInAir = Instance.new("Frame")
+local roundBackground_6 = Instance.new("ImageLabel")
+local nameLabel_5 = Instance.new("TextLabel")
+local checkBox_4 = Instance.new("ImageLabel")
+local checkedBox_4 = Instance.new("ImageButton")
+local roundBackgroundDark_8 = Instance.new("ImageLabel")
+local _6_infiniteJump = Instance.new("Frame")
+local roundBackground_7 = Instance.new("ImageLabel")
+local nameLabel_6 = Instance.new("TextLabel")
+local checkBox_5 = Instance.new("ImageLabel")
+local checkedBox_5 = Instance.new("ImageButton")
+local roundBackgroundDark_9 = Instance.new("ImageLabel")
+local _5_clickTeleport = Instance.new("Frame")
+local roundBackground_8 = Instance.new("ImageLabel")
+local nameLabel_7 = Instance.new("TextLabel")
+local checkBox_6 = Instance.new("ImageLabel")
+local checkedBox_6 = Instance.new("ImageButton")
+local roundBackgroundDark_10 = Instance.new("ImageLabel")
+local _4_noClip = Instance.new("Frame")
+local roundBackground_9 = Instance.new("ImageLabel")
+local nameLabel_8 = Instance.new("TextLabel")
+local checkBox_7 = Instance.new("ImageLabel")
+local checkedBox_7 = Instance.new("ImageButton")
+local roundBackgroundDark_11 = Instance.new("ImageLabel")
+
+--Properties:
+
+characterTabHolder.Name = "characterTabHolder"
+characterTabHolder.Parent = game.Players.LocalPlayer.PlayerGui.dietLib.mainFrame.tabHolder
+characterTabHolder.Active = true
+characterTabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+characterTabHolder.BackgroundTransparency = 1.000
+characterTabHolder.BorderSizePixel = 0
+characterTabHolder.Position = UDim2.new(0.00847569946, 0, 0.0153375855, 0)
+characterTabHolder.Size = UDim2.new(0.991524398, 0, 0.984662414, 0)
+characterTabHolder.Visible = false
+characterTabHolder.ZIndex = 25
+characterTabHolder.CanvasSize = UDim2.new(0, 0, 6, 0)
+
+_1.Name = "1"
+_1.Parent = characterTabHolder
+_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_1.BackgroundTransparency = 1.000
+_1.Size = UDim2.new(0, 50, 0, 5)
+_1.Image = "rbxassetid://31103354"
+
+UIListLayout.Parent = characterTabHolder
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 4)
+
+_3_vehicleOptions.Name = "3_vehicleOptions"
+_3_vehicleOptions.Parent = characterTabHolder
+_3_vehicleOptions.AnchorPoint = Vector2.new(0.5, 0.5)
+_3_vehicleOptions.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_3_vehicleOptions.BackgroundTransparency = 1.000
+_3_vehicleOptions.BorderSizePixel = 0
+_3_vehicleOptions.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_3_vehicleOptions.Size = UDim2.new(0.939999998, 0, 0.0900000036, 0)
+_3_vehicleOptions.ZIndex = 25
+
+roundBackground.Name = "roundBackground"
+roundBackground.Parent = _3_vehicleOptions
+roundBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground.BackgroundTransparency = 1.000
+roundBackground.Position = UDim2.new(0.49999997, 0, 0.486843675, 0)
+roundBackground.Size = UDim2.new(1, 0, 0.966505885, 0)
+roundBackground.ZIndex = 0
+roundBackground.Image = "rbxassetid://3570695787"
+roundBackground.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground.ImageTransparency = 0.100
+roundBackground.ScaleType = Enum.ScaleType.Slice
+roundBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground.SliceScale = 0.120
+
+nameLabel.Name = "nameLabel"
+nameLabel.Parent = _3_vehicleOptions
+nameLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel.BackgroundTransparency = 1.000
+nameLabel.Position = UDim2.new(0.022374399, 0, 0.486713976, 0)
+nameLabel.Size = UDim2.new(0, 163, 0, 23)
+nameLabel.ZIndex = 4
+nameLabel.Font = Enum.Font.ArialBold
+nameLabel.Text = "Vehicle Fly:"
+nameLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel.TextScaled = true
+nameLabel.TextSize = 14.000
+nameLabel.TextWrapped = true
+nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox.Name = "checkBox"
+checkBox.Parent = _3_vehicleOptions
+checkBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox.BackgroundTransparency = 1.000
+checkBox.Position = UDim2.new(0.925477624, 0, 0.485575289, 0)
+checkBox.Size = UDim2.new(0, 25, 0, 25)
+checkBox.ZIndex = 25
+checkBox.Image = "rbxassetid://3229285087"
+
+checkedBox.Name = "checkedBox"
+checkedBox.Parent = checkBox
+checkedBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox.BackgroundTransparency = 1.000
+checkedBox.Size = UDim2.new(1, 0, 1, 0)
+checkedBox.Image = "rbxassetid://3229284779"
+checkedBox.ImageTransparency = 1.000
+
+roundBackgroundDark.Name = "roundBackgroundDark"
+roundBackgroundDark.Parent = _3_vehicleOptions
+roundBackgroundDark.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark.BackgroundTransparency = 1.000
+roundBackgroundDark.Position = UDim2.new(0.49999997, 0, 0.558954656, 0)
+roundBackgroundDark.Size = UDim2.new(0.976970911, 0, 0.186693445, 0)
+roundBackgroundDark.ZIndex = 2
+roundBackgroundDark.Image = "rbxassetid://3570695787"
+roundBackgroundDark.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark.ImageTransparency = 0.100
+roundBackgroundDark.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark.SliceScale = 0.120
+
+Slider.Name = "Slider"
+Slider.Parent = _3_vehicleOptions
+Slider.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Slider.BackgroundTransparency = 1.000
+Slider.BorderSizePixel = 0
+Slider.Position = UDim2.new(0.0430000015, 0, 0.736272991, 0)
+Slider.Size = UDim2.new(0, 435, 0, 18)
+Slider.ZIndex = 12
+Slider.AutoButtonColor = false
+Slider.Font = Enum.Font.SourceSans
+Slider.Text = ""
+Slider.TextColor3 = Color3.fromRGB(0, 0, 0)
+Slider.TextSize = 14.000
+
+Indicator.Name = "Indicator"
+Indicator.Parent = Slider
+Indicator.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+Indicator.BackgroundTransparency = 1.000
+Indicator.BorderSizePixel = 0
+Indicator.Position = UDim2.new(-0.00131055492, 0, 0, 0)
+Indicator.Size = UDim2.new(0.00999999978, 0, 1.03043532, 0)
+
+HolderButton.Name = "HolderButton"
+HolderButton.Parent = Indicator
+HolderButton.AnchorPoint = Vector2.new(0.5, 0.5)
+HolderButton.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+HolderButton.BackgroundTransparency = 1.000
+HolderButton.Position = UDim2.new(1, 0, 0.5, 0)
+HolderButton.Size = UDim2.new(0, 13, 0, 25)
+HolderButton.ZIndex = 5
+HolderButton.Font = Enum.Font.SourceSans
+HolderButton.Text = ""
+HolderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+HolderButton.TextSize = 14.000
+HolderButton.TextTransparency = 2.000
+
+UICorner.CornerRadius = UDim.new(0, 3)
+UICorner.Parent = HolderButton
+
+Value.Name = "Value"
+Value.Parent = HolderButton
+Value.AnchorPoint = Vector2.new(0.5, 0.5)
+Value.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Value.BackgroundTransparency = 1.000
+Value.Position = UDim2.new(0.5, 0, -0.360000014, 0)
+Value.Size = UDim2.new(0, 36, 0, 18)
+Value.Font = Enum.Font.GothamBold
+Value.Text = "0"
+Value.TextColor3 = Color3.fromRGB(209, 209, 209)
+Value.TextSize = 14.000
+Value.TextTransparency = 1.000
+
+UICorner_2.CornerRadius = UDim.new(0, 3)
+UICorner_2.Parent = Value
+
+SliderImg.Name = "SliderImg"
+SliderImg.Parent = HolderButton
+SliderImg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderImg.BackgroundTransparency = 1.000
+SliderImg.Position = UDim2.new(-0.449999988, 0, 0, 0)
+SliderImg.Size = UDim2.new(0, 24, 0, 24)
+SliderImg.Image = "rbxassetid://3886466329"
+SliderImg.ImageColor3 = Color3.fromRGB(38, 38, 38)
+
+UICorner_3.CornerRadius = UDim.new(0, 2)
+UICorner_3.Parent = Indicator
+
+Sliderbg.Name = "Sliderbg"
+Sliderbg.Parent = Slider
+Sliderbg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sliderbg.BackgroundTransparency = 1.000
+Sliderbg.Position = UDim2.new(-0.0199999195, 0, 0.370957077, 0)
+Sliderbg.Size = UDim2.new(1.00999999, 0, -0.0135651054, 6)
+Sliderbg.ZIndex = 0
+Sliderbg.Image = "rbxassetid://6597213248"
+Sliderbg.ImageColor3 = Color3.fromRGB(68, 68, 68)
+
+roundBackgroundDark_2.Name = "roundBackgroundDark"
+roundBackgroundDark_2.Parent = _3_vehicleOptions
+roundBackgroundDark_2.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_2.BackgroundTransparency = 1.000
+roundBackgroundDark_2.Position = UDim2.new(0.504317641, 0, 0.794012368, 0)
+roundBackgroundDark_2.Size = UDim2.new(0.976970911, 0, 0.208917007, 0)
+roundBackgroundDark_2.ZIndex = 4
+roundBackgroundDark_2.Image = "rbxassetid://3570695787"
+roundBackgroundDark_2.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_2.ImageTransparency = 0.100
+roundBackgroundDark_2.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_2.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_2.SliceScale = 0.120
+
+nameLabel_2.Name = "nameLabel"
+nameLabel_2.Parent = _3_vehicleOptions
+nameLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_2.BackgroundTransparency = 1.000
+nameLabel_2.Position = UDim2.new(0.022374399, 0, 0.248533696, 0)
+nameLabel_2.Size = UDim2.new(0, 163, 0, 23)
+nameLabel_2.ZIndex = 4
+nameLabel_2.Font = Enum.Font.ArialBold
+nameLabel_2.Text = "Vehicle Noclip:"
+nameLabel_2.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_2.TextScaled = true
+nameLabel_2.TextSize = 14.000
+nameLabel_2.TextWrapped = true
+nameLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+roundBackgroundDark_3.Name = "roundBackgroundDark"
+roundBackgroundDark_3.Parent = _3_vehicleOptions
+roundBackgroundDark_3.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_3.BackgroundTransparency = 1.000
+roundBackgroundDark_3.Position = UDim2.new(0.49999997, 0, 0.320774376, 0)
+roundBackgroundDark_3.Size = UDim2.new(0.976970911, 0, 0.186693445, 0)
+roundBackgroundDark_3.ZIndex = 2
+roundBackgroundDark_3.Image = "rbxassetid://3570695787"
+roundBackgroundDark_3.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_3.ImageTransparency = 0.100
+roundBackgroundDark_3.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_3.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_3.SliceScale = 0.120
+
+checkBox_2.Name = "checkBox"
+checkBox_2.Parent = _3_vehicleOptions
+checkBox_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_2.BackgroundTransparency = 1.000
+checkBox_2.Position = UDim2.new(0.925477624, 0, 0.247394979, 0)
+checkBox_2.Size = UDim2.new(0, 25, 0, 25)
+checkBox_2.ZIndex = 25
+checkBox_2.Image = "rbxassetid://3229285087"
+
+checkedBox_2.Name = "checkedBox"
+checkedBox_2.Parent = checkBox_2
+checkedBox_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_2.BackgroundTransparency = 1.000
+checkedBox_2.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_2.Image = "rbxassetid://3229284779"
+checkedBox_2.ImageTransparency = 1.000
+
+titleLabel.Name = "titleLabel"
+titleLabel.Parent = _3_vehicleOptions
+titleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.BackgroundTransparency = 1.000
+titleLabel.Position = UDim2.new(0.00928996783, 0, 0.043944113, 0)
+titleLabel.Size = UDim2.new(0, 454, 0, 20)
+titleLabel.ZIndex = 4
+titleLabel.Font = Enum.Font.ArialBold
+titleLabel.Text = "Vehicle"
+titleLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+titleLabel.TextScaled = true
+titleLabel.TextSize = 14.000
+titleLabel.TextWrapped = true
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+_3_flyToggle.Name = "3_flyToggle"
+_3_flyToggle.Parent = characterTabHolder
+_3_flyToggle.AnchorPoint = Vector2.new(0.5, 0.5)
+_3_flyToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_3_flyToggle.BackgroundTransparency = 1.000
+_3_flyToggle.BorderSizePixel = 0
+_3_flyToggle.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_3_flyToggle.Size = UDim2.new(0.939999998, 0, 0.0500000007, 0)
+_3_flyToggle.ZIndex = 25
+
+roundBackground_2.Name = "roundBackground"
+roundBackground_2.Parent = _3_flyToggle
+roundBackground_2.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_2.BackgroundTransparency = 1.000
+roundBackground_2.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_2.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_2.ZIndex = 0
+roundBackground_2.Image = "rbxassetid://3570695787"
+roundBackground_2.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_2.ImageTransparency = 0.100
+roundBackground_2.ScaleType = Enum.ScaleType.Slice
+roundBackground_2.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_2.SliceScale = 0.120
+
+nameLabel_3.Name = "nameLabel"
+nameLabel_3.Parent = _3_flyToggle
+nameLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_3.BackgroundTransparency = 1.000
+nameLabel_3.Position = UDim2.new(0.0180129223, 0, 0.0786176026, 0)
+nameLabel_3.Size = UDim2.new(0, 163, 0, 23)
+nameLabel_3.ZIndex = 4
+nameLabel_3.Font = Enum.Font.ArialBold
+nameLabel_3.Text = "Fly:"
+nameLabel_3.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_3.TextScaled = true
+nameLabel_3.TextSize = 14.000
+nameLabel_3.TextWrapped = true
+nameLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_3.Name = "checkBox"
+checkBox_3.Parent = _3_flyToggle
+checkBox_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_3.BackgroundTransparency = 1.000
+checkBox_3.Position = UDim2.new(0.921116173, 0, 0.0726939887, 0)
+checkBox_3.Size = UDim2.new(0, 25, 0, 25)
+checkBox_3.ZIndex = 25
+checkBox_3.Image = "rbxassetid://3229285087"
+
+checkedBox_3.Name = "checkedBox"
+checkedBox_3.Parent = checkBox_3
+checkedBox_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_3.BackgroundTransparency = 1.000
+checkedBox_3.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_3.Image = "rbxassetid://3229284779"
+checkedBox_3.ImageTransparency = 1.000
+
+roundBackgroundDark_4.Name = "roundBackgroundDark"
+roundBackgroundDark_4.Parent = _3_flyToggle
+roundBackgroundDark_4.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_4.BackgroundTransparency = 1.000
+roundBackgroundDark_4.Position = UDim2.new(0.5, 0, 0.209999993, 0)
+roundBackgroundDark_4.Size = UDim2.new(0.976970911, 0, 0.340703398, 0)
+roundBackgroundDark_4.ZIndex = 2
+roundBackgroundDark_4.Image = "rbxassetid://3570695787"
+roundBackgroundDark_4.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_4.ImageTransparency = 0.100
+roundBackgroundDark_4.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_4.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_4.SliceScale = 0.120
+
+Slider_2.Name = "Slider"
+Slider_2.Parent = _3_flyToggle
+Slider_2.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Slider_2.BackgroundTransparency = 1.000
+Slider_2.BorderSizePixel = 0
+Slider_2.Position = UDim2.new(0.0390000008, 0, 0.550000012, 0)
+Slider_2.Size = UDim2.new(0, 435, 0, 22)
+Slider_2.ZIndex = 12
+Slider_2.AutoButtonColor = false
+Slider_2.Font = Enum.Font.SourceSans
+Slider_2.Text = ""
+Slider_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Slider_2.TextSize = 14.000
+
+Indicator_2.Name = "Indicator"
+Indicator_2.Parent = Slider_2
+Indicator_2.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+Indicator_2.BackgroundTransparency = 1.000
+Indicator_2.BorderSizePixel = 0
+Indicator_2.Position = UDim2.new(-0.00131055492, 0, 0, 0)
+Indicator_2.Size = UDim2.new(0.00999999978, 0, 1.03043532, 0)
+
+HolderButton_2.Name = "HolderButton"
+HolderButton_2.Parent = Indicator_2
+HolderButton_2.AnchorPoint = Vector2.new(0.5, 0.5)
+HolderButton_2.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+HolderButton_2.BackgroundTransparency = 1.000
+HolderButton_2.Position = UDim2.new(1, 0, 0.5, 0)
+HolderButton_2.Size = UDim2.new(0, 13, 0, 25)
+HolderButton_2.ZIndex = 5
+HolderButton_2.Font = Enum.Font.SourceSans
+HolderButton_2.Text = ""
+HolderButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+HolderButton_2.TextSize = 14.000
+HolderButton_2.TextTransparency = 2.000
+
+UICorner_4.CornerRadius = UDim.new(0, 3)
+UICorner_4.Parent = HolderButton_2
+
+Value_2.Name = "Value"
+Value_2.Parent = HolderButton_2
+Value_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_2.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Value_2.BackgroundTransparency = 1.000
+Value_2.Position = UDim2.new(0.5, 0, -0.360000014, 0)
+Value_2.Size = UDim2.new(0, 36, 0, 18)
+Value_2.Font = Enum.Font.GothamBold
+Value_2.Text = "0"
+Value_2.TextColor3 = Color3.fromRGB(209, 209, 209)
+Value_2.TextSize = 14.000
+Value_2.TextTransparency = 1.000
+
+UICorner_5.CornerRadius = UDim.new(0, 3)
+UICorner_5.Parent = Value_2
+
+SliderImg_2.Name = "SliderImg"
+SliderImg_2.Parent = HolderButton_2
+SliderImg_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderImg_2.BackgroundTransparency = 1.000
+SliderImg_2.Position = UDim2.new(-0.449999988, 0, 0, 0)
+SliderImg_2.Size = UDim2.new(0, 24, 0, 24)
+SliderImg_2.Image = "rbxassetid://3886466329"
+SliderImg_2.ImageColor3 = Color3.fromRGB(38, 38, 38)
+
+UICorner_6.CornerRadius = UDim.new(0, 2)
+UICorner_6.Parent = Indicator_2
+
+Sliderbg_2.Name = "Sliderbg"
+Sliderbg_2.Parent = Slider_2
+Sliderbg_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sliderbg_2.BackgroundTransparency = 1.000
+Sliderbg_2.Position = UDim2.new(-0.0199999195, 0, 0.370957077, 0)
+Sliderbg_2.Size = UDim2.new(1.00999999, 0, -0.0135651054, 6)
+Sliderbg_2.ZIndex = 0
+Sliderbg_2.Image = "rbxassetid://6597213248"
+Sliderbg_2.ImageColor3 = Color3.fromRGB(68, 68, 68)
+
+roundBackgroundDark_5.Name = "roundBackgroundDark"
+roundBackgroundDark_5.Parent = _3_flyToggle
+roundBackgroundDark_5.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_5.BackgroundTransparency = 1.000
+roundBackgroundDark_5.Position = UDim2.new(0.499956191, 0, 0.663897634, 0)
+roundBackgroundDark_5.Size = UDim2.new(0.976970911, 0, 0.354947597, 0)
+roundBackgroundDark_5.Image = "rbxassetid://3570695787"
+roundBackgroundDark_5.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_5.ImageTransparency = 0.100
+roundBackgroundDark_5.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_5.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_5.SliceScale = 0.120
+
+_2_jumpheightSlider.Name = "2_jumpheightSlider"
+_2_jumpheightSlider.Parent = characterTabHolder
+_2_jumpheightSlider.AnchorPoint = Vector2.new(0.5, 0.5)
+_2_jumpheightSlider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_2_jumpheightSlider.BackgroundTransparency = 1.000
+_2_jumpheightSlider.BorderSizePixel = 0
+_2_jumpheightSlider.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_2_jumpheightSlider.Size = UDim2.new(0.939999998, 0, 0.0299999993, 0)
+_2_jumpheightSlider.ZIndex = 25
+
+Slider_3.Name = "Slider"
+Slider_3.Parent = _2_jumpheightSlider
+Slider_3.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Slider_3.BackgroundTransparency = 1.000
+Slider_3.BorderSizePixel = 0
+Slider_3.Position = UDim2.new(0.0370844044, 0, 0.399999976, 0)
+Slider_3.Size = UDim2.new(0, 435, 0, 22)
+Slider_3.ZIndex = 12
+Slider_3.AutoButtonColor = false
+Slider_3.Font = Enum.Font.SourceSans
+Slider_3.Text = ""
+Slider_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+Slider_3.TextSize = 14.000
+
+Indicator_3.Name = "Indicator"
+Indicator_3.Parent = Slider_3
+Indicator_3.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+Indicator_3.BackgroundTransparency = 1.000
+Indicator_3.BorderSizePixel = 0
+Indicator_3.Position = UDim2.new(-0.00131055492, 0, 0, 0)
+Indicator_3.Size = UDim2.new(0.00999999978, 0, 1.03043532, 0)
+
+HolderButton_3.Name = "HolderButton"
+HolderButton_3.Parent = Indicator_3
+HolderButton_3.AnchorPoint = Vector2.new(0.5, 0.5)
+HolderButton_3.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+HolderButton_3.BackgroundTransparency = 1.000
+HolderButton_3.Position = UDim2.new(1, 0, 0.5, 0)
+HolderButton_3.Size = UDim2.new(0, 13, 0, 25)
+HolderButton_3.ZIndex = 5
+HolderButton_3.Font = Enum.Font.SourceSans
+HolderButton_3.Text = ""
+HolderButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+HolderButton_3.TextSize = 14.000
+HolderButton_3.TextTransparency = 2.000
+
+UICorner_7.CornerRadius = UDim.new(0, 3)
+UICorner_7.Parent = HolderButton_3
+
+Value_3.Name = "Value"
+Value_3.Parent = HolderButton_3
+Value_3.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_3.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Value_3.BackgroundTransparency = 1.000
+Value_3.Position = UDim2.new(0.5, 0, -0.360000014, 0)
+Value_3.Size = UDim2.new(0, 36, 0, 18)
+Value_3.Font = Enum.Font.GothamBold
+Value_3.Text = "0"
+Value_3.TextColor3 = Color3.fromRGB(209, 209, 209)
+Value_3.TextSize = 14.000
+Value_3.TextTransparency = 1.000
+
+UICorner_8.CornerRadius = UDim.new(0, 3)
+UICorner_8.Parent = Value_3
+
+SliderImg_3.Name = "SliderImg"
+SliderImg_3.Parent = HolderButton_3
+SliderImg_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderImg_3.BackgroundTransparency = 1.000
+SliderImg_3.Position = UDim2.new(-0.449999988, 0, 0, 0)
+SliderImg_3.Size = UDim2.new(0, 24, 0, 24)
+SliderImg_3.Image = "rbxassetid://3886466329"
+SliderImg_3.ImageColor3 = Color3.fromRGB(38, 38, 38)
+
+UICorner_9.CornerRadius = UDim.new(0, 2)
+UICorner_9.Parent = Indicator_3
+
+Sliderbg_3.Name = "Sliderbg"
+Sliderbg_3.Parent = Slider_3
+Sliderbg_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sliderbg_3.BackgroundTransparency = 1.000
+Sliderbg_3.Position = UDim2.new(-0.0199999195, 0, 0.370957077, 0)
+Sliderbg_3.Size = UDim2.new(1.00999999, 0, -0.0135651054, 6)
+Sliderbg_3.ZIndex = 0
+Sliderbg_3.Image = "rbxassetid://6597213248"
+Sliderbg_3.ImageColor3 = Color3.fromRGB(68, 68, 68)
+
+Value_4.Name = "Value"
+Value_4.Parent = _2_jumpheightSlider
+Value_4.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_4.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Value_4.BackgroundTransparency = 1.000
+Value_4.Position = UDim2.new(0.51308763, 0, 0.428963125, 0)
+Value_4.Size = UDim2.new(0, 229, 0, 23)
+Value_4.Font = Enum.Font.Ubuntu
+Value_4.Text = "Val | Max"
+Value_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Value_4.TextScaled = true
+Value_4.TextSize = 18.000
+Value_4.TextStrokeTransparency = 0.500
+Value_4.TextTransparency = 1.000
+Value_4.TextWrapped = true
+
+roundBackground_3.Name = "roundBackground"
+roundBackground_3.Parent = _2_jumpheightSlider
+roundBackground_3.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_3.BackgroundTransparency = 1.000
+roundBackground_3.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_3.Size = UDim2.new(1, 0, 0.899999976, 0)
+roundBackground_3.ZIndex = 0
+roundBackground_3.Image = "rbxassetid://3570695787"
+roundBackground_3.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_3.ImageTransparency = 0.100
+roundBackground_3.ScaleType = Enum.ScaleType.Slice
+roundBackground_3.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_3.SliceScale = 0.120
+
+roundBackgroundDark_6.Name = "roundBackgroundDark"
+roundBackgroundDark_6.Parent = _2_jumpheightSlider
+roundBackgroundDark_6.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_6.BackgroundTransparency = 1.000
+roundBackgroundDark_6.Position = UDim2.new(0.497775435, 0, 0.590925097, 0)
+roundBackgroundDark_6.Size = UDim2.new(0.976970911, 0, 0.423365802, 0)
+roundBackgroundDark_6.Image = "rbxassetid://3570695787"
+roundBackgroundDark_6.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_6.ImageTransparency = 0.100
+roundBackgroundDark_6.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_6.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_6.SliceScale = 0.120
+
+sliderLabel.Name = "sliderLabel"
+sliderLabel.Parent = _2_jumpheightSlider
+sliderLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sliderLabel.BackgroundTransparency = 1.000
+sliderLabel.Position = UDim2.new(0.00928996783, 0, 0.00821706746, 0)
+sliderLabel.Size = UDim2.new(0, 454, 0, 20)
+sliderLabel.ZIndex = 4
+sliderLabel.Font = Enum.Font.ArialBold
+sliderLabel.Text = "JumpPower:"
+sliderLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+sliderLabel.TextScaled = true
+sliderLabel.TextSize = 14.000
+sliderLabel.TextWrapped = true
+sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+_1_walkspeedSlider.Name = "1_walkspeedSlider"
+_1_walkspeedSlider.Parent = characterTabHolder
+_1_walkspeedSlider.AnchorPoint = Vector2.new(0.5, 0.5)
+_1_walkspeedSlider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_1_walkspeedSlider.BackgroundTransparency = 1.000
+_1_walkspeedSlider.BorderSizePixel = 0
+_1_walkspeedSlider.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_1_walkspeedSlider.Size = UDim2.new(0.939999998, 0, 0.0299999993, 0)
+_1_walkspeedSlider.ZIndex = 25
+
+Slider_4.Name = "Slider"
+Slider_4.Parent = _1_walkspeedSlider
+Slider_4.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Slider_4.BackgroundTransparency = 1.000
+Slider_4.BorderSizePixel = 0
+Slider_4.Position = UDim2.new(0.0370844044, 0, 0.399999976, 0)
+Slider_4.Size = UDim2.new(0, 435, 0, 22)
+Slider_4.ZIndex = 12
+Slider_4.AutoButtonColor = false
+Slider_4.Font = Enum.Font.SourceSans
+Slider_4.Text = ""
+Slider_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+Slider_4.TextSize = 14.000
+
+Indicator_4.Name = "Indicator"
+Indicator_4.Parent = Slider_4
+Indicator_4.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+Indicator_4.BackgroundTransparency = 1.000
+Indicator_4.BorderSizePixel = 0
+Indicator_4.Position = UDim2.new(-0.00131055492, 0, 0, 0)
+Indicator_4.Size = UDim2.new(0.00999999978, 0, 1.03043532, 0)
+
+HolderButton_4.Name = "HolderButton"
+HolderButton_4.Parent = Indicator_4
+HolderButton_4.AnchorPoint = Vector2.new(0.5, 0.5)
+HolderButton_4.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+HolderButton_4.BackgroundTransparency = 1.000
+HolderButton_4.Position = UDim2.new(1, 0, 0.5, 0)
+HolderButton_4.Size = UDim2.new(0, 13, 0, 25)
+HolderButton_4.ZIndex = 5
+HolderButton_4.Font = Enum.Font.SourceSans
+HolderButton_4.Text = ""
+HolderButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+HolderButton_4.TextSize = 14.000
+HolderButton_4.TextTransparency = 2.000
+
+UICorner_10.CornerRadius = UDim.new(0, 3)
+UICorner_10.Parent = HolderButton_4
+
+Value_5.Name = "Value"
+Value_5.Parent = HolderButton_4
+Value_5.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_5.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Value_5.BackgroundTransparency = 1.000
+Value_5.Position = UDim2.new(0.5, 0, -0.360000014, 0)
+Value_5.Size = UDim2.new(0, 36, 0, 18)
+Value_5.Font = Enum.Font.GothamBold
+Value_5.Text = "0"
+Value_5.TextColor3 = Color3.fromRGB(209, 209, 209)
+Value_5.TextSize = 14.000
+Value_5.TextTransparency = 1.000
+
+UICorner_11.CornerRadius = UDim.new(0, 3)
+UICorner_11.Parent = Value_5
+
+SliderImg_4.Name = "SliderImg"
+SliderImg_4.Parent = HolderButton_4
+SliderImg_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderImg_4.BackgroundTransparency = 1.000
+SliderImg_4.Position = UDim2.new(-0.449999988, 0, 0, 0)
+SliderImg_4.Size = UDim2.new(0, 24, 0, 24)
+SliderImg_4.Image = "rbxassetid://3886466329"
+SliderImg_4.ImageColor3 = Color3.fromRGB(38, 38, 38)
+
+UICorner_12.CornerRadius = UDim.new(0, 2)
+UICorner_12.Parent = Indicator_4
+
+Sliderbg_4.Name = "Sliderbg"
+Sliderbg_4.Parent = Slider_4
+Sliderbg_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sliderbg_4.BackgroundTransparency = 1.000
+Sliderbg_4.Position = UDim2.new(-0.0199999195, 0, 0.370957077, 0)
+Sliderbg_4.Size = UDim2.new(1.00999999, 0, -0.0135651054, 6)
+Sliderbg_4.ZIndex = 0
+Sliderbg_4.Image = "rbxassetid://6597213248"
+Sliderbg_4.ImageColor3 = Color3.fromRGB(68, 68, 68)
+
+Value_6.Name = "Value"
+Value_6.Parent = _1_walkspeedSlider
+Value_6.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_6.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Value_6.BackgroundTransparency = 1.000
+Value_6.Position = UDim2.new(0.51308763, 0, 0.428963125, 0)
+Value_6.Size = UDim2.new(0, 229, 0, 23)
+Value_6.Font = Enum.Font.Ubuntu
+Value_6.Text = "Val | Max"
+Value_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Value_6.TextScaled = true
+Value_6.TextSize = 18.000
+Value_6.TextStrokeTransparency = 0.500
+Value_6.TextTransparency = 1.000
+Value_6.TextWrapped = true
+
+roundBackground_4.Name = "roundBackground"
+roundBackground_4.Parent = _1_walkspeedSlider
+roundBackground_4.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_4.BackgroundTransparency = 1.000
+roundBackground_4.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_4.Size = UDim2.new(1, 0, 0.899999976, 0)
+roundBackground_4.ZIndex = 0
+roundBackground_4.Image = "rbxassetid://3570695787"
+roundBackground_4.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_4.ImageTransparency = 0.100
+roundBackground_4.ScaleType = Enum.ScaleType.Slice
+roundBackground_4.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_4.SliceScale = 0.120
+
+roundBackgroundDark_7.Name = "roundBackgroundDark"
+roundBackgroundDark_7.Parent = _1_walkspeedSlider
+roundBackgroundDark_7.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_7.BackgroundTransparency = 1.000
+roundBackgroundDark_7.Position = UDim2.new(0.497775435, 0, 0.590925097, 0)
+roundBackgroundDark_7.Size = UDim2.new(0.976970911, 0, 0.423365802, 0)
+roundBackgroundDark_7.Image = "rbxassetid://3570695787"
+roundBackgroundDark_7.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_7.ImageTransparency = 0.100
+roundBackgroundDark_7.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_7.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_7.SliceScale = 0.120
+
+sliderLabel_2.Name = "sliderLabel"
+sliderLabel_2.Parent = _1_walkspeedSlider
+sliderLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sliderLabel_2.BackgroundTransparency = 1.000
+sliderLabel_2.Position = UDim2.new(0.00928996783, 0, 0.00821706746, 0)
+sliderLabel_2.Size = UDim2.new(0, 454, 0, 20)
+sliderLabel_2.ZIndex = 4
+sliderLabel_2.Font = Enum.Font.ArialBold
+sliderLabel_2.Text = "WalkSpeed:"
+sliderLabel_2.TextColor3 = Color3.fromRGB(122, 122, 122)
+sliderLabel_2.TextScaled = true
+sliderLabel_2.TextSize = 14.000
+sliderLabel_2.TextWrapped = true
+sliderLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+_99_randomSettings.Name = "99_randomSettings"
+_99_randomSettings.Parent = characterTabHolder
+_99_randomSettings.AnchorPoint = Vector2.new(0.5, 0.5)
+_99_randomSettings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_99_randomSettings.BackgroundTransparency = 1.000
+_99_randomSettings.BorderSizePixel = 0
+_99_randomSettings.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_99_randomSettings.Size = UDim2.new(0.939999998, 0, 0.0900000036, 0)
+_99_randomSettings.ZIndex = 25
+
+roundBackground_5.Name = "roundBackground"
+roundBackground_5.Parent = _99_randomSettings
+roundBackground_5.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_5.BackgroundTransparency = 1.000
+roundBackground_5.Position = UDim2.new(0.49999997, 0, 0.476795077, 0)
+roundBackground_5.Size = UDim2.new(1, 0, 0.946409404, 0)
+roundBackground_5.ZIndex = 0
+roundBackground_5.Image = "rbxassetid://3570695787"
+roundBackground_5.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_5.ImageTransparency = 0.100
+roundBackground_5.ScaleType = Enum.ScaleType.Slice
+roundBackground_5.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_5.SliceScale = 0.120
+
+nameLabel_4.Name = "nameLabel"
+nameLabel_4.Parent = _99_randomSettings
+nameLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_4.BackgroundTransparency = 1.000
+nameLabel_4.Position = UDim2.new(0.0201936625, 0, 0.0310127549, 0)
+nameLabel_4.Size = UDim2.new(0, 163, 0, 24)
+nameLabel_4.ZIndex = 4
+nameLabel_4.Font = Enum.Font.ArialBold
+nameLabel_4.Text = "Fun Stuff"
+nameLabel_4.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_4.TextScaled = true
+nameLabel_4.TextSize = 14.000
+nameLabel_4.TextWrapped = true
+nameLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+Sample.Name = "Sample"
+Sample.Parent = game.Players.LocalPlayer.PlayerGui.dietLib.mainFrame.tabHolder.characterTabHolder["99_randomSettings"].randomSettingsHandler
+Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sample.BackgroundTransparency = 1.000
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Sample.ImageTransparency = 0.600
+
+squareHatBtnBackground.Name = "squareHatBtnBackground"
+squareHatBtnBackground.Parent = _99_randomSettings
+squareHatBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+squareHatBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+squareHatBtnBackground.BackgroundTransparency = 1.000
+squareHatBtnBackground.ClipsDescendants = true
+squareHatBtnBackground.Position = UDim2.new(0.742711186, 0, 0.301232159, 0)
+squareHatBtnBackground.Size = UDim2.new(0.461018145, 0, 0.162655592, 0)
+squareHatBtnBackground.ZIndex = 11
+squareHatBtnBackground.Image = "rbxassetid://3570695787"
+squareHatBtnBackground.ImageColor3 = Color3.fromRGB(36, 36, 36)
+squareHatBtnBackground.ImageTransparency = 0.100
+squareHatBtnBackground.ScaleType = Enum.ScaleType.Slice
+squareHatBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+squareHatBtnBackground.SliceScale = 0.120
+
+squareHatBtnMain.Name = "squareHatBtnMain"
+squareHatBtnMain.Parent = squareHatBtnBackground
+squareHatBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+squareHatBtnMain.BackgroundTransparency = 1.000
+squareHatBtnMain.Size = UDim2.new(1, 0, 1, 0)
+squareHatBtnMain.Font = Enum.Font.ArialBold
+squareHatBtnMain.Text = "Cube Hats"
+squareHatBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+squareHatBtnMain.TextScaled = true
+squareHatBtnMain.TextSize = 14.000
+squareHatBtnMain.TextWrapped = true
+
+squareHeadBtnBackground.Name = "squareHeadBtnBackground"
+squareHeadBtnBackground.Parent = _99_randomSettings
+squareHeadBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+squareHeadBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+squareHeadBtnBackground.BackgroundTransparency = 1.000
+squareHeadBtnBackground.ClipsDescendants = true
+squareHeadBtnBackground.Position = UDim2.new(0.256406456, 0, 0.301232219, 0)
+squareHeadBtnBackground.Size = UDim2.new(0.461018145, 0, 0.162655592, 0)
+squareHeadBtnBackground.ZIndex = 11
+squareHeadBtnBackground.Image = "rbxassetid://3570695787"
+squareHeadBtnBackground.ImageColor3 = Color3.fromRGB(36, 36, 36)
+squareHeadBtnBackground.ImageTransparency = 0.100
+squareHeadBtnBackground.ScaleType = Enum.ScaleType.Slice
+squareHeadBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+squareHeadBtnBackground.SliceScale = 0.120
+
+squareHeadBtnMain.Name = "squareHeadBtnMain"
+squareHeadBtnMain.Parent = squareHeadBtnBackground
+squareHeadBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+squareHeadBtnMain.BackgroundTransparency = 1.000
+squareHeadBtnMain.Size = UDim2.new(1, 0, 1, 0)
+squareHeadBtnMain.Font = Enum.Font.ArialBold
+squareHeadBtnMain.Text = "Rectangle Head"
+squareHeadBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+squareHeadBtnMain.TextScaled = true
+squareHeadBtnMain.TextSize = 14.000
+squareHeadBtnMain.TextWrapped = true
+
+noFaceBtnBackground.Name = "noFaceBtnBackground"
+noFaceBtnBackground.Parent = _99_randomSettings
+noFaceBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+noFaceBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+noFaceBtnBackground.BackgroundTransparency = 1.000
+noFaceBtnBackground.ClipsDescendants = true
+noFaceBtnBackground.Position = UDim2.new(0.256406456, 0, 0.527503431, 0)
+noFaceBtnBackground.Size = UDim2.new(0.461018145, 0, 0.162655592, 0)
+noFaceBtnBackground.ZIndex = 11
+noFaceBtnBackground.Image = "rbxassetid://3570695787"
+noFaceBtnBackground.ImageColor3 = Color3.fromRGB(36, 36, 36)
+noFaceBtnBackground.ImageTransparency = 0.100
+noFaceBtnBackground.ScaleType = Enum.ScaleType.Slice
+noFaceBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+noFaceBtnBackground.SliceScale = 0.120
+
+noFaceBtnMain.Name = "noFaceBtnMain"
+noFaceBtnMain.Parent = noFaceBtnBackground
+noFaceBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+noFaceBtnMain.BackgroundTransparency = 1.000
+noFaceBtnMain.Size = UDim2.new(1, 0, 1, 0)
+noFaceBtnMain.Font = Enum.Font.ArialBold
+noFaceBtnMain.Text = "No Face"
+noFaceBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+noFaceBtnMain.TextScaled = true
+noFaceBtnMain.TextSize = 14.000
+noFaceBtnMain.TextWrapped = true
+
+_7_swimInAir.Name = "7_swimInAir"
+_7_swimInAir.Parent = characterTabHolder
+_7_swimInAir.AnchorPoint = Vector2.new(0.5, 0.5)
+_7_swimInAir.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_7_swimInAir.BackgroundTransparency = 1.000
+_7_swimInAir.BorderSizePixel = 0
+_7_swimInAir.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_7_swimInAir.Size = UDim2.new(0.939999998, 0, 0.0199999996, 0)
+_7_swimInAir.ZIndex = 25
+
+roundBackground_6.Name = "roundBackground"
+roundBackground_6.Parent = _7_swimInAir
+roundBackground_6.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_6.BackgroundTransparency = 1.000
+roundBackground_6.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_6.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_6.ZIndex = 0
+roundBackground_6.Image = "rbxassetid://3570695787"
+roundBackground_6.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_6.ImageTransparency = 0.100
+roundBackground_6.ScaleType = Enum.ScaleType.Slice
+roundBackground_6.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_6.SliceScale = 0.120
+
+nameLabel_5.Name = "nameLabel"
+nameLabel_5.Parent = _7_swimInAir
+nameLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_5.BackgroundTransparency = 1.000
+nameLabel_5.Position = UDim2.new(0.0201936625, 0, 0.0726951286, 0)
+nameLabel_5.Size = UDim2.new(0, 230, 0, 24)
+nameLabel_5.ZIndex = 4
+nameLabel_5.Font = Enum.Font.ArialBold
+nameLabel_5.Text = "Fish Outta Watuh:"
+nameLabel_5.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_5.TextScaled = true
+nameLabel_5.TextSize = 14.000
+nameLabel_5.TextWrapped = true
+nameLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_4.Name = "checkBox"
+checkBox_4.Parent = _7_swimInAir
+checkBox_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_4.BackgroundTransparency = 1.000
+checkBox_4.Position = UDim2.new(0.921116173, 0, 0.0726939887, 0)
+checkBox_4.Size = UDim2.new(0, 25, 0, 25)
+checkBox_4.ZIndex = 25
+checkBox_4.Image = "rbxassetid://3229285087"
+
+checkedBox_4.Name = "checkedBox"
+checkedBox_4.Parent = checkBox_4
+checkedBox_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_4.BackgroundTransparency = 1.000
+checkedBox_4.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_4.Image = "rbxassetid://3229284779"
+checkedBox_4.ImageTransparency = 1.000
+
+roundBackgroundDark_8.Name = "roundBackgroundDark"
+roundBackgroundDark_8.Parent = _7_swimInAir
+roundBackgroundDark_8.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_8.BackgroundTransparency = 1.000
+roundBackgroundDark_8.Position = UDim2.new(0.49999997, 0, 0.417907625, 0)
+roundBackgroundDark_8.Size = UDim2.new(0.976970911, 0, 0.702927887, 0)
+roundBackgroundDark_8.ZIndex = 2
+roundBackgroundDark_8.Image = "rbxassetid://3570695787"
+roundBackgroundDark_8.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_8.ImageTransparency = 0.100
+roundBackgroundDark_8.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_8.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_8.SliceScale = 0.120
+
+_6_infiniteJump.Name = "6_infiniteJump"
+_6_infiniteJump.Parent = characterTabHolder
+_6_infiniteJump.AnchorPoint = Vector2.new(0.5, 0.5)
+_6_infiniteJump.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_6_infiniteJump.BackgroundTransparency = 1.000
+_6_infiniteJump.BorderSizePixel = 0
+_6_infiniteJump.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_6_infiniteJump.Size = UDim2.new(0.939999998, 0, 0.0199999996, 0)
+_6_infiniteJump.ZIndex = 25
+
+roundBackground_7.Name = "roundBackground"
+roundBackground_7.Parent = _6_infiniteJump
+roundBackground_7.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_7.BackgroundTransparency = 1.000
+roundBackground_7.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_7.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_7.ZIndex = 0
+roundBackground_7.Image = "rbxassetid://3570695787"
+roundBackground_7.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_7.ImageTransparency = 0.100
+roundBackground_7.ScaleType = Enum.ScaleType.Slice
+roundBackground_7.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_7.SliceScale = 0.120
+
+nameLabel_6.Name = "nameLabel"
+nameLabel_6.Parent = _6_infiniteJump
+nameLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_6.BackgroundTransparency = 1.000
+nameLabel_6.Position = UDim2.new(0.0201936625, 0, 0.0726943091, 0)
+nameLabel_6.Size = UDim2.new(0, 163, 0, 24)
+nameLabel_6.ZIndex = 4
+nameLabel_6.Font = Enum.Font.ArialBold
+nameLabel_6.Text = "Infinite Jump:"
+nameLabel_6.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_6.TextScaled = true
+nameLabel_6.TextSize = 14.000
+nameLabel_6.TextWrapped = true
+nameLabel_6.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_5.Name = "checkBox"
+checkBox_5.Parent = _6_infiniteJump
+checkBox_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_5.BackgroundTransparency = 1.000
+checkBox_5.Position = UDim2.new(0.921116173, 0, 0.0726939887, 0)
+checkBox_5.Size = UDim2.new(0, 25, 0, 25)
+checkBox_5.ZIndex = 25
+checkBox_5.Image = "rbxassetid://3229285087"
+
+checkedBox_5.Name = "checkedBox"
+checkedBox_5.Parent = checkBox_5
+checkedBox_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_5.BackgroundTransparency = 1.000
+checkedBox_5.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_5.Image = "rbxassetid://3229284779"
+checkedBox_5.ImageTransparency = 1.000
+
+roundBackgroundDark_9.Name = "roundBackgroundDark"
+roundBackgroundDark_9.Parent = _6_infiniteJump
+roundBackgroundDark_9.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_9.BackgroundTransparency = 1.000
+roundBackgroundDark_9.Position = UDim2.new(0.49999997, 0, 0.417907625, 0)
+roundBackgroundDark_9.Size = UDim2.new(0.976970911, 0, 0.702927887, 0)
+roundBackgroundDark_9.ZIndex = 2
+roundBackgroundDark_9.Image = "rbxassetid://3570695787"
+roundBackgroundDark_9.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_9.ImageTransparency = 0.100
+roundBackgroundDark_9.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_9.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_9.SliceScale = 0.120
+
+_5_clickTeleport.Name = "5_clickTeleport"
+_5_clickTeleport.Parent = characterTabHolder
+_5_clickTeleport.AnchorPoint = Vector2.new(0.5, 0.5)
+_5_clickTeleport.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_5_clickTeleport.BackgroundTransparency = 1.000
+_5_clickTeleport.BorderSizePixel = 0
+_5_clickTeleport.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_5_clickTeleport.Size = UDim2.new(0.939999998, 0, 0.0199999996, 0)
+_5_clickTeleport.ZIndex = 25
+
+roundBackground_8.Name = "roundBackground"
+roundBackground_8.Parent = _5_clickTeleport
+roundBackground_8.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_8.BackgroundTransparency = 1.000
+roundBackground_8.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_8.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_8.ZIndex = 0
+roundBackground_8.Image = "rbxassetid://3570695787"
+roundBackground_8.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_8.ImageTransparency = 0.100
+roundBackground_8.ScaleType = Enum.ScaleType.Slice
+roundBackground_8.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_8.SliceScale = 0.120
+
+nameLabel_7.Name = "nameLabel"
+nameLabel_7.Parent = _5_clickTeleport
+nameLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_7.BackgroundTransparency = 1.000
+nameLabel_7.Position = UDim2.new(0.0201936625, 0, 0.0726943091, 0)
+nameLabel_7.Size = UDim2.new(0, 163, 0, 24)
+nameLabel_7.ZIndex = 4
+nameLabel_7.Font = Enum.Font.ArialBold
+nameLabel_7.Text = "Click to TP:"
+nameLabel_7.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_7.TextScaled = true
+nameLabel_7.TextSize = 14.000
+nameLabel_7.TextWrapped = true
+nameLabel_7.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_6.Name = "checkBox"
+checkBox_6.Parent = _5_clickTeleport
+checkBox_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_6.BackgroundTransparency = 1.000
+checkBox_6.Position = UDim2.new(0.921116173, 0, 0.0726939887, 0)
+checkBox_6.Size = UDim2.new(0, 25, 0, 25)
+checkBox_6.ZIndex = 25
+checkBox_6.Image = "rbxassetid://3229285087"
+
+checkedBox_6.Name = "checkedBox"
+checkedBox_6.Parent = checkBox_6
+checkedBox_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_6.BackgroundTransparency = 1.000
+checkedBox_6.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_6.Image = "rbxassetid://3229284779"
+checkedBox_6.ImageTransparency = 1.000
+
+roundBackgroundDark_10.Name = "roundBackgroundDark"
+roundBackgroundDark_10.Parent = _5_clickTeleport
+roundBackgroundDark_10.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_10.BackgroundTransparency = 1.000
+roundBackgroundDark_10.Position = UDim2.new(0.49999997, 0, 0.417907625, 0)
+roundBackgroundDark_10.Size = UDim2.new(0.976970911, 0, 0.702927887, 0)
+roundBackgroundDark_10.ZIndex = 2
+roundBackgroundDark_10.Image = "rbxassetid://3570695787"
+roundBackgroundDark_10.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_10.ImageTransparency = 0.100
+roundBackgroundDark_10.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_10.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_10.SliceScale = 0.120
+
+_4_noClip.Name = "4_noClip"
+_4_noClip.Parent = characterTabHolder
+_4_noClip.AnchorPoint = Vector2.new(0.5, 0.5)
+_4_noClip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_4_noClip.BackgroundTransparency = 1.000
+_4_noClip.BorderSizePixel = 0
+_4_noClip.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_4_noClip.Size = UDim2.new(0.939999998, 0, 0.0199999996, 0)
+_4_noClip.ZIndex = 25
+
+roundBackground_9.Name = "roundBackground"
+roundBackground_9.Parent = _4_noClip
+roundBackground_9.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_9.BackgroundTransparency = 1.000
+roundBackground_9.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_9.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_9.ZIndex = 0
+roundBackground_9.Image = "rbxassetid://3570695787"
+roundBackground_9.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_9.ImageTransparency = 0.100
+roundBackground_9.ScaleType = Enum.ScaleType.Slice
+roundBackground_9.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_9.SliceScale = 0.120
+
+nameLabel_8.Name = "nameLabel"
+nameLabel_8.Parent = _4_noClip
+nameLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_8.BackgroundTransparency = 1.000
+nameLabel_8.Position = UDim2.new(0.0201936625, 0, 0.0726943091, 0)
+nameLabel_8.Size = UDim2.new(0, 163, 0, 24)
+nameLabel_8.ZIndex = 4
+nameLabel_8.Font = Enum.Font.ArialBold
+nameLabel_8.Text = "Noclip:"
+nameLabel_8.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_8.TextScaled = true
+nameLabel_8.TextSize = 14.000
+nameLabel_8.TextWrapped = true
+nameLabel_8.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_7.Name = "checkBox"
+checkBox_7.Parent = _4_noClip
+checkBox_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_7.BackgroundTransparency = 1.000
+checkBox_7.Position = UDim2.new(0.921116173, 0, 0.0726939887, 0)
+checkBox_7.Size = UDim2.new(0, 25, 0, 25)
+checkBox_7.ZIndex = 25
+checkBox_7.Image = "rbxassetid://3229285087"
+
+checkedBox_7.Name = "checkedBox"
+checkedBox_7.Parent = checkBox_7
+checkedBox_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_7.BackgroundTransparency = 1.000
+checkedBox_7.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_7.Image = "rbxassetid://3229284779"
+checkedBox_7.ImageTransparency = 1.000
+
+roundBackgroundDark_11.Name = "roundBackgroundDark"
+roundBackgroundDark_11.Parent = _4_noClip
+roundBackgroundDark_11.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_11.BackgroundTransparency = 1.000
+roundBackgroundDark_11.Position = UDim2.new(0.49999997, 0, 0.417907625, 0)
+roundBackgroundDark_11.Size = UDim2.new(0.976970911, 0, 0.702927887, 0)
+roundBackgroundDark_11.ZIndex = 2
+roundBackgroundDark_11.Image = "rbxassetid://3570695787"
+roundBackgroundDark_11.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_11.ImageTransparency = 0.100
+roundBackgroundDark_11.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_11.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_11.SliceScale = 0.120
+
+-- Scripts:
+
+local function GTZJFRJ_fake_script() -- _3_vehicleOptions.SliderController 
+	local script = Instance.new('LocalScript', _3_vehicleOptions)
+
+	local Slider = script.Parent.Slider
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local Dragging = false
+	
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	
+	local MaxValue = 25
+	local MinValue = 1
+	
+	local currentSlideValue = Instance.new("IntValue")
+	currentSlideValue.Value = 1
+	currentSlideValue.Parent = Slider
+	
+	local function Update()
+		local Character = Player.Character
+		if Dragging == true then
+			local MousePos = UserInputService:GetMouseLocation()
+			local MinPoint = (Slider.AbsolutePosition.X)
+			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+	
+			if MousePos.X < MinPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+			elseif MousePos.X > MaxPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+			else
+				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+			end
+	
+			wait(0.1)
+	
+			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+			Slider.Value.Value = Percent
+	
+			if math.floor(Slider.Value.Value) < MinValue then
+				Slider.Value.Value = MinValue
+			elseif math.floor(Slider.Value.Value) > MaxValue then
+				Slider.Value.Value = MaxValue
+			end
+	
+			
+			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+			
+	
+			local flySpeedValue = script.Parent:WaitForChild('FlySpeed')
+			flySpeedValue.Value = Slider.Value.Value
+		end
+	end
+	
+	Slider.MouseEnter:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+		end
+	end)
+	
+	Slider.MouseLeave:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		end	
+	end)
+	
+	Slider.MouseButton1Down:Connect(function()
+		Dragging = true
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+		Update()
+	end)
+	
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+			Dragging = false
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(Update)
+	
+	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+	
+	
+	if math.floor(Slider.Value.Value) < MinValue then
+		Slider.Value.Value = MinValue
+	elseif math.floor(Slider.Value.Value) > MaxValue then
+		Slider.Value.Value = MaxValue
+	end
+	
+	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+	
+end
+coroutine.wrap(GTZJFRJ_fake_script)()
+local function YRSIS_fake_script() -- checkBox.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox)
+
+	local player = game.Players.LocalPlayer
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	local Players = game:GetService('Players')
+	
+	function getRoot(char)
+		local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
+		return rootPart
+	end
+	
+	IYMouse = Players.LocalPlayer:GetMouse()
+	UserInputService = game:GetService("UserInputService")
+	
+	currentlyChecked = false
+	
+	
+	
+	FLYING = false
+	QEfly = true
+	iyflyspeed = 1
+	vehicleflyspeed = 1
+	
+	local flySpeedValue = Instance.new('NumberValue')
+	flySpeedValue.Parent = script.Parent.Parent
+	flySpeedValue.Name = 'FlySpeed'
+	flySpeedValue.Value = 1
+	
+	flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
+		vehicleflyspeed = flySpeedValue.Value
+	end)
+	
+	function sFLY(vfly)
+	
+		if currentlyChecked == true then
+	
+			repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChild('Humanoid')
+			repeat wait() until IYMouse
+			if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+	
+			local T = getRoot(Players.LocalPlayer.Character)
+			local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+			local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+			local SPEED = 0
+	
+			local function FLY()
+				FLYING = true
+				local BG = Instance.new('BodyGyro')
+				local BV = Instance.new('BodyVelocity')
+				BG.P = 9e4
+				BG.Parent = T
+				BV.Parent = T
+				BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+				BG.cframe = T.CFrame
+				BV.velocity = Vector3.new(0, 0, 0)
+				BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+				spawn(function()
+					repeat wait()
+						if not vfly and Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+							Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
+						end
+						if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+							SPEED = 50
+						elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0) and SPEED ~= 0 then
+							SPEED = 0
+						end
+						if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 or (CONTROL.Q + CONTROL.E) ~= 0 then
+							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+							lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+						elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and (CONTROL.Q + CONTROL.E) == 0 and SPEED ~= 0 then
+							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+						else
+							BV.velocity = Vector3.new(0, 0, 0)
+						end
+						BG.cframe = workspace.CurrentCamera.CoordinateFrame
+					until not FLYING
+					CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+					lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+					SPEED = 0
+					BG:Destroy()
+					BV:Destroy()
+					if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+						Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+					end
+				end)
+			end
+			flyKeyDown = IYMouse.KeyDown:Connect(function(KEY)
+				if KEY:lower() == 'w' then
+					CONTROL.F = (vfly and vehicleflyspeed or iyflyspeed)
+				elseif KEY:lower() == 's' then
+					CONTROL.B = - (vfly and vehicleflyspeed or iyflyspeed)
+				elseif KEY:lower() == 'a' then
+					CONTROL.L = - (vfly and vehicleflyspeed or iyflyspeed)
+				elseif KEY:lower() == 'd' then 
+					CONTROL.R = (vfly and vehicleflyspeed or iyflyspeed)
+				elseif QEfly and KEY:lower() == 'e' then
+					CONTROL.Q = (vfly and vehicleflyspeed or iyflyspeed)*2
+				elseif QEfly and KEY:lower() == 'q' then
+					CONTROL.E = -(vfly and vehicleflyspeed or iyflyspeed)*2
+				end
+				pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
+			end)
+			flyKeyUp = IYMouse.KeyUp:Connect(function(KEY)
+				if KEY:lower() == 'w' then
+					CONTROL.F = 0
+				elseif KEY:lower() == 's' then
+					CONTROL.B = 0
+				elseif KEY:lower() == 'a' then
+					CONTROL.L = 0
+				elseif KEY:lower() == 'd' then
+					CONTROL.R = 0
+				elseif KEY:lower() == 'e' then
+					CONTROL.Q = 0
+				elseif KEY:lower() == 'q' then
+					CONTROL.E = 0
+				end
+			end)
+			FLY()
+		end
+	
+	
+	end
+	
+	function NOFLY()
+		FLYING = false
+		if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+		if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+			Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+		end
+		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
+	end
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyChecked == false 
+		then currentlyChecked = true 
+	
+			sFLY(true)
+	
+			checkTween:Play()
+		else currentlyChecked = false 
+	
+			NOFLY()
+	
+			uncheckTween:Play()
+		end
+	end)
+end
+coroutine.wrap(YRSIS_fake_script)()
+local function VZSYVQW_fake_script() -- checkBox_2.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_2)
+
+	local player = game.Players.LocalPlayer
+	
+	local currentlyChecked = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	local Noclipping = nil
+	
+	function activateRegularNC()
+		Clip = false
+		wait(0.1)
+		local function NoclipLoop()
+			if Clip == false and player.Character ~= nil then
+				for _, child in pairs(player.Character:GetDescendants()) do
+					if child:IsA("BasePart") and child.CanCollide == true then
+						child.CanCollide = false
+					end
+				end
+			end
+		end
+		Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+	end
+	
+	vnoclipParts = {}
+	
+	function activateVehicleNC()
+		vnoclipParts = {}
+		local seat = player.Character.Humanoid.SeatPart
+		local vehicleModel = seat.Parent
+		repeat
+			if vehicleModel.ClassName ~= "Model" then
+				vehicleModel = vehicleModel.Parent
+			end
+		until vehicleModel.ClassName == "Model"
+		wait(0.1)
+		activateRegularNC()
+		for i,v in pairs(vehicleModel:GetDescendants()) do
+			if v:IsA("BasePart") and v.CanCollide then
+				table.insert(vnoclipParts,v)
+				v.CanCollide = false
+			end
+		end
+	end
+	
+	function disableRegularNC()
+		if Noclipping then
+			Noclipping:Disconnect()
+		end
+		Clip = true
+	end
+	
+	function disableVehicleNC()
+		disableRegularNC()
+		for i,v in pairs(vnoclipParts) do
+			v.CanCollide = true
+		end
+		vnoclipParts = {}
+	end
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyChecked == false 
+		then currentlyChecked = true 
+			checkTween:Play()
+			activateVehicleNC()
+		else currentlyChecked = false 
+			uncheckTween:Play()
+			disableVehicleNC()
+		end
+	end)
+end
+coroutine.wrap(VZSYVQW_fake_script)()
+local function KXRDXVG_fake_script() -- _3_flyToggle.SliderController 
+	local script = Instance.new('LocalScript', _3_flyToggle)
+
+	local Slider = script.Parent.Slider
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local Dragging = false
+	
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	
+	local MaxValue = 25
+	local MinValue = 1
+	
+	local currentSlideValue = Instance.new("IntValue")
+	currentSlideValue.Value = 1
+	currentSlideValue.Parent = Slider
+	
+	local function Update()
+		local Character = Player.Character
+		if Dragging == true then
+			local MousePos = UserInputService:GetMouseLocation()
+			local MinPoint = (Slider.AbsolutePosition.X)
+			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+	
+			if MousePos.X < MinPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+			elseif MousePos.X > MaxPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+			else
+				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+			end
+	
+			wait(0.1)
+	
+			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+			Slider.Value.Value = Percent
+	
+			if math.floor(Slider.Value.Value) < MinValue then
+				Slider.Value.Value = MinValue
+			elseif math.floor(Slider.Value.Value) > MaxValue then
+				Slider.Value.Value = MaxValue
+			end
+	
+			
+			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+			
+	
+			local flySpeedValue = script.Parent:WaitForChild('FlySpeed')
+			flySpeedValue.Value = Slider.Value.Value
+		end
+	end
+	
+	Slider.MouseEnter:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+		end
+	end)
+	
+	Slider.MouseLeave:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		end	
+	end)
+	
+	Slider.MouseButton1Down:Connect(function()
+		Dragging = true
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+		Update()
+	end)
+	
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+			Dragging = false
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(Update)
+	
+	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+	
+	
+	if math.floor(Slider.Value.Value) < MinValue then
+		Slider.Value.Value = MinValue
+	elseif math.floor(Slider.Value.Value) > MaxValue then
+		Slider.Value.Value = MaxValue
+	end
+	
+	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+	
+end
+coroutine.wrap(KXRDXVG_fake_script)()
+local function UTTK_fake_script() -- checkBox_3.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_3)
+
+	flying = false
+	lplayer = game.Players.LocalPlayer
+	speedget = 1
+	speedfly = 1
+	Mouse = lplayer:GetMouse()
+	checkboxToggled = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	local flySpeedValue = Instance.new('NumberValue')
+	flySpeedValue.Parent = script.Parent.Parent
+	flySpeedValue.Name = 'FlySpeed'
+	flySpeedValue.Value = 1
+	
+	flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
+		speedfly = flySpeedValue.Value
+	end)
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if checkboxToggled == false 
+		then checkboxToggled = true 
+			checkTween:Play()
+		else checkboxToggled = false 
+			uncheckTween:Play()
+		end
+	
+	
+	
+		Mouse.KeyDown:Connect(function(k)
+			if k == "x" then
+				if checkboxToggled == true then
+					if flying == false then
+						flying = true 
+	
+	
+	
+						repeat wait() until lplayer and lplayer.Character and lplayer.Character:FindFirstChild('HumanoidRootPart') and lplayer.Character:FindFirstChild('Humanoid')
+						repeat wait() until Mouse
+	
+						local T = lplayer.Character.HumanoidRootPart
+						local CONTROL = {F = 0, B = 0, L = 0, R = 0}
+						local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+						local SPEED = speedget
+	
+						local function fly()
+							local BG = Instance.new('BodyGyro', T)
+							local BV = Instance.new('BodyVelocity', T)
+							BG.P = 9e4
+							BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+							BG.cframe = T.CFrame
+							BV.velocity = Vector3.new(0, 0.1, 0)
+							BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+							spawn(function()
+								repeat wait()
+									lplayer.Character.Humanoid.PlatformStand = true
+									if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+										SPEED = 50
+									elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+										SPEED = 0
+									end
+									if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+										BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+										lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+									elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+										BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+									else
+										BV.velocity = Vector3.new(0, 0.1, 0)
+									end
+									BG.cframe = workspace.CurrentCamera.CoordinateFrame
+								until not flying
+								CONTROL = {F = 0, B = 0, L = 0, R = 0}
+								lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+								SPEED = 0
+								BG:destroy()
+								BV:destroy()
+								lplayer.Character.Humanoid.PlatformStand = false
+							end)
+						end
+						Mouse.KeyDown:connect(function(KEY)
+							if KEY:lower() == 'w' then
+								CONTROL.F = speedfly
+							elseif KEY:lower() == 's' then
+								CONTROL.B = -speedfly
+							elseif KEY:lower() == 'a' then
+								CONTROL.L = -speedfly 
+							elseif KEY:lower() == 'd' then 
+								CONTROL.R = speedfly
+							end
+						end)
+						Mouse.KeyUp:connect(function(KEY)
+							if KEY:lower() == 'w' then
+								CONTROL.F = 0
+							elseif KEY:lower() == 's' then
+								CONTROL.B = 0
+							elseif KEY:lower() == 'a' then
+								CONTROL.L = 0
+							elseif KEY:lower() == 'd' then
+								CONTROL.R = 0
+							end
+						end)
+						fly()
+					else
+						flying = false
+	
+						lplayer.Character.Humanoid.PlatformStand = false
+					end
+	
+				end
+			end
+		end)
+	end)
+end
+coroutine.wrap(UTTK_fake_script)()
+local function GLFRI_fake_script() -- _2_jumpheightSlider.SliderController 
+	local script = Instance.new('LocalScript', _2_jumpheightSlider)
+
+	local Slider = script.Parent.Slider
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local Dragging = false
+	
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	
+	local MaxValue = 500
+	local MinValue = 50
+	
+	local currentSlideValue = Instance.new("IntValue")
+	currentSlideValue.Value = 50
+	currentSlideValue.Parent = Slider
+	
+	local function Update()
+		local Character = Player.Character
+		if Dragging == true then
+			local MousePos = UserInputService:GetMouseLocation()
+			local MinPoint = (Slider.AbsolutePosition.X)
+			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+			
+			if MousePos.X < MinPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+			elseif MousePos.X > MaxPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+			else
+				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+			end
+			
+			wait(0.1)
+			
+			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+			Slider.Value.Value = Percent
+	
+			if math.floor(Slider.Value.Value) < MinValue then
+				Slider.Value.Value = MinValue
+			elseif math.floor(Slider.Value.Value) > MaxValue then
+				Slider.Value.Value = MaxValue
+			end
+			
+			
+			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+			Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+			
+			Character.Humanoid.JumpPower = Slider.Value.Value
+		end
+	end
+	
+	Slider.MouseEnter:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+		end
+	end)
+	
+	Slider.MouseLeave:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		end	
+	end)
+	
+	Slider.MouseButton1Down:Connect(function()
+		Dragging = true
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+		Update()
+	end)
+	
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+			Dragging = false
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(Update)
+	
+	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+	Slider.Value.Value = Percent
+	
+	if math.floor(Slider.Value.Value) < MinValue then
+		Slider.Value.Value = MinValue
+	elseif math.floor(Slider.Value.Value) > MaxValue then
+		Slider.Value.Value = MaxValue
+	end
+	
+	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+	Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+end
+coroutine.wrap(GLFRI_fake_script)()
+local function OBLUMFI_fake_script() -- _1_walkspeedSlider.SliderController 
+	local script = Instance.new('LocalScript', _1_walkspeedSlider)
+
+	local Slider = script.Parent.Slider
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local Dragging = false
+	
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+	
+	local MaxValue = 250
+	local MinValue = 16
+	
+	local currentSlideValue = Instance.new("IntValue")
+	currentSlideValue.Value = 16
+	currentSlideValue.Parent = Slider
+	
+	local function Update()
+		local Character = Player.Character
+		if Dragging == true then
+			local MousePos = UserInputService:GetMouseLocation()
+			local MinPoint = (Slider.AbsolutePosition.X)
+			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+			
+			if MousePos.X < MinPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+			elseif MousePos.X > MaxPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+			else
+				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+			end
+			
+			wait(0.1)
+			
+			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+			Slider.Value.Value = Percent
+	
+			if math.floor(Slider.Value.Value) < MinValue then
+				Slider.Value.Value = MinValue
+			elseif math.floor(Slider.Value.Value) > MaxValue then
+				Slider.Value.Value = MaxValue
+			end
+			
+			
+			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+			Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+			
+			Character.Humanoid.WalkSpeed = Slider.Value.Value
+		end
+	end
+	
+	Slider.MouseEnter:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+		end
+	end)
+	
+	Slider.MouseLeave:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		end	
+	end)
+	
+	Slider.MouseButton1Down:Connect(function()
+		Dragging = true
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+		Update()
+	end)
+	
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+			Dragging = false
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(Update)
+	
+	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+	
+	Slider.Value.Value = Percent
+	
+	if math.floor(Slider.Value.Value) < MinValue then
+		Slider.Value.Value = MinValue
+	elseif math.floor(Slider.Value.Value) > MaxValue then
+		Slider.Value.Value = MaxValue
+	end
+	
+	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+	Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+end
+coroutine.wrap(OBLUMFI_fake_script)()
+local function SDAL_fake_script() -- _99_randomSettings.randomSettingsHandler 
+	local script = Instance.new('LocalScript', _99_randomSettings)
+
+	
+	local Players = game:GetService('Players')
+	local Player = Players.LocalPlayer
+	local Character = Player.Character or Player.CharacterAdded:Wait()
+	
+	local plrCursor = game.Players.LocalPlayer:GetMouse()
+	
+	local sample = script:WaitForChild('Sample')
+	
+	function rippleEffect(btn)
+		local c = sample:Clone()
+		c.Parent = btn
+		local x, y = (plrCursor.X - c.AbsolutePosition.X), (plrCursor.Y - c.AbsolutePosition.Y)
+		c.Position = UDim2.new(0, x, 0, y)
+		local len, size = 0.35, nil
+		if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+			size = (btn.AbsoluteSize.X * 1.5)
+		else
+			size = (btn.AbsoluteSize.Y * 1.5)
+		end
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
+		for i = 1, 10 do
+			c.ImageTransparency = c.ImageTransparency + 0.05
+			wait(len / 12)
+		end
+		c:Destroy()
+	end
+	
+	
+	
+	script.Parent.squareHatBtnBackground.squareHatBtnMain.MouseButton1Click:Connect(function()
+		
+		rippleEffect(script.Parent.squareHatBtnBackground)
+		
+		for _,v in pairs(Player.Character.Humanoid:GetAccessories()) do
+			for i,c in pairs(v:GetDescendants()) do
+				if c:IsA("SpecialMesh") then
+					c:Destroy()
+				end
+			end
+		end
+		
+	end)
+	
+	script.Parent.squareHeadBtnBackground.squareHeadBtnMain.MouseButton1Click:Connect(function()
+	
+		rippleEffect(script.Parent.squareHeadBtnBackground)
+	
+		Player.Character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
+	
+	end)
+	
+	script.Parent.noFaceBtnBackground.noFaceBtnMain.MouseButton1Click:Connect(function()
+	
+		rippleEffect(script.Parent.noFaceBtnBackground)
+		
+		for i,v in pairs(Player.Character:GetDescendants()) do
+			if v:IsA("Decal") and v.Name == 'face' then
+				v:Destroy()
+			end
+		end
+	
+	end)
+end
+coroutine.wrap(SDAL_fake_script)()
+local function YTKQZ_fake_script() -- checkBox_4.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_4)
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	local currentlyChecked = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	
+	function startSwim()
+		workspace.Gravity = 0
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+		player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+	end
+	
+	
+	function endSwim()
+		workspace.Gravity = 198.2
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+		player.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+		player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+	end
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyChecked == false 
+		then currentlyChecked = true 
+			checkTween:Play()
+			startSwim()
+		else currentlyChecked = false 
+			uncheckTween:Play()
+			endSwim()
+		end
+	end)
+	
+	
+	
+end
+coroutine.wrap(YTKQZ_fake_script)()
+local function NCYWATO_fake_script() -- checkBox_5.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_5)
+
+	_G.infinjump = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	local Player = game:GetService("Players").LocalPlayer
+	local Mouse = Player:GetMouse()
+	Mouse.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+				local Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+				Humanoid:ChangeState("Jumping")
+				wait(0.1)
+				Humanoid:ChangeState("Seated")
+			end
+		end
+	end)
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if _G.infinjump == false 
+		then _G.infinjump = true 
+			checkTween:Play()
+		else _G.infinjump = false 
+			uncheckTween:Play()
+		end
+	end)
+	
+end
+coroutine.wrap(NCYWATO_fake_script)()
+local function CIXUE_fake_script() -- checkBox_6.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_6)
+
+	
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	local Player = game.Players.LocalPlayer
+	local Mouse = Player:GetMouse()
+	local UserInputService = game:GetService('UserInputService')
+	
+	local HoldingControl = false
+	local Checked = false
+	
+	Mouse.Button1Down:connect(function()
+		if HoldingControl and Checked then
+			Player.Character:MoveTo(Mouse.Hit.p)
+		end
+	end)
+	
+	UserInputService.InputBegan:connect(function(Input, Processed)
+		if Input.UserInputType == Enum.UserInputType.Keyboard then
+			if Input.KeyCode == Enum.KeyCode.LeftControl then
+				HoldingControl = true
+			elseif Input.KeyCode == Enum.KeyCode.RightControl then
+				HoldingControl = true 
+			end
+		end
+	end)
+	
+	UserInputService.InputEnded:connect(function(Input, Processed)
+		if Input.UserInputType == Enum.UserInputType.Keyboard then
+			if Input.KeyCode == Enum.KeyCode.LeftControl then
+				HoldingControl = false
+			elseif Input.KeyCode == Enum.KeyCode.RightControl then
+				HoldingControl = false
+			end
+		end
+	end)
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if Checked == false 
+		then Checked = true 
+			checkTween:Play()
+		else Checked = false 
+			uncheckTween:Play()
+		end
+	end)
+end
+coroutine.wrap(CIXUE_fake_script)()
+local function HMYQ_fake_script() -- checkBox_7.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_7)
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	local noclip = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	function noClip()
+		Clip = false
+		wait(0.1)
+		local function NoclipLoop()
+			if Clip == false and player.Character ~= nil then
+				for _, child in pairs(player.Character:GetDescendants()) do
+					if child:IsA("BasePart") and child.CanCollide == true then
+						child.CanCollide = false
+					end
+				end
+			end
+		end
+		Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+	end
+	
+	function clip()
+		if Noclipping then
+			Noclipping:Disconnect()
+		end
+		Clip = true
+	end
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if noclip == false 
+		then noclip = true 
+			checkTween:Play()
+			noClip()
+		else noclip = false 
+			uncheckTween:Play()
+			clip()
+		end
+	end)
+end
+coroutine.wrap(HMYQ_fake_script)()
