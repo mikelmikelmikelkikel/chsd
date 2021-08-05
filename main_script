@@ -1310,32 +1310,16 @@ local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
 wait(1.5)
 for _, player in pairs(currentPlayersInGame) do
 	if player.Name ~= localPlr.Name then 
-		
-	local plrTempClone = plrTemp:Clone()
-	
-	local userId = player.UserId
-	local thumbType = Enum.ThumbnailType.AvatarBust
-	local thumbSize = Enum.ThumbnailSize.Size420x420
-	local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
-	
-	plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
-	plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
-	
-	plrTempClone.Name = player.Name
-	plrTempClone.playerRealName.Text = '@' .. player.Name
-	plrTempClone.playerDisplayName.Text = player.DisplayName
-	
-	if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
-	
-	plrTempClone.Parent = playersTab.playersHolder
-	end
-end
-
-Players.PlayerAdded:Connect(function(player)
-	if player.Name ~= localPlr.Name then 
-
 		local plrTempClone = plrTemp:Clone()
-
+	
+		plrTempClone.Name = player.Name
+		plrTempClone.playerRealName.Text = '@' .. player.Name
+		plrTempClone.playerDisplayName.Text = player.DisplayName
+	
+		if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
+	
+		plrTempClone.Parent = playersTab.playersHolder
+		
 		local userId = player.UserId
 		local thumbType = Enum.ThumbnailType.AvatarBust
 		local thumbSize = Enum.ThumbnailSize.Size420x420
@@ -1343,6 +1327,12 @@ Players.PlayerAdded:Connect(function(player)
 
 		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
 		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+	end
+end
+
+Players.PlayerAdded:Connect(function(player)
+	if player.Name ~= localPlr.Name then 
+		local plrTempClone = plrTemp:Clone()
 
 		plrTempClone.Name = player.Name
 		plrTempClone.playerRealName.Text = '@' .. player.Name
@@ -1351,6 +1341,14 @@ Players.PlayerAdded:Connect(function(player)
 		if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
 
 		plrTempClone.Parent = playersTab.playersHolder
+
+		local userId = player.UserId
+		local thumbType = Enum.ThumbnailType.AvatarBust
+		local thumbSize = Enum.ThumbnailSize.Size420x420
+		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+
+		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
+		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
 	end
 end)
 
@@ -1364,7 +1362,9 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 			if victimChar ~= nil then
-				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame + Vector3.new(0,0,5))
+				victimChar.HumanoidRootPart.Anchored = true
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
+				wait(.1) victimChar.HumanoidRootPart.Anchored = false
 			end
 			rippleEffect(instance.Parent)
 		end)
