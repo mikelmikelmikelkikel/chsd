@@ -1,0 +1,924 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ToolConfig = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local _1 = Instance.new("ImageLabel")
+local _1_selectedTool = Instance.new("Frame")
+local roundBackground = Instance.new("ImageLabel")
+local nameLabel = Instance.new("TextLabel")
+local roundBackgroundDark = Instance.new("ImageLabel")
+local _2_propertyEditor = Instance.new("Frame")
+local sizeEditor = Instance.new("Frame")
+local roundBackground_2 = Instance.new("ImageLabel")
+local roundBackgroundDark_2 = Instance.new("ImageLabel")
+local nameLabel_2 = Instance.new("TextLabel")
+local SizeXLabel = Instance.new("TextLabel")
+local SizeYLabel = Instance.new("TextLabel")
+local SizeZLabel = Instance.new("TextLabel")
+local SizeXTextBox = Instance.new("TextBox")
+local SizeXBackground = Instance.new("ImageLabel")
+local SizeYTextBox = Instance.new("TextBox")
+local SizeYBackground = Instance.new("ImageLabel")
+local SizeZBackground = Instance.new("ImageLabel")
+local SizeZTextBox = Instance.new("TextBox")
+local applyBtnBackground = Instance.new("ImageLabel")
+local applyBtnMain = Instance.new("TextButton")
+local otherProperties = Instance.new("Frame")
+local roundBackground_3 = Instance.new("ImageLabel")
+local nameLabel_3 = Instance.new("TextLabel")
+local applyBtnBackground_2 = Instance.new("ImageLabel")
+local applyBtnMain_2 = Instance.new("TextButton")
+local masslessBackground = Instance.new("ImageLabel")
+local nameLabel_4 = Instance.new("TextLabel")
+local checkBox = Instance.new("ImageLabel")
+local checkedBox = Instance.new("ImageButton")
+local canCollideBackground = Instance.new("ImageLabel")
+local nameLabel_5 = Instance.new("TextLabel")
+local checkBox_2 = Instance.new("ImageLabel")
+local checkedBox_2 = Instance.new("ImageButton")
+local castShadowBackground = Instance.new("ImageLabel")
+local nameLabel_6 = Instance.new("TextLabel")
+local checkBox_3 = Instance.new("ImageLabel")
+local checkedBox_3 = Instance.new("ImageButton")
+local _3_transparencyEditor = Instance.new("Frame")
+local Slider = Instance.new("TextButton")
+local Indicator = Instance.new("Frame")
+local HolderButton = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local Value = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local SliderImg = Instance.new("ImageLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Sliderbg = Instance.new("ImageLabel")
+local Value_2 = Instance.new("TextLabel")
+local roundBackground_4 = Instance.new("ImageLabel")
+local roundBackgroundDark_3 = Instance.new("ImageLabel")
+local sliderLabel = Instance.new("TextLabel")
+local _4_appearanceEditor = Instance.new("Frame")
+local roundBackground_5 = Instance.new("ImageLabel")
+local nameLabel_7 = Instance.new("TextLabel")
+local roundBackgroundDark_4 = Instance.new("ImageLabel")
+local removeDecalBtnBackground = Instance.new("ImageLabel")
+local removeDecalBtnMain = Instance.new("TextButton")
+local removeMeshBtnBackground = Instance.new("ImageLabel")
+local removeMeshBtnMain = Instance.new("TextButton")
+
+--Properties:
+
+ToolConfig.Name = "Tool Config"
+ToolConfig.Parent = game.Players.LocalPlayer.PlayerGui.dietLib.mainFrame.tabHolder
+ToolConfig.Active = true
+ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToolConfig.BackgroundTransparency = 1.000
+ToolConfig.BorderSizePixel = 0
+ToolConfig.Position = UDim2.new(0.00847569946, 0, 0.0153375855, 0)
+ToolConfig.Size = UDim2.new(0.991524398, 0, 0.984662414, 0)
+ToolConfig.Visible = false
+ToolConfig.ZIndex = 6
+ToolConfig.CanvasSize = UDim2.new(0, 0, 6, 0)
+
+UIListLayout.Parent = ToolConfig
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 4)
+
+_1.Name = "1"
+_1.Parent = ToolConfig
+_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_1.BackgroundTransparency = 1.000
+_1.Size = UDim2.new(0, 50, 0, 5)
+_1.Image = "rbxassetid://31103354"
+
+_1_selectedTool.Name = "1_selectedTool"
+_1_selectedTool.Parent = ToolConfig
+_1_selectedTool.AnchorPoint = Vector2.new(0.5, 0.5)
+_1_selectedTool.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_1_selectedTool.BackgroundTransparency = 1.000
+_1_selectedTool.BorderSizePixel = 0
+_1_selectedTool.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_1_selectedTool.Size = UDim2.new(0.939999998, 0, 0.0199999996, 0)
+_1_selectedTool.ZIndex = 25
+
+roundBackground.Name = "roundBackground"
+roundBackground.Parent = _1_selectedTool
+roundBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground.BackgroundTransparency = 1.000
+roundBackground.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground.Size = UDim2.new(1, 0, 1, 0)
+roundBackground.ZIndex = 0
+roundBackground.Image = "rbxassetid://3570695787"
+roundBackground.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground.ImageTransparency = 0.100
+roundBackground.ScaleType = Enum.ScaleType.Slice
+roundBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground.SliceScale = 0.120
+
+nameLabel.Name = "nameLabel"
+nameLabel.Parent = _1_selectedTool
+nameLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel.BackgroundTransparency = 1.000
+nameLabel.Position = UDim2.new(0.0201936625, 0, 0.099489592, 0)
+nameLabel.Size = UDim2.new(0, 444, 0, 24)
+nameLabel.ZIndex = 4
+nameLabel.Font = Enum.Font.ArialBold
+nameLabel.Text = "Selected Tool: None"
+nameLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel.TextScaled = true
+nameLabel.TextSize = 14.000
+nameLabel.TextWrapped = true
+nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+roundBackgroundDark.Name = "roundBackgroundDark"
+roundBackgroundDark.Parent = _1_selectedTool
+roundBackgroundDark.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark.BackgroundTransparency = 1.000
+roundBackgroundDark.Position = UDim2.new(0.49999997, 0, 0.444702953, 0)
+roundBackgroundDark.Size = UDim2.new(0.976970911, 0, 0.702927887, 0)
+roundBackgroundDark.ZIndex = 2
+roundBackgroundDark.Image = "rbxassetid://3570695787"
+roundBackgroundDark.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark.ImageTransparency = 0.100
+roundBackgroundDark.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark.SliceScale = 0.120
+
+_2_propertyEditor.Name = "2_propertyEditor"
+_2_propertyEditor.Parent = ToolConfig
+_2_propertyEditor.AnchorPoint = Vector2.new(0.5, 0.5)
+_2_propertyEditor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_2_propertyEditor.BackgroundTransparency = 1.000
+_2_propertyEditor.BorderSizePixel = 0
+_2_propertyEditor.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_2_propertyEditor.Size = UDim2.new(0.939999998, 0, 0.100000001, 0)
+_2_propertyEditor.ZIndex = 25
+
+sizeEditor.Name = "sizeEditor"
+sizeEditor.Parent = _2_propertyEditor
+sizeEditor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sizeEditor.BackgroundTransparency = 1.000
+sizeEditor.Size = UDim2.new(0, 215, 0, 177)
+sizeEditor.ZIndex = 35
+
+roundBackground_2.Name = "roundBackground"
+roundBackground_2.Parent = sizeEditor
+roundBackground_2.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_2.BackgroundTransparency = 1.000
+roundBackground_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+roundBackground_2.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_2.ZIndex = 0
+roundBackground_2.Image = "rbxassetid://3570695787"
+roundBackground_2.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_2.ImageTransparency = 0.100
+roundBackground_2.ScaleType = Enum.ScaleType.Slice
+roundBackground_2.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_2.SliceScale = 0.120
+
+roundBackgroundDark_2.Name = "roundBackgroundDark"
+roundBackgroundDark_2.Parent = sizeEditor
+roundBackgroundDark_2.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_2.BackgroundTransparency = 1.000
+roundBackgroundDark_2.Position = UDim2.new(0.496605039, 0, 0.461704046, 0)
+roundBackgroundDark_2.Size = UDim2.new(0.907070279, 0, 0.612636507, 0)
+roundBackgroundDark_2.ZIndex = 2
+roundBackgroundDark_2.Image = "rbxassetid://3570695787"
+roundBackgroundDark_2.ImageColor3 = Color3.fromRGB(36, 36, 36)
+roundBackgroundDark_2.ImageTransparency = 0.100
+roundBackgroundDark_2.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_2.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_2.SliceScale = 0.120
+
+nameLabel_2.Name = "nameLabel"
+nameLabel_2.Parent = sizeEditor
+nameLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_2.BackgroundTransparency = 1.000
+nameLabel_2.Position = UDim2.new(0.0430698134, 0, 0.0203953981, 0)
+nameLabel_2.Size = UDim2.new(0, 155, 0, 23)
+nameLabel_2.ZIndex = 4
+nameLabel_2.Font = Enum.Font.ArialBold
+nameLabel_2.Text = "Size"
+nameLabel_2.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_2.TextScaled = true
+nameLabel_2.TextSize = 14.000
+nameLabel_2.TextWrapped = true
+nameLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+SizeXLabel.Name = "SizeXLabel"
+SizeXLabel.Parent = sizeEditor
+SizeXLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeXLabel.BackgroundTransparency = 1.000
+SizeXLabel.Position = UDim2.new(0.0895814449, 0, 0.178587481, 0)
+SizeXLabel.Size = UDim2.new(0, 90, 0, 33)
+SizeXLabel.ZIndex = 4
+SizeXLabel.Font = Enum.Font.ArialBold
+SizeXLabel.Text = "X:"
+SizeXLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+SizeXLabel.TextScaled = true
+SizeXLabel.TextSize = 14.000
+SizeXLabel.TextWrapped = true
+SizeXLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+SizeYLabel.Name = "SizeYLabel"
+SizeYLabel.Parent = sizeEditor
+SizeYLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeYLabel.BackgroundTransparency = 1.000
+SizeYLabel.Position = UDim2.new(0.0895814449, 0, 0.365649551, 0)
+SizeYLabel.Size = UDim2.new(0, 90, 0, 33)
+SizeYLabel.ZIndex = 4
+SizeYLabel.Font = Enum.Font.ArialBold
+SizeYLabel.Text = "Y:"
+SizeYLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+SizeYLabel.TextScaled = true
+SizeYLabel.TextSize = 14.000
+SizeYLabel.TextWrapped = true
+SizeYLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+SizeZLabel.Name = "SizeZLabel"
+SizeZLabel.Parent = sizeEditor
+SizeZLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeZLabel.BackgroundTransparency = 1.000
+SizeZLabel.Position = UDim2.new(0.0895814449, 0, 0.552711606, 0)
+SizeZLabel.Size = UDim2.new(0, 90, 0, 33)
+SizeZLabel.ZIndex = 4
+SizeZLabel.Font = Enum.Font.ArialBold
+SizeZLabel.Text = "Z:"
+SizeZLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+SizeZLabel.TextScaled = true
+SizeZLabel.TextSize = 14.000
+SizeZLabel.TextWrapped = true
+SizeZLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+SizeXTextBox.Name = "SizeXTextBox"
+SizeXTextBox.Parent = sizeEditor
+SizeXTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeXTextBox.BackgroundTransparency = 1.000
+SizeXTextBox.Position = UDim2.new(0.508186102, 0, 0.178587481, 0)
+SizeXTextBox.Size = UDim2.new(0, 90, 0, 33)
+SizeXTextBox.ZIndex = 50
+SizeXTextBox.Font = Enum.Font.ArialBold
+SizeXTextBox.PlaceholderColor3 = Color3.fromRGB(132, 132, 132)
+SizeXTextBox.PlaceholderText = "1"
+SizeXTextBox.Text = ""
+SizeXTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+SizeXTextBox.TextScaled = true
+SizeXTextBox.TextSize = 14.000
+SizeXTextBox.TextWrapped = true
+
+SizeXBackground.Name = "SizeXBackground"
+SizeXBackground.Parent = sizeEditor
+SizeXBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+SizeXBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeXBackground.BackgroundTransparency = 1.000
+SizeXBackground.Position = UDim2.new(0.71041882, 0, 0.271769732, 0)
+SizeXBackground.Size = UDim2.new(0, 86, 0, 32)
+SizeXBackground.ZIndex = 3
+SizeXBackground.Image = "rbxassetid://3570695787"
+SizeXBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+SizeXBackground.ScaleType = Enum.ScaleType.Slice
+SizeXBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+SizeXBackground.SliceScale = 0.120
+
+SizeYTextBox.Name = "SizeYTextBox"
+SizeYTextBox.Parent = sizeEditor
+SizeYTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeYTextBox.BackgroundTransparency = 1.000
+SizeYTextBox.Position = UDim2.new(0.508186102, 0, 0.365028143, 0)
+SizeYTextBox.Size = UDim2.new(0, 90, 0, 33)
+SizeYTextBox.ZIndex = 50
+SizeYTextBox.Font = Enum.Font.ArialBold
+SizeYTextBox.PlaceholderColor3 = Color3.fromRGB(132, 132, 132)
+SizeYTextBox.PlaceholderText = "1"
+SizeYTextBox.Text = ""
+SizeYTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+SizeYTextBox.TextScaled = true
+SizeYTextBox.TextSize = 14.000
+SizeYTextBox.TextWrapped = true
+
+SizeYBackground.Name = "SizeYBackground"
+SizeYBackground.Parent = sizeEditor
+SizeYBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+SizeYBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeYBackground.BackgroundTransparency = 1.000
+SizeYBackground.Position = UDim2.new(0.71041882, 0, 0.458210409, 0)
+SizeYBackground.Size = UDim2.new(0, 86, 0, 32)
+SizeYBackground.ZIndex = 3
+SizeYBackground.Image = "rbxassetid://3570695787"
+SizeYBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+SizeYBackground.ScaleType = Enum.ScaleType.Slice
+SizeYBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+SizeYBackground.SliceScale = 0.120
+
+SizeZBackground.Name = "SizeZBackground"
+SizeZBackground.Parent = sizeEditor
+SizeZBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+SizeZBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeZBackground.BackgroundTransparency = 1.000
+SizeZBackground.Position = UDim2.new(0.71041882, 0, 0.644651055, 0)
+SizeZBackground.Size = UDim2.new(0, 86, 0, 32)
+SizeZBackground.ZIndex = 3
+SizeZBackground.Image = "rbxassetid://3570695787"
+SizeZBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+SizeZBackground.ScaleType = Enum.ScaleType.Slice
+SizeZBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+SizeZBackground.SliceScale = 0.120
+
+SizeZTextBox.Name = "SizeZTextBox"
+SizeZTextBox.Parent = sizeEditor
+SizeZTextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SizeZTextBox.BackgroundTransparency = 1.000
+SizeZTextBox.Position = UDim2.new(0.508186102, 0, 0.551468849, 0)
+SizeZTextBox.Size = UDim2.new(0, 90, 0, 33)
+SizeZTextBox.ZIndex = 50
+SizeZTextBox.Font = Enum.Font.ArialBold
+SizeZTextBox.PlaceholderColor3 = Color3.fromRGB(132, 132, 132)
+SizeZTextBox.PlaceholderText = "1"
+SizeZTextBox.Text = ""
+SizeZTextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+SizeZTextBox.TextScaled = true
+SizeZTextBox.TextSize = 14.000
+SizeZTextBox.TextWrapped = true
+
+applyBtnBackground.Name = "applyBtnBackground"
+applyBtnBackground.Parent = sizeEditor
+applyBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+applyBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+applyBtnBackground.BackgroundTransparency = 1.000
+applyBtnBackground.ClipsDescendants = true
+applyBtnBackground.Position = UDim2.new(0.498930603, 0, 0.88477391, 0)
+applyBtnBackground.Size = UDim2.new(0.76288414, 0, 0.162655607, 0)
+applyBtnBackground.ZIndex = 2
+applyBtnBackground.Image = "rbxassetid://3570695787"
+applyBtnBackground.ImageColor3 = Color3.fromRGB(36, 36, 36)
+applyBtnBackground.ImageTransparency = 0.100
+applyBtnBackground.ScaleType = Enum.ScaleType.Slice
+applyBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+applyBtnBackground.SliceScale = 0.120
+
+applyBtnMain.Name = "applyBtnMain"
+applyBtnMain.Parent = applyBtnBackground
+applyBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+applyBtnMain.BackgroundTransparency = 1.000
+applyBtnMain.Size = UDim2.new(1, 0, 1, 0)
+applyBtnMain.Font = Enum.Font.ArialBold
+applyBtnMain.Text = "Apply"
+applyBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+applyBtnMain.TextScaled = true
+applyBtnMain.TextSize = 14.000
+applyBtnMain.TextWrapped = true
+
+otherProperties.Name = "otherProperties"
+otherProperties.Parent = _2_propertyEditor
+otherProperties.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+otherProperties.BackgroundTransparency = 1.000
+otherProperties.Position = UDim2.new(0.490666211, 0, 0, 0)
+otherProperties.Size = UDim2.new(0, 233, 0, 177)
+otherProperties.ZIndex = 35
+
+roundBackground_3.Name = "roundBackground"
+roundBackground_3.Parent = otherProperties
+roundBackground_3.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_3.BackgroundTransparency = 1.000
+roundBackground_3.Position = UDim2.new(0.497844815, 0, 0.5, 0)
+roundBackground_3.Size = UDim2.new(1.00431037, 0, 1, 0)
+roundBackground_3.ZIndex = 0
+roundBackground_3.Image = "rbxassetid://3570695787"
+roundBackground_3.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_3.ImageTransparency = 0.100
+roundBackground_3.ScaleType = Enum.ScaleType.Slice
+roundBackground_3.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_3.SliceScale = 0.120
+
+nameLabel_3.Name = "nameLabel"
+nameLabel_3.Parent = otherProperties
+nameLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_3.BackgroundTransparency = 1.000
+nameLabel_3.Position = UDim2.new(0.0389451645, 0, 0.0203953981, 0)
+nameLabel_3.Size = UDim2.new(0, 167, 0, 23)
+nameLabel_3.ZIndex = 4
+nameLabel_3.Font = Enum.Font.ArialBold
+nameLabel_3.Text = "Properties"
+nameLabel_3.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_3.TextScaled = true
+nameLabel_3.TextSize = 14.000
+nameLabel_3.TextWrapped = true
+nameLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+applyBtnBackground_2.Name = "applyBtnBackground"
+applyBtnBackground_2.Parent = otherProperties
+applyBtnBackground_2.AnchorPoint = Vector2.new(0.5, 0.5)
+applyBtnBackground_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+applyBtnBackground_2.BackgroundTransparency = 1.000
+applyBtnBackground_2.ClipsDescendants = true
+applyBtnBackground_2.Position = UDim2.new(0.49677065, 0, 0.88477391, 0)
+applyBtnBackground_2.Size = UDim2.new(0.766172409, 0, 0.162655607, 0)
+applyBtnBackground_2.ZIndex = 2
+applyBtnBackground_2.Image = "rbxassetid://3570695787"
+applyBtnBackground_2.ImageColor3 = Color3.fromRGB(36, 36, 36)
+applyBtnBackground_2.ImageTransparency = 0.100
+applyBtnBackground_2.ScaleType = Enum.ScaleType.Slice
+applyBtnBackground_2.SliceCenter = Rect.new(100, 100, 100, 100)
+applyBtnBackground_2.SliceScale = 0.120
+
+applyBtnMain_2.Name = "applyBtnMain"
+applyBtnMain_2.Parent = applyBtnBackground_2
+applyBtnMain_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+applyBtnMain_2.BackgroundTransparency = 1.000
+applyBtnMain_2.Size = UDim2.new(1, 0, 1, 0)
+applyBtnMain_2.Font = Enum.Font.ArialBold
+applyBtnMain_2.Text = "Apply"
+applyBtnMain_2.TextColor3 = Color3.fromRGB(122, 122, 122)
+applyBtnMain_2.TextScaled = true
+applyBtnMain_2.TextSize = 14.000
+applyBtnMain_2.TextWrapped = true
+
+masslessBackground.Name = "masslessBackground"
+masslessBackground.Parent = otherProperties
+masslessBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+masslessBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+masslessBackground.BackgroundTransparency = 1.000
+masslessBackground.Position = UDim2.new(0.492707729, 0, 0.25558266, 0)
+masslessBackground.Size = UDim2.new(0, 211, 0, 34)
+masslessBackground.ZIndex = 10
+masslessBackground.Image = "rbxassetid://3570695787"
+masslessBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+masslessBackground.ScaleType = Enum.ScaleType.Slice
+masslessBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+masslessBackground.SliceScale = 0.120
+
+nameLabel_4.Name = "nameLabel"
+nameLabel_4.Parent = masslessBackground
+nameLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_4.BackgroundTransparency = 1.000
+nameLabel_4.Position = UDim2.new(0.0389450565, 0, 0.0203956161, 0)
+nameLabel_4.Size = UDim2.new(0, 144, 0, 33)
+nameLabel_4.ZIndex = 4
+nameLabel_4.Font = Enum.Font.ArialBold
+nameLabel_4.Text = "Massless:"
+nameLabel_4.TextColor3 = Color3.fromRGB(39, 39, 39)
+nameLabel_4.TextScaled = true
+nameLabel_4.TextSize = 14.000
+nameLabel_4.TextWrapped = true
+nameLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox.Name = "checkBox"
+checkBox.Parent = masslessBackground
+checkBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox.BackgroundTransparency = 1.000
+checkBox.Position = UDim2.new(0.816850781, 0, 0.131517515, 0)
+checkBox.Size = UDim2.new(0, 25, 0, 25)
+checkBox.ZIndex = 25
+checkBox.Image = "rbxassetid://3229285087"
+
+checkedBox.Name = "checkedBox"
+checkedBox.Parent = checkBox
+checkedBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox.BackgroundTransparency = 1.000
+checkedBox.Size = UDim2.new(1, 0, 1, 0)
+checkedBox.Image = "rbxassetid://3229284779"
+checkedBox.ImageTransparency = 1.000
+
+canCollideBackground.Name = "canCollideBackground"
+canCollideBackground.Parent = otherProperties
+canCollideBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+canCollideBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+canCollideBackground.BackgroundTransparency = 1.000
+canCollideBackground.Position = UDim2.new(0.492707729, 0, 0.462413043, 0)
+canCollideBackground.Size = UDim2.new(0, 211, 0, 34)
+canCollideBackground.ZIndex = 10
+canCollideBackground.Image = "rbxassetid://3570695787"
+canCollideBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+canCollideBackground.ScaleType = Enum.ScaleType.Slice
+canCollideBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+canCollideBackground.SliceScale = 0.120
+
+nameLabel_5.Name = "nameLabel"
+nameLabel_5.Parent = canCollideBackground
+nameLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_5.BackgroundTransparency = 1.000
+nameLabel_5.Position = UDim2.new(0.0389450565, 0, 0.0203956161, 0)
+nameLabel_5.Size = UDim2.new(0, 144, 0, 33)
+nameLabel_5.ZIndex = 4
+nameLabel_5.Font = Enum.Font.ArialBold
+nameLabel_5.Text = "Collission:"
+nameLabel_5.TextColor3 = Color3.fromRGB(39, 39, 39)
+nameLabel_5.TextScaled = true
+nameLabel_5.TextSize = 14.000
+nameLabel_5.TextWrapped = true
+nameLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_2.Name = "checkBox"
+checkBox_2.Parent = canCollideBackground
+checkBox_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_2.BackgroundTransparency = 1.000
+checkBox_2.Position = UDim2.new(0.816850781, 0, 0.131517515, 0)
+checkBox_2.Size = UDim2.new(0, 25, 0, 25)
+checkBox_2.ZIndex = 25
+checkBox_2.Image = "rbxassetid://3229285087"
+
+checkedBox_2.Name = "checkedBox"
+checkedBox_2.Parent = checkBox_2
+checkedBox_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_2.BackgroundTransparency = 1.000
+checkedBox_2.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_2.Image = "rbxassetid://3229284779"
+checkedBox_2.ImageTransparency = 1.000
+
+castShadowBackground.Name = "castShadowBackground"
+castShadowBackground.Parent = otherProperties
+castShadowBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+castShadowBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+castShadowBackground.BackgroundTransparency = 1.000
+castShadowBackground.Position = UDim2.new(0.492707729, 0, 0.669243574, 0)
+castShadowBackground.Size = UDim2.new(0, 211, 0, 34)
+castShadowBackground.ZIndex = 10
+castShadowBackground.Image = "rbxassetid://3570695787"
+castShadowBackground.ImageColor3 = Color3.fromRGB(91, 91, 91)
+castShadowBackground.ScaleType = Enum.ScaleType.Slice
+castShadowBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+castShadowBackground.SliceScale = 0.120
+
+nameLabel_6.Name = "nameLabel"
+nameLabel_6.Parent = castShadowBackground
+nameLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_6.BackgroundTransparency = 1.000
+nameLabel_6.Position = UDim2.new(0.0389450565, 0, 0.0203956161, 0)
+nameLabel_6.Size = UDim2.new(0, 144, 0, 33)
+nameLabel_6.ZIndex = 4
+nameLabel_6.Font = Enum.Font.ArialBold
+nameLabel_6.Text = "Shadow:"
+nameLabel_6.TextColor3 = Color3.fromRGB(39, 39, 39)
+nameLabel_6.TextScaled = true
+nameLabel_6.TextSize = 14.000
+nameLabel_6.TextWrapped = true
+nameLabel_6.TextXAlignment = Enum.TextXAlignment.Left
+
+checkBox_3.Name = "checkBox"
+checkBox_3.Parent = castShadowBackground
+checkBox_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkBox_3.BackgroundTransparency = 1.000
+checkBox_3.Position = UDim2.new(0.816850781, 0, 0.131517515, 0)
+checkBox_3.Size = UDim2.new(0, 25, 0, 25)
+checkBox_3.ZIndex = 25
+checkBox_3.Image = "rbxassetid://3229285087"
+
+checkedBox_3.Name = "checkedBox"
+checkedBox_3.Parent = checkBox_3
+checkedBox_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkedBox_3.BackgroundTransparency = 1.000
+checkedBox_3.Size = UDim2.new(1, 0, 1, 0)
+checkedBox_3.Image = "rbxassetid://3229284779"
+checkedBox_3.ImageTransparency = 1.000
+
+_3_transparencyEditor.Name = "3_transparencyEditor"
+_3_transparencyEditor.Parent = ToolConfig
+_3_transparencyEditor.AnchorPoint = Vector2.new(0.5, 0.5)
+_3_transparencyEditor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_3_transparencyEditor.BackgroundTransparency = 1.000
+_3_transparencyEditor.BorderSizePixel = 0
+_3_transparencyEditor.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_3_transparencyEditor.Size = UDim2.new(0.939999998, 0, 0.0299999993, 0)
+_3_transparencyEditor.ZIndex = 25
+
+Slider.Name = "Slider"
+Slider.Parent = _3_transparencyEditor
+Slider.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Slider.BackgroundTransparency = 1.000
+Slider.BorderSizePixel = 0
+Slider.Position = UDim2.new(0.0370844044, 0, 0.399999976, 0)
+Slider.Size = UDim2.new(0, 435, 0, 22)
+Slider.ZIndex = 12
+Slider.AutoButtonColor = false
+Slider.Font = Enum.Font.SourceSans
+Slider.Text = ""
+Slider.TextColor3 = Color3.fromRGB(0, 0, 0)
+Slider.TextSize = 14.000
+
+Indicator.Name = "Indicator"
+Indicator.Parent = Slider
+Indicator.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+Indicator.BackgroundTransparency = 1.000
+Indicator.BorderSizePixel = 0
+Indicator.Position = UDim2.new(-0.00131055492, 0, 0, 0)
+Indicator.Size = UDim2.new(0.00999999978, 0, 1.03043532, 0)
+
+HolderButton.Name = "HolderButton"
+HolderButton.Parent = Indicator
+HolderButton.AnchorPoint = Vector2.new(0.5, 0.5)
+HolderButton.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+HolderButton.BackgroundTransparency = 1.000
+HolderButton.Position = UDim2.new(1, 0, 0.5, 0)
+HolderButton.Size = UDim2.new(0, 13, 0, 25)
+HolderButton.ZIndex = 5
+HolderButton.Font = Enum.Font.SourceSans
+HolderButton.Text = ""
+HolderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+HolderButton.TextSize = 14.000
+HolderButton.TextTransparency = 2.000
+
+UICorner.CornerRadius = UDim.new(0, 3)
+UICorner.Parent = HolderButton
+
+Value.Name = "Value"
+Value.Parent = HolderButton
+Value.AnchorPoint = Vector2.new(0.5, 0.5)
+Value.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Value.BackgroundTransparency = 1.000
+Value.Position = UDim2.new(0.5, 0, -0.360000014, 0)
+Value.Size = UDim2.new(0, 36, 0, 18)
+Value.Font = Enum.Font.GothamBold
+Value.Text = "0"
+Value.TextColor3 = Color3.fromRGB(209, 209, 209)
+Value.TextSize = 14.000
+Value.TextTransparency = 1.000
+
+UICorner_2.CornerRadius = UDim.new(0, 3)
+UICorner_2.Parent = Value
+
+SliderImg.Name = "SliderImg"
+SliderImg.Parent = HolderButton
+SliderImg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SliderImg.BackgroundTransparency = 1.000
+SliderImg.Position = UDim2.new(-0.449999988, 0, 0, 0)
+SliderImg.Size = UDim2.new(0, 24, 0, 24)
+SliderImg.Image = "rbxassetid://3886466329"
+SliderImg.ImageColor3 = Color3.fromRGB(38, 38, 38)
+
+UICorner_3.CornerRadius = UDim.new(0, 2)
+UICorner_3.Parent = Indicator
+
+Sliderbg.Name = "Sliderbg"
+Sliderbg.Parent = Slider
+Sliderbg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sliderbg.BackgroundTransparency = 1.000
+Sliderbg.Position = UDim2.new(-0.0199999195, 0, 0.370957077, 0)
+Sliderbg.Size = UDim2.new(1.00999999, 0, -0.0135651054, 6)
+Sliderbg.ZIndex = 0
+Sliderbg.Image = "rbxassetid://6597213248"
+Sliderbg.ImageColor3 = Color3.fromRGB(68, 68, 68)
+
+Value_2.Name = "Value"
+Value_2.Parent = _3_transparencyEditor
+Value_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Value_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Value_2.BackgroundTransparency = 1.000
+Value_2.Position = UDim2.new(0.51308763, 0, 0.428963125, 0)
+Value_2.Size = UDim2.new(0, 229, 0, 23)
+Value_2.Font = Enum.Font.Ubuntu
+Value_2.Text = "Val | Max"
+Value_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Value_2.TextScaled = true
+Value_2.TextSize = 18.000
+Value_2.TextStrokeTransparency = 0.500
+Value_2.TextTransparency = 1.000
+Value_2.TextWrapped = true
+
+roundBackground_4.Name = "roundBackground"
+roundBackground_4.Parent = _3_transparencyEditor
+roundBackground_4.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_4.BackgroundTransparency = 1.000
+roundBackground_4.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_4.Size = UDim2.new(1, 0, 0.899999976, 0)
+roundBackground_4.ZIndex = 0
+roundBackground_4.Image = "rbxassetid://3570695787"
+roundBackground_4.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_4.ImageTransparency = 0.100
+roundBackground_4.ScaleType = Enum.ScaleType.Slice
+roundBackground_4.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_4.SliceScale = 0.120
+
+roundBackgroundDark_3.Name = "roundBackgroundDark"
+roundBackgroundDark_3.Parent = _3_transparencyEditor
+roundBackgroundDark_3.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_3.BackgroundTransparency = 1.000
+roundBackgroundDark_3.Position = UDim2.new(0.497775435, 0, 0.590925097, 0)
+roundBackgroundDark_3.Size = UDim2.new(0.976970911, 0, 0.423365802, 0)
+roundBackgroundDark_3.Image = "rbxassetid://3570695787"
+roundBackgroundDark_3.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_3.ImageTransparency = 0.100
+roundBackgroundDark_3.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_3.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_3.SliceScale = 0.120
+
+sliderLabel.Name = "sliderLabel"
+sliderLabel.Parent = _3_transparencyEditor
+sliderLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sliderLabel.BackgroundTransparency = 1.000
+sliderLabel.Position = UDim2.new(0.00928996783, 0, 0.00821706746, 0)
+sliderLabel.Size = UDim2.new(0, 454, 0, 20)
+sliderLabel.ZIndex = 4
+sliderLabel.Font = Enum.Font.ArialBold
+sliderLabel.Text = "Handle Transparency:"
+sliderLabel.TextColor3 = Color3.fromRGB(122, 122, 122)
+sliderLabel.TextScaled = true
+sliderLabel.TextSize = 14.000
+sliderLabel.TextWrapped = true
+sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+_4_appearanceEditor.Name = "4_appearanceEditor"
+_4_appearanceEditor.Parent = ToolConfig
+_4_appearanceEditor.AnchorPoint = Vector2.new(0.5, 0.5)
+_4_appearanceEditor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_4_appearanceEditor.BackgroundTransparency = 1.000
+_4_appearanceEditor.BorderSizePixel = 0
+_4_appearanceEditor.Position = UDim2.new(0.5, 0, 0.0489999987, 0)
+_4_appearanceEditor.Size = UDim2.new(0.939999998, 0, 0.0399999991, 0)
+_4_appearanceEditor.ZIndex = 25
+
+roundBackground_5.Name = "roundBackground"
+roundBackground_5.Parent = _4_appearanceEditor
+roundBackground_5.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground_5.BackgroundTransparency = 1.000
+roundBackground_5.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+roundBackground_5.Size = UDim2.new(1, 0, 1, 0)
+roundBackground_5.ZIndex = 0
+roundBackground_5.Image = "rbxassetid://3570695787"
+roundBackground_5.ImageColor3 = Color3.fromRGB(25, 25, 25)
+roundBackground_5.ImageTransparency = 0.100
+roundBackground_5.ScaleType = Enum.ScaleType.Slice
+roundBackground_5.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground_5.SliceScale = 0.120
+
+nameLabel_7.Name = "nameLabel"
+nameLabel_7.Parent = _4_appearanceEditor
+nameLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nameLabel_7.BackgroundTransparency = 1.000
+nameLabel_7.Position = UDim2.new(0.0114707081, 0, -0.0380500779, 0)
+nameLabel_7.Size = UDim2.new(0, 311, 0, 23)
+nameLabel_7.ZIndex = 4
+nameLabel_7.Font = Enum.Font.ArialBold
+nameLabel_7.Text = "Appearance"
+nameLabel_7.TextColor3 = Color3.fromRGB(122, 122, 122)
+nameLabel_7.TextScaled = true
+nameLabel_7.TextSize = 14.000
+nameLabel_7.TextWrapped = true
+nameLabel_7.TextXAlignment = Enum.TextXAlignment.Left
+
+roundBackgroundDark_4.Name = "roundBackgroundDark"
+roundBackgroundDark_4.Parent = _4_appearanceEditor
+roundBackgroundDark_4.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackgroundDark_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackgroundDark_4.BackgroundTransparency = 1.000
+roundBackgroundDark_4.Position = UDim2.new(0.49999997, 0, 0.612173438, 0)
+roundBackgroundDark_4.Size = UDim2.new(0.976970911, 0, 0.501963258, 0)
+roundBackgroundDark_4.ZIndex = 2
+roundBackgroundDark_4.Image = "rbxassetid://3570695787"
+roundBackgroundDark_4.ImageColor3 = Color3.fromRGB(34, 34, 34)
+roundBackgroundDark_4.ImageTransparency = 0.100
+roundBackgroundDark_4.ScaleType = Enum.ScaleType.Slice
+roundBackgroundDark_4.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackgroundDark_4.SliceScale = 0.120
+
+removeDecalBtnBackground.Name = "removeDecalBtnBackground"
+removeDecalBtnBackground.Parent = _4_appearanceEditor
+removeDecalBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+removeDecalBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+removeDecalBtnBackground.BackgroundTransparency = 1.000
+removeDecalBtnBackground.ClipsDescendants = true
+removeDecalBtnBackground.Position = UDim2.new(0.727438748, 0, 0.629999936, 0)
+removeDecalBtnBackground.Size = UDim2.new(0.437802792, 0, 0.367095292, 0)
+removeDecalBtnBackground.ZIndex = 11
+removeDecalBtnBackground.Image = "rbxassetid://3570695787"
+removeDecalBtnBackground.ImageColor3 = Color3.fromRGB(22, 22, 22)
+removeDecalBtnBackground.ImageTransparency = 0.100
+removeDecalBtnBackground.ScaleType = Enum.ScaleType.Slice
+removeDecalBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+removeDecalBtnBackground.SliceScale = 0.120
+
+removeDecalBtnMain.Name = "removeDecalBtnMain"
+removeDecalBtnMain.Parent = removeDecalBtnBackground
+removeDecalBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+removeDecalBtnMain.BackgroundTransparency = 1.000
+removeDecalBtnMain.Size = UDim2.new(1, 0, 1, 0)
+removeDecalBtnMain.Font = Enum.Font.ArialBold
+removeDecalBtnMain.Text = "Delete Decals"
+removeDecalBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+removeDecalBtnMain.TextScaled = true
+removeDecalBtnMain.TextSize = 14.000
+removeDecalBtnMain.TextWrapped = true
+
+removeMeshBtnBackground.Name = "removeMeshBtnBackground"
+removeMeshBtnBackground.Parent = _4_appearanceEditor
+removeMeshBtnBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+removeMeshBtnBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+removeMeshBtnBackground.BackgroundTransparency = 1.000
+removeMeshBtnBackground.ClipsDescendants = true
+removeMeshBtnBackground.Position = UDim2.new(0.270000011, 0, 0.629999995, 0)
+removeMeshBtnBackground.Size = UDim2.new(0.437802792, 0, 0.367095292, 0)
+removeMeshBtnBackground.ZIndex = 11
+removeMeshBtnBackground.Image = "rbxassetid://3570695787"
+removeMeshBtnBackground.ImageColor3 = Color3.fromRGB(22, 22, 22)
+removeMeshBtnBackground.ImageTransparency = 0.100
+removeMeshBtnBackground.ScaleType = Enum.ScaleType.Slice
+removeMeshBtnBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+removeMeshBtnBackground.SliceScale = 0.120
+
+removeMeshBtnMain.Name = "removeMeshBtnMain"
+removeMeshBtnMain.Parent = removeMeshBtnBackground
+removeMeshBtnMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+removeMeshBtnMain.BackgroundTransparency = 1.000
+removeMeshBtnMain.Size = UDim2.new(1, 0, 1, 0)
+removeMeshBtnMain.Font = Enum.Font.ArialBold
+removeMeshBtnMain.Text = "Delete Mesh"
+removeMeshBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
+removeMeshBtnMain.TextScaled = true
+removeMeshBtnMain.TextSize = 14.000
+removeMeshBtnMain.TextWrapped = true
+
+-- Scripts:
+
+local function OCQYWK_fake_script() -- checkBox.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox)
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	
+	local currentlyClicked = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyClicked == false 
+		then currentlyClicked = true 
+			checkTween:Play()
+		else currentlyClicked = false 
+			uncheckTween:Play()
+		end
+	end)
+end
+coroutine.wrap(OCQYWK_fake_script)()
+local function CNABOWQ_fake_script() -- checkBox_2.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_2)
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	
+	local currentlyClicked = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyClicked == false 
+		then currentlyClicked = true 
+			checkTween:Play()
+		else currentlyClicked = false 
+			uncheckTween:Play()
+		end
+	end)
+end
+coroutine.wrap(CNABOWQ_fake_script)()
+local function LFBYKF_fake_script() -- checkBox_3.checkboxHandler 
+	local script = Instance.new('LocalScript', checkBox_3)
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local runservice = game:GetService("RunService")
+	
+	local currentlyClicked = false
+	
+	local tweenService = game:GetService('TweenService')
+	
+	local info1 = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local goals1 = {ImageTransparency = 1}
+	local goals2 = {ImageTransparency = 0}
+	
+	local uncheckTween = tweenService:Create(script.Parent.checkedBox, info1, goals1)
+	local checkTween = tweenService:Create(script.Parent.checkedBox, info1, goals2)
+	
+	
+	script.Parent.checkedBox.MouseButton1Click:Connect(function()
+		if currentlyClicked == false 
+		then currentlyClicked = true 
+			checkTween:Play()
+		else currentlyClicked = false 
+			uncheckTween:Play()
+		end
+	end)
+end
+coroutine.wrap(LFBYKF_fake_script)()
