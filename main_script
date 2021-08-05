@@ -17,12 +17,12 @@ local tabHolder = mainFrame.tabHolder
 local backgroundFrames = mainFrame.backgroundFrames
 --Gui>Tabs
 	local characterTab = tabHolder:WaitForChild('Character')
-	local gameTab = tabHolder:WaitForChild('Game')
-	local guiHubTab = tabHolder['Gui Hub']
-	local playerTab = tabHolder.Players
-	local scriptHubTab = tabHolder['Script Hub']
-	local statsTab = tabHolder.Statistics
-	local toolConfigTab = tabHolder['Tool Config']
+	--local gameTab = tabHolder:WaitForChild('Game')
+	--local guiHubTab = tabHolder['Gui Hub']
+	--local playerTab = tabHolder.Players
+	--local scriptHubTab = tabHolder['Script Hub']
+	--local statsTab = tabHolder.Statistics
+	--local toolConfigTab = tabHolder['Tool Config']
 --
 
 
