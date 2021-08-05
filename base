@@ -1,1063 +1,928 @@
-print('loaded_script')
---VARIABLES
-local Players = game:GetService('Players')
-localPlr = Players.LocalPlayer
+-- Gui to Lua
+-- Version: 3.2
 
-plrMouse = localPlr:GetMouse()
-tweenService = game:GetService('TweenService')
-UserInputService = game:GetService("UserInputService")
---
+-- Instances:
 
+local dietLib = Instance.new("ScreenGui")
+local mainFrame = Instance.new("Frame")
+local topBar = Instance.new("Frame")
+local hubLabel = Instance.new("TextLabel")
+local closeBtn = Instance.new("ImageButton")
+local minimizeBtn = Instance.new("ImageButton")
+local patternImageBackground = Instance.new("ImageLabel")
+local welcomeLabel = Instance.new("TextLabel")
+local duckGif = Instance.new("ImageLabel")
+local backgroundFrames = Instance.new("Frame")
+local roundBackground = Instance.new("ImageLabel")
+local sidebarBackground = Instance.new("ImageLabel")
+local topBarBackground = Instance.new("ImageLabel")
+local hubVersion = Instance.new("TextLabel")
+local rgbBar = Instance.new("Frame")
+local sodaCanImage = Instance.new("ImageLabel")
+local coordsHandler = Instance.new("ImageButton")
+local coordinatesLabel = Instance.new("TextLabel")
+local coordinatesText = Instance.new("TextLabel")
+local selectedSectionBackground = Instance.new("ImageLabel")
+local tabName = Instance.new("TextLabel")
+local sidebarBackgroundDarker = Instance.new("ImageLabel")
+local selectedSectionBackgroundDarker = Instance.new("ImageLabel")
+local sideBar = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local Character = Instance.new("Frame")
+local tabLabel = Instance.new("TextLabel")
+local bottomBar = Instance.new("Frame")
+local topBar_2 = Instance.new("Frame")
+local clickBtn = Instance.new("ImageButton")
+local tabIcon = Instance.new("ImageLabel")
+local Game = Instance.new("Frame")
+local tabLabel_2 = Instance.new("TextLabel")
+local bottomBar_2 = Instance.new("Frame")
+local topBar_3 = Instance.new("Frame")
+local clickBtn_2 = Instance.new("ImageButton")
+local tabIcon_2 = Instance.new("ImageLabel")
+local GuiHub = Instance.new("Frame")
+local tabLabel_3 = Instance.new("TextLabel")
+local bottomBar_3 = Instance.new("Frame")
+local topBar_4 = Instance.new("Frame")
+local clickBtn_3 = Instance.new("ImageButton")
+local tabIcon_3 = Instance.new("ImageLabel")
+local Players = Instance.new("Frame")
+local tabLabel_4 = Instance.new("TextLabel")
+local bottomBar_4 = Instance.new("Frame")
+local topBar_5 = Instance.new("Frame")
+local clickBtn_4 = Instance.new("ImageButton")
+local tabIcon_4 = Instance.new("ImageLabel")
+local ScriptHub = Instance.new("Frame")
+local tabLabel_5 = Instance.new("TextLabel")
+local bottomBar_5 = Instance.new("Frame")
+local topBar_6 = Instance.new("Frame")
+local clickBtn_5 = Instance.new("ImageButton")
+local tabIcon_5 = Instance.new("ImageLabel")
+local Statistics = Instance.new("Frame")
+local tabLabel_6 = Instance.new("TextLabel")
+local bottomBar_6 = Instance.new("Frame")
+local topBar_7 = Instance.new("Frame")
+local clickBtn_6 = Instance.new("ImageButton")
+local tabIcon_6 = Instance.new("ImageLabel")
+local ToolConfig = Instance.new("Frame")
+local tabLabel_7 = Instance.new("TextLabel")
+local bottomBar_7 = Instance.new("Frame")
+local topBar_8 = Instance.new("Frame")
+local clickBtn_7 = Instance.new("ImageButton")
+local tabIcon_7 = Instance.new("ImageLabel")
+local tabHolder = Instance.new("Frame")
+local Sample = Instance.new("ImageLabel")
 
---GUI VARIALBES
-local mainFrame = localPlr.PlayerGui:WaitForChild('dietLib').mainFrame
-local topBar = mainFrame.topBar
-local sideBar = mainFrame.sideBar
-local tabHolder = mainFrame.tabHolder
-local backgroundFrames = mainFrame.backgroundFrames
---Gui>Tabs
-	local characterTab = tabHolder:WaitForChild('Character')
-	
+--Properties:
 
+dietLib.Name = "dietLib"
+dietLib.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+dietLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+mainFrame.Name = "mainFrame"
+mainFrame.Parent = dietLib
+mainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mainFrame.BackgroundTransparency = 1.000
+mainFrame.Position = UDim2.new(0.211165056, 0, 0.264327496, 0)
+mainFrame.Size = UDim2.new(0, 714, 0, 385)
 
---FUNCTIONS
-local info1_checkpoint = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0) local goals1_checkpoint = {ImageTransparency = 1} local goals2_checkpoint = {ImageTransparency = 0}
-function checkboxHandler(checkBoxInstance, Bool)
-	if Bool == true then
-		local checkBox_checkTween = tweenService:Create(checkBoxInstance, info1_checkpoint, goals2_checkpoint)
-		checkBox_checkTween:Play()
-	else
-		local checkBox_uncheckTween = tweenService:Create(checkBoxInstance, info1_checkpoint, goals1_checkpoint)
-		checkBox_uncheckTween:Play()
-	end
-end
+topBar.Name = "topBar"
+topBar.Parent = mainFrame
+topBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+topBar.BackgroundTransparency = 1.000
+topBar.ClipsDescendants = true
+topBar.Size = UDim2.new(0, 714, 0, 43)
 
-function getRoot(char)
-	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
-	return rootPart
-end
+hubLabel.Name = "hubLabel"
+hubLabel.Parent = topBar
+hubLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+hubLabel.BackgroundTransparency = 1.000
+hubLabel.Position = UDim2.new(0.0760563836, 0, 0.104651161, 0)
+hubLabel.Size = UDim2.new(0, 141, 0, 34)
+hubLabel.ZIndex = 4
+hubLabel.Font = Enum.Font.ArialBold
+hubLabel.Text = "Cola Hub"
+hubLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+hubLabel.TextScaled = true
+hubLabel.TextSize = 14.000
+hubLabel.TextWrapped = true
+hubLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-local sample = mainFrame:WaitForChild('Sample')
-function rippleEffect(btn)
-	local c = sample:Clone()
-	c.Parent = btn
-	local x, y = (plrMouse.X - c.AbsolutePosition.X), (plrMouse.Y - c.AbsolutePosition.Y)
-	c.Position = UDim2.new(0, x, 0, y)
-	local len, size = 0.35, nil
-	if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
-		size = (btn.AbsoluteSize.X * 1.5)
-	else
-		size = (btn.AbsoluteSize.Y * 1.5)
-	end
-	c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
-	for i = 1, 10 do
-		c.ImageTransparency = c.ImageTransparency + 0.05
-		wait(len / 12)
-	end
-	c:Destroy()
-end
---
+closeBtn.Name = "closeBtn"
+closeBtn.Parent = topBar
+closeBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+closeBtn.BackgroundTransparency = 1.000
+closeBtn.Position = UDim2.new(0.94093138, 0, 0.0581395365, 0)
+closeBtn.Size = UDim2.new(0, 35, 0, 35)
+closeBtn.ZIndex = 6
+closeBtn.Image = "http://www.roblox.com/asset/?id=6031094678"
 
+minimizeBtn.Name = "minimizeBtn"
+minimizeBtn.Parent = topBar
+minimizeBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+minimizeBtn.BackgroundTransparency = 1.000
+minimizeBtn.Position = UDim2.new(0.877906144, 0, 0.0581395403, 0)
+minimizeBtn.Size = UDim2.new(0, 35, 0, 35)
+minimizeBtn.ZIndex = 6
+minimizeBtn.Image = "rbxassetid://7062568804"
 
+patternImageBackground.Name = "patternImageBackground"
+patternImageBackground.Parent = topBar
+patternImageBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+patternImageBackground.BackgroundTransparency = 1.000
+patternImageBackground.Size = UDim2.new(1, 0, 1, 0)
+patternImageBackground.ZIndex = 0
+patternImageBackground.Image = "rbxassetid://2151782136"
+patternImageBackground.ImageColor3 = Color3.fromRGB(0, 0, 0)
+patternImageBackground.ImageTransparency = 0.900
+patternImageBackground.ScaleType = Enum.ScaleType.Tile
+patternImageBackground.SliceCenter = Rect.new(0, 256, 0, 256)
+patternImageBackground.TileSize = UDim2.new(0, 30, 0, 50)
 
+welcomeLabel.Name = "welcomeLabel"
+welcomeLabel.Parent = topBar
+welcomeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+welcomeLabel.BackgroundTransparency = 1.000
+welcomeLabel.Position = UDim2.new(0.273535371, 0, 0.290697664, 0)
+welcomeLabel.Size = UDim2.new(0, 428, 0, 18)
+welcomeLabel.ZIndex = 4
+welcomeLabel.Font = Enum.Font.ArialBold
+welcomeLabel.Text = "Welcome, LocalPlrUser"
+welcomeLabel.TextColor3 = Color3.fromRGB(144, 144, 144)
+welcomeLabel.TextScaled = true
+welcomeLabel.TextSize = 14.000
+welcomeLabel.TextWrapped = true
+welcomeLabel.TextXAlignment = Enum.TextXAlignment.Left
 
---Top Bar Scripts
-function startup()
-	topBar.welcomeLabel.Text = 'Welcome, ' .. localPlr.Name
-	local fadeInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local fadeGoals = {TextTransparency = 1}
-	local fadeTween = tweenService:Create(topBar.welcomeLabel, fadeInfo, fadeGoals)
-	fadeTween:Play()
-	wait(2)
-	topBar.welcomeLabel:Destroy()
-end
-startup()
+duckGif.Name = "duckGif"
+duckGif.Parent = topBar
+duckGif.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+duckGif.BackgroundTransparency = 1.000
+duckGif.Position = UDim2.new(0.0160807129, 0, 0.0116279088, 0)
+duckGif.Size = UDim2.new(0, 35, 0, 41)
+duckGif.ZIndex = 25
 
-topBar.closeBtn.MouseButton1Click:Connect(function()
-	mainFrame.Parent:Destroy()
-end)
+backgroundFrames.Name = "backgroundFrames"
+backgroundFrames.Parent = mainFrame
+backgroundFrames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+backgroundFrames.BackgroundTransparency = 1.000
+backgroundFrames.ClipsDescendants = true
+backgroundFrames.Size = UDim2.new(1, 0, 1, 0)
+backgroundFrames.ZIndex = 0
 
-topBar.minimizeBtn.MouseButton1Click:Connect(function()
-	local info = TweenInfo.new(.05, Enum.EasingStyle.Quart, Enum.EasingDirection.In, 0, false, 0)
-	local goals = {Position = UDim2.new(0, 0,0.952, 0)}
-	local minimizeTween = tweenService:Create(mainFrame, info, goals)
-	minimizeTween:Play()
-end)
---Top Bar Scripts
+roundBackground.Name = "roundBackground"
+roundBackground.Parent = backgroundFrames
+roundBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+roundBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+roundBackground.BackgroundTransparency = 1.000
+roundBackground.Position = UDim2.new(0.5, 0, 0.498701304, 0)
+roundBackground.Size = UDim2.new(1, 0, 1, 0)
+roundBackground.ZIndex = 2
+roundBackground.Image = "rbxassetid://3570695787"
+roundBackground.ImageColor3 = Color3.fromRGB(27, 27, 27)
+roundBackground.ImageTransparency = 0.200
+roundBackground.ScaleType = Enum.ScaleType.Slice
+roundBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+roundBackground.SliceScale = 0.120
 
+sidebarBackground.Name = "sidebarBackground"
+sidebarBackground.Parent = backgroundFrames
+sidebarBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+sidebarBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sidebarBackground.BackgroundTransparency = 1.000
+sidebarBackground.Position = UDim2.new(0.15476191, 0, 0.498701304, 0)
+sidebarBackground.Size = UDim2.new(0.309523851, 0, 1, 0)
+sidebarBackground.ZIndex = 3
+sidebarBackground.Image = "rbxassetid://3570695787"
+sidebarBackground.ImageColor3 = Color3.fromRGB(40, 40, 40)
+sidebarBackground.ScaleType = Enum.ScaleType.Slice
+sidebarBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+sidebarBackground.SliceScale = 0.120
 
+topBarBackground.Name = "topBarBackground"
+topBarBackground.Parent = backgroundFrames
+topBarBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+topBarBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+topBarBackground.BackgroundTransparency = 1.000
+topBarBackground.Position = UDim2.new(0.5, 0, 0.0558441542, 0)
+topBarBackground.Size = UDim2.new(1, 0, 0.114285722, 0)
+topBarBackground.ZIndex = 3
+topBarBackground.Image = "rbxassetid://3570695787"
+topBarBackground.ImageColor3 = Color3.fromRGB(40, 40, 40)
+topBarBackground.ScaleType = Enum.ScaleType.Slice
+topBarBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+topBarBackground.SliceScale = 0.120
 
+hubVersion.Name = "hubVersion"
+hubVersion.Parent = backgroundFrames
+hubVersion.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+hubVersion.BackgroundTransparency = 1.000
+hubVersion.Position = UDim2.new(0.2299826, 0, 0.961038947, 0)
+hubVersion.Size = UDim2.new(0, 50, 0, 14)
+hubVersion.ZIndex = 4
+hubVersion.Font = Enum.Font.ArialBold
+hubVersion.Text = "v 1.0"
+hubVersion.TextColor3 = Color3.fromRGB(0, 0, 0)
+hubVersion.TextScaled = true
+hubVersion.TextSize = 14.000
+hubVersion.TextTransparency = 0.400
+hubVersion.TextWrapped = true
+hubVersion.TextXAlignment = Enum.TextXAlignment.Right
 
---Side Bar Scripts
-local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
+rgbBar.Name = "rgbBar"
+rgbBar.Parent = backgroundFrames
+rgbBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+rgbBar.BorderSizePixel = 0
+rgbBar.Position = UDim2.new(0, 0, 0.109999999, 0)
+rgbBar.Size = UDim2.new(0, 714, 0, 1)
+rgbBar.ZIndex = 15
 
-for tabs, thingInTab in pairs(sideBar:GetDescendants()) do
-	if thingInTab.Name == 'clickBtn' then 
-		local currentlySelectedVal = Instance.new('BoolValue')
-		currentlySelectedVal.Parent = thingInTab
-		currentlySelectedVal.Name = 'CurrentlySelected'
-	end
-	if thingInTab.Name ~= 'bottomBar' and thingInTab.Name ~= 'topBar' and thingInTab:IsA('Frame') then
-		
-		thingInTab.clickBtn.MouseEnter:Connect(function()
-			if thingInTab.clickBtn.CurrentlySelected.Value == false then
-				thingInTab.topBar.Visible = true
-				thingInTab.bottomBar.Visible = true
-				local topBarHover = tweenService:Create(thingInTab.topBar, lineHoverInfo, lineHoverGoalsTop)
-				topBarHover:Play()
-				local bottomBarHover = tweenService:Create(thingInTab.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-				bottomBarHover:Play()
-				local textSizeHover = tweenService:Create(thingInTab.tabLabel, lineHoverInfo, textSizeGoals)
-				textSizeHover:Play()
-				local imageSizeHover = tweenService:Create(thingInTab.tabIcon, lineHoverInfo, imageSizeGoals)
-				imageSizeHover:Play()
-			end
-		end)
-		
-		thingInTab.clickBtn.MouseLeave:Connect(function()
-			if thingInTab.clickBtn.CurrentlySelected.Value == false then
-				local topBarLeave = tweenService:Create(thingInTab.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-				local bottomBarLeave = tweenService:Create(thingInTab.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-				local textSizeLeave = tweenService:Create(thingInTab.tabLabel, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-				local imageSizeLeave = tweenService:Create(thingInTab.tabIcon, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-				wait(.1)
-				thingInTab.topBar.Visible = false
-				thingInTab.bottomBar.Visible = false
-			end
-		end)
-		
-		thingInTab.clickBtn.MouseButton1Click:Connect(function()
-			backgroundFrames.tabName.Text = thingInTab.Name
-			for tabs, thingInTab in pairs(sideBar:GetDescendants()) do
-				if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-				elseif thingInTab.Name == 'bottomBar' then 	
-					local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-					bottomBarLeave:Play()
-				elseif thingInTab.Name == 'topBar' then 
-					local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-					topBarLeave:Play()
-				elseif thingInTab.Name == 'tabLabel' then 
-					local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-					textSizeLeave:Play()
-				elseif thingInTab.Name == 'tabIcon' then
-					local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-					imageSizeLeave:Play()
-				end
-			end
-			thingInTab.clickBtn.CurrentlySelected.Value = true
-			for tabs, tab in pairs(tabHolder:GetChildren()) do
-				tab.Visible = false
-			end
-			tabHolder[thingInTab.Name].Visible = true
-			local topBarLeave = tweenService:Create(thingInTab.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(thingInTab.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeHover = tweenService:Create(thingInTab.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(thingInTab.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-			wait(.1)
-			thingInTab.topBar.Visible = false
-			thingInTab.bottomBar.Visible = false
-		end)
-	end
-end
---Side Bar Scripts
+sodaCanImage.Name = "sodaCanImage"
+sodaCanImage.Parent = backgroundFrames
+sodaCanImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sodaCanImage.BackgroundTransparency = 1.000
+sodaCanImage.Position = UDim2.new(0.662464976, 0, 0.280519456, 0)
+sodaCanImage.Size = UDim2.new(0, 341, 0, 341)
+sodaCanImage.ZIndex = 8
+sodaCanImage.Image = "rbxassetid://7062616419"
+sodaCanImage.ImageColor3 = Color3.fromRGB(40, 40, 40)
 
+coordsHandler.Name = "coordsHandler"
+coordsHandler.Parent = backgroundFrames
+coordsHandler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+coordsHandler.BackgroundTransparency = 1.000
+coordsHandler.Position = UDim2.new(0.00853876676, 0, 0.961038947, 0)
+coordsHandler.Size = UDim2.new(0.221443817, 0, 0.038961038, 0)
+coordsHandler.ZIndex = 5
+coordsHandler.Image = "rbxassetid://6551631587"
+coordsHandler.ImageTransparency = 1.000
 
+coordinatesLabel.Name = "coordinatesLabel"
+coordinatesLabel.Parent = coordsHandler
+coordinatesLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+coordinatesLabel.BackgroundTransparency = 1.000
+coordinatesLabel.Position = UDim2.new(0.609603524, 0, 0, 0)
+coordinatesLabel.Size = UDim2.new(0.4244546, 0, 1, 0)
+coordinatesLabel.ZIndex = 4
+coordinatesLabel.Font = Enum.Font.ArialBold
+coordinatesLabel.Text = "69,69,69"
+coordinatesLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+coordinatesLabel.TextScaled = true
+coordinatesLabel.TextSize = 14.000
+coordinatesLabel.TextTransparency = 0.400
+coordinatesLabel.TextWrapped = true
+coordinatesLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+coordinatesText.Name = "coordinatesText"
+coordinatesText.Parent = coordsHandler
+coordinatesText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+coordinatesText.BackgroundTransparency = 1.000
+coordinatesText.Position = UDim2.new(0.034058053, 0, 0, 0)
+coordinatesText.Size = UDim2.new(0.575545371, 0, 1, 0)
+coordinatesText.ZIndex = 4
+coordinatesText.Font = Enum.Font.ArialBold
+coordinatesText.Text = "Coordinates:"
+coordinatesText.TextColor3 = Color3.fromRGB(0, 0, 0)
+coordinatesText.TextScaled = true
+coordinatesText.TextSize = 14.000
+coordinatesText.TextTransparency = 0.400
+coordinatesText.TextWrapped = true
+coordinatesText.TextXAlignment = Enum.TextXAlignment.Left
 
---Character Tab Scripts
+selectedSectionBackground.Name = "selectedSectionBackground"
+selectedSectionBackground.Parent = backgroundFrames
+selectedSectionBackground.AnchorPoint = Vector2.new(0.5, 0.5)
+selectedSectionBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+selectedSectionBackground.BackgroundTransparency = 1.000
+selectedSectionBackground.Position = UDim2.new(0.637254894, 0, 0.112158045, 0)
+selectedSectionBackground.Size = UDim2.new(0.725490272, 0, 0.159381077, 0)
+selectedSectionBackground.ZIndex = 11
+selectedSectionBackground.Image = "rbxassetid://4487542871"
+selectedSectionBackground.ImageColor3 = Color3.fromRGB(40, 40, 40)
+selectedSectionBackground.SliceCenter = Rect.new(100, 100, 100, 100)
 
---CharacterTab>WalkSpeedSlider
-	local Slider = characterTab['1_walkspeedSlider'].Slider
+tabName.Name = "tabName"
+tabName.Parent = backgroundFrames
+tabName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabName.BackgroundTransparency = 1.000
+tabName.Position = UDim2.new(0.30112046, 0, 0.112987012, 0)
+tabName.Size = UDim2.new(0, 498, 0, 30)
+tabName.ZIndex = 11
+tabName.Font = Enum.Font.ArialBold
+tabName.Text = ""
+tabName.TextColor3 = Color3.fromRGB(184, 184, 184)
+tabName.TextScaled = true
+tabName.TextSize = 14.000
+tabName.TextWrapped = true
+
+sidebarBackgroundDarker.Name = "sidebarBackgroundDarker"
+sidebarBackgroundDarker.Parent = backgroundFrames
+sidebarBackgroundDarker.AnchorPoint = Vector2.new(0.5, 0.5)
+sidebarBackgroundDarker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sidebarBackgroundDarker.BackgroundTransparency = 1.000
+sidebarBackgroundDarker.Position = UDim2.new(0.160364151, 0, 0.498701304, 0)
+sidebarBackgroundDarker.Size = UDim2.new(0.310000002, 0, 1, 0)
+sidebarBackgroundDarker.ZIndex = 2
+sidebarBackgroundDarker.Image = "rbxassetid://3570695787"
+sidebarBackgroundDarker.ImageColor3 = Color3.fromRGB(25, 25, 25)
+sidebarBackgroundDarker.ScaleType = Enum.ScaleType.Slice
+sidebarBackgroundDarker.SliceCenter = Rect.new(100, 100, 100, 100)
+sidebarBackgroundDarker.SliceScale = 0.120
+
+selectedSectionBackgroundDarker.Name = "selectedSectionBackgroundDarker"
+selectedSectionBackgroundDarker.Parent = backgroundFrames
+selectedSectionBackgroundDarker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+selectedSectionBackgroundDarker.BackgroundTransparency = 1.000
+selectedSectionBackgroundDarker.Position = UDim2.new(0.195616186, 0, 0.126999974, 0)
+selectedSectionBackgroundDarker.Size = UDim2.new(0.80400002, 0, 0.075000003, 0)
+selectedSectionBackgroundDarker.Image = "rbxassetid://4487542871"
+selectedSectionBackgroundDarker.ImageColor3 = Color3.fromRGB(25, 25, 25)
+
+sideBar.Name = "sideBar"
+sideBar.Parent = mainFrame
+sideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sideBar.BackgroundTransparency = 1.000
+sideBar.Position = UDim2.new(0, 0, 0.128571436, 0)
+sideBar.Size = UDim2.new(0, 223, 0, 320)
+sideBar.ZIndex = 8
+
+UIListLayout.Parent = sideBar
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+Character.Name = "Character"
+Character.Parent = sideBar
+Character.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Character.BackgroundTransparency = 1.000
+Character.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel.Name = "tabLabel"
+tabLabel.Parent = Character
+tabLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel.BackgroundTransparency = 1.000
+tabLabel.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel.Size = UDim2.new(0, 154, 0, 33)
+tabLabel.ZIndex = 4
+tabLabel.Font = Enum.Font.ArialBold
+tabLabel.Text = "Character"
+tabLabel.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel.TextScaled = true
+tabLabel.TextSize = 14.000
+tabLabel.TextWrapped = true
+tabLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar.Name = "bottomBar"
+bottomBar.Parent = Character
+bottomBar.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar.BorderSizePixel = 0
+bottomBar.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar.Size = UDim2.new(0, 21, 0, 1)
+bottomBar.Visible = false
+bottomBar.ZIndex = 15
+
+topBar_2.Name = "topBar"
+topBar_2.Parent = Character
+topBar_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_2.BorderSizePixel = 0
+topBar_2.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_2.Size = UDim2.new(0, 21, 0, 1)
+topBar_2.Visible = false
+topBar_2.ZIndex = 15
+
+clickBtn.Name = "clickBtn"
+clickBtn.Parent = Character
+clickBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn.BackgroundTransparency = 1.000
+clickBtn.Size = UDim2.new(1, 0, 1, 0)
+clickBtn.ZIndex = 31
+clickBtn.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn.ImageTransparency = 1.000
+
+tabIcon.Name = "tabIcon"
+tabIcon.Parent = Character
+tabIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon.BackgroundTransparency = 1.000
+tabIcon.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon.Size = UDim2.new(0, 31, 0, 31)
+tabIcon.ZIndex = 30
+tabIcon.Image = "rbxassetid://7065829526"
+tabIcon.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+Game.Name = "Game"
+Game.Parent = sideBar
+Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Game.BackgroundTransparency = 1.000
+Game.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_2.Name = "tabLabel"
+tabLabel_2.Parent = Game
+tabLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_2.BackgroundTransparency = 1.000
+tabLabel_2.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_2.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_2.ZIndex = 4
+tabLabel_2.Font = Enum.Font.ArialBold
+tabLabel_2.Text = "Game"
+tabLabel_2.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_2.TextScaled = true
+tabLabel_2.TextSize = 14.000
+tabLabel_2.TextWrapped = true
+tabLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_2.Name = "bottomBar"
+bottomBar_2.Parent = Game
+bottomBar_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_2.BorderSizePixel = 0
+bottomBar_2.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_2.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_2.Visible = false
+bottomBar_2.ZIndex = 15
+
+topBar_3.Name = "topBar"
+topBar_3.Parent = Game
+topBar_3.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_3.BorderSizePixel = 0
+topBar_3.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_3.Size = UDim2.new(0, 21, 0, 1)
+topBar_3.Visible = false
+topBar_3.ZIndex = 15
+
+clickBtn_2.Name = "clickBtn"
+clickBtn_2.Parent = Game
+clickBtn_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_2.BackgroundTransparency = 1.000
+clickBtn_2.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_2.ZIndex = 31
+clickBtn_2.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_2.ImageTransparency = 1.000
+
+tabIcon_2.Name = "tabIcon"
+tabIcon_2.Parent = Game
+tabIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_2.BackgroundTransparency = 1.000
+tabIcon_2.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_2.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_2.ZIndex = 30
+tabIcon_2.Image = "rbxassetid://2914903943"
+tabIcon_2.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+GuiHub.Name = "Gui Hub"
+GuiHub.Parent = sideBar
+GuiHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuiHub.BackgroundTransparency = 1.000
+GuiHub.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_3.Name = "tabLabel"
+tabLabel_3.Parent = GuiHub
+tabLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_3.BackgroundTransparency = 1.000
+tabLabel_3.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_3.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_3.ZIndex = 4
+tabLabel_3.Font = Enum.Font.ArialBold
+tabLabel_3.Text = "Gui Hub"
+tabLabel_3.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_3.TextScaled = true
+tabLabel_3.TextSize = 14.000
+tabLabel_3.TextWrapped = true
+tabLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_3.Name = "bottomBar"
+bottomBar_3.Parent = GuiHub
+bottomBar_3.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_3.BorderSizePixel = 0
+bottomBar_3.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_3.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_3.Visible = false
+bottomBar_3.ZIndex = 15
+
+topBar_4.Name = "topBar"
+topBar_4.Parent = GuiHub
+topBar_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_4.BorderSizePixel = 0
+topBar_4.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_4.Size = UDim2.new(0, 21, 0, 1)
+topBar_4.Visible = false
+topBar_4.ZIndex = 15
+
+clickBtn_3.Name = "clickBtn"
+clickBtn_3.Parent = GuiHub
+clickBtn_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_3.BackgroundTransparency = 1.000
+clickBtn_3.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_3.ZIndex = 31
+clickBtn_3.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_3.ImageTransparency = 1.000
+
+tabIcon_3.Name = "tabIcon"
+tabIcon_3.Parent = GuiHub
+tabIcon_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_3.BackgroundTransparency = 1.000
+tabIcon_3.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_3.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_3.ZIndex = 30
+tabIcon_3.Image = "rbxassetid://7065886994"
+tabIcon_3.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+Players.Name = "Players"
+Players.Parent = sideBar
+Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Players.BackgroundTransparency = 1.000
+Players.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_4.Name = "tabLabel"
+tabLabel_4.Parent = Players
+tabLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_4.BackgroundTransparency = 1.000
+tabLabel_4.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_4.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_4.ZIndex = 4
+tabLabel_4.Font = Enum.Font.ArialBold
+tabLabel_4.Text = "Players"
+tabLabel_4.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_4.TextScaled = true
+tabLabel_4.TextSize = 14.000
+tabLabel_4.TextWrapped = true
+tabLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_4.Name = "bottomBar"
+bottomBar_4.Parent = Players
+bottomBar_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_4.BorderSizePixel = 0
+bottomBar_4.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_4.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_4.Visible = false
+bottomBar_4.ZIndex = 15
+
+topBar_5.Name = "topBar"
+topBar_5.Parent = Players
+topBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_5.BorderSizePixel = 0
+topBar_5.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_5.Size = UDim2.new(0, 21, 0, 1)
+topBar_5.Visible = false
+topBar_5.ZIndex = 15
+
+clickBtn_4.Name = "clickBtn"
+clickBtn_4.Parent = Players
+clickBtn_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_4.BackgroundTransparency = 1.000
+clickBtn_4.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_4.ZIndex = 31
+clickBtn_4.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_4.ImageTransparency = 1.000
+
+tabIcon_4.Name = "tabIcon"
+tabIcon_4.Parent = Players
+tabIcon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_4.BackgroundTransparency = 1.000
+tabIcon_4.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_4.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_4.ZIndex = 30
+tabIcon_4.Image = "rbxassetid://7066292454"
+tabIcon_4.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+ScriptHub.Name = "Script Hub"
+ScriptHub.Parent = sideBar
+ScriptHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScriptHub.BackgroundTransparency = 1.000
+ScriptHub.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_5.Name = "tabLabel"
+tabLabel_5.Parent = ScriptHub
+tabLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_5.BackgroundTransparency = 1.000
+tabLabel_5.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_5.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_5.ZIndex = 4
+tabLabel_5.Font = Enum.Font.ArialBold
+tabLabel_5.Text = "Script Hub"
+tabLabel_5.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_5.TextScaled = true
+tabLabel_5.TextSize = 14.000
+tabLabel_5.TextWrapped = true
+tabLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_5.Name = "bottomBar"
+bottomBar_5.Parent = ScriptHub
+bottomBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_5.BorderSizePixel = 0
+bottomBar_5.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_5.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_5.Visible = false
+bottomBar_5.ZIndex = 15
+
+topBar_6.Name = "topBar"
+topBar_6.Parent = ScriptHub
+topBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_6.BorderSizePixel = 0
+topBar_6.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_6.Size = UDim2.new(0, 21, 0, 1)
+topBar_6.Visible = false
+topBar_6.ZIndex = 15
+
+clickBtn_5.Name = "clickBtn"
+clickBtn_5.Parent = ScriptHub
+clickBtn_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_5.BackgroundTransparency = 1.000
+clickBtn_5.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_5.ZIndex = 31
+clickBtn_5.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_5.ImageTransparency = 1.000
+
+tabIcon_5.Name = "tabIcon"
+tabIcon_5.Parent = ScriptHub
+tabIcon_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_5.BackgroundTransparency = 1.000
+tabIcon_5.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_5.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_5.ZIndex = 30
+tabIcon_5.Image = "rbxassetid://7065899549"
+tabIcon_5.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+Statistics.Name = "Statistics"
+Statistics.Parent = sideBar
+Statistics.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Statistics.BackgroundTransparency = 1.000
+Statistics.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_6.Name = "tabLabel"
+tabLabel_6.Parent = Statistics
+tabLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_6.BackgroundTransparency = 1.000
+tabLabel_6.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_6.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_6.ZIndex = 4
+tabLabel_6.Font = Enum.Font.ArialBold
+tabLabel_6.Text = "Statistics"
+tabLabel_6.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_6.TextScaled = true
+tabLabel_6.TextSize = 14.000
+tabLabel_6.TextWrapped = true
+tabLabel_6.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_6.Name = "bottomBar"
+bottomBar_6.Parent = Statistics
+bottomBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_6.BorderSizePixel = 0
+bottomBar_6.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_6.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_6.Visible = false
+bottomBar_6.ZIndex = 15
+
+topBar_7.Name = "topBar"
+topBar_7.Parent = Statistics
+topBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_7.BorderSizePixel = 0
+topBar_7.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_7.Size = UDim2.new(0, 21, 0, 1)
+topBar_7.Visible = false
+topBar_7.ZIndex = 15
+
+clickBtn_6.Name = "clickBtn"
+clickBtn_6.Parent = Statistics
+clickBtn_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_6.BackgroundTransparency = 1.000
+clickBtn_6.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_6.ZIndex = 31
+clickBtn_6.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_6.ImageTransparency = 1.000
+
+tabIcon_6.Name = "tabIcon"
+tabIcon_6.Parent = Statistics
+tabIcon_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_6.BackgroundTransparency = 1.000
+tabIcon_6.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_6.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_6.ZIndex = 30
+tabIcon_6.Image = "rbxassetid://7066206066"
+tabIcon_6.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+ToolConfig.Name = "Tool Config"
+ToolConfig.Parent = sideBar
+ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToolConfig.BackgroundTransparency = 1.000
+ToolConfig.Size = UDim2.new(0, 195, 0, 43)
+
+tabLabel_7.Name = "tabLabel"
+tabLabel_7.Parent = ToolConfig
+tabLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabLabel_7.BackgroundTransparency = 1.000
+tabLabel_7.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
+tabLabel_7.Size = UDim2.new(0, 154, 0, 33)
+tabLabel_7.ZIndex = 4
+tabLabel_7.Font = Enum.Font.ArialBold
+tabLabel_7.Text = "Tool Config"
+tabLabel_7.TextColor3 = Color3.fromRGB(100, 100, 100)
+tabLabel_7.TextScaled = true
+tabLabel_7.TextSize = 14.000
+tabLabel_7.TextWrapped = true
+tabLabel_7.TextXAlignment = Enum.TextXAlignment.Left
+
+bottomBar_7.Name = "bottomBar"
+bottomBar_7.Parent = ToolConfig
+bottomBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+bottomBar_7.BorderSizePixel = 0
+bottomBar_7.Position = UDim2.new(0.5, 0, 1, 0)
+bottomBar_7.Size = UDim2.new(0, 21, 0, 1)
+bottomBar_7.Visible = false
+bottomBar_7.ZIndex = 15
+
+topBar_8.Name = "topBar"
+topBar_8.Parent = ToolConfig
+topBar_8.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+topBar_8.BorderSizePixel = 0
+topBar_8.Position = UDim2.new(0.5, 0, 0, 0)
+topBar_8.Size = UDim2.new(0, 21, 0, 1)
+topBar_8.Visible = false
+topBar_8.ZIndex = 15
+
+clickBtn_7.Name = "clickBtn"
+clickBtn_7.Parent = ToolConfig
+clickBtn_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clickBtn_7.BackgroundTransparency = 1.000
+clickBtn_7.Size = UDim2.new(1, 0, 1, 0)
+clickBtn_7.ZIndex = 31
+clickBtn_7.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+clickBtn_7.ImageTransparency = 1.000
+
+tabIcon_7.Name = "tabIcon"
+tabIcon_7.Parent = ToolConfig
+tabIcon_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabIcon_7.BackgroundTransparency = 1.000
+tabIcon_7.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
+tabIcon_7.Size = UDim2.new(0, 31, 0, 31)
+tabIcon_7.ZIndex = 30
+tabIcon_7.Image = "rbxassetid://560667850"
+tabIcon_7.ImageColor3 = Color3.fromRGB(100, 100, 100)
+
+tabHolder.Name = "tabHolder"
+tabHolder.Parent = mainFrame
+tabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabHolder.BackgroundTransparency = 1.000
+tabHolder.Position = UDim2.new(0.309523821, 0, 0.189610392, 0)
+tabHolder.Size = UDim2.new(0, 492, 0, 311)
+tabHolder.ZIndex = 25
+
+Sample.Name = "Sample"
+Sample.Parent = mainFrame
+Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sample.BackgroundTransparency = 1.000
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Sample.ImageTransparency = 0.600
+
+-- Scripts:
+
+local function SVGOK_fake_script() -- mainFrame.SmoothDrag 
+	local script = Instance.new('LocalScript', mainFrame)
+
 	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-	local Dragging = false
-
-	local Player = game.Players.LocalPlayer
-	local Character = Player.Character
-
-	local MaxValue = 250
-	local MinValue = 16
-
-	local currentSlideValue = Instance.new("IntValue")
-	currentSlideValue.Value = 16
-	currentSlideValue.Parent = Slider
-
-	local function Update_WS()
-		local Character = Player.Character
-		if Dragging == true then
-			local MousePos = UserInputService:GetMouseLocation()
-			local MinPoint = (Slider.AbsolutePosition.X)
-			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
-
-			if MousePos.X < MinPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
-			elseif MousePos.X > MaxPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
-			else
-				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
-			end
-
-			wait(0.1)
-
-			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-			Slider.Value.Value = Percent
-
-			if math.floor(Slider.Value.Value) < MinValue then
-				Slider.Value.Value = MinValue
-			elseif math.floor(Slider.Value.Value) > MaxValue then
-				Slider.Value.Value = MaxValue
-			end
-
-
-			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-			Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
-
-			Character.Humanoid.WalkSpeed = Slider.Value.Value
+	local SmoothDragToggle
+	local SmoothDragInput
+	local SmoothDragStart
+	local SmoothDragSpeed = 0.3
+	function SmoothDrag(Frame)
+		local function UpdateSmoothDragInput(Input)
+			local Delta = Input.Position - SmoothDragStart
+			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(SmoothDragSpeed), {Position = Position}):Play()
 		end
-	end
-
-	Slider.MouseEnter:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
-		end
-	end)
-
-	Slider.MouseLeave:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-		end	
-	end)
-
-	Slider.MouseButton1Down:Connect(function()
-		Dragging = true
-		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
-		Update_WS()
-	end)
-
-	UserInputService.InputEnded:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Dragging = false
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(Update_WS)
-
-	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-	Slider.Value.Value = Percent
-
-	if math.floor(Slider.Value.Value) < MinValue then
-		Slider.Value.Value = MinValue
-	elseif math.floor(Slider.Value.Value) > MaxValue then
-		Slider.Value.Value = MaxValue
-	end
-
-	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-	Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
-
-
---CharacterTab>JumpHeightSlider
-	local Slider = characterTab['2_jumpheightSlider'].Slider
-	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-	local Dragging = false
-
-	local Player = game.Players.LocalPlayer
-	local Character = Player.Character
-
-	local MaxValue = 500
-	local MinValue = 50
-
-	local currentSlideValue = Instance.new("IntValue")
-	currentSlideValue.Value = 50
-	currentSlideValue.Parent = Slider
-
-	local function Update_JH()
-		local Character = Player.Character
-		if Dragging == true then
-			local MousePos = UserInputService:GetMouseLocation()
-			local MinPoint = (Slider.AbsolutePosition.X)
-			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
-
-			if MousePos.X < MinPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
-			elseif MousePos.X > MaxPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
-			else
-				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
-			end
-
-			wait(0.1)
-
-			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-			Slider.Value.Value = Percent
-
-			if math.floor(Slider.Value.Value) < MinValue then
-				Slider.Value.Value = MinValue
-			elseif math.floor(Slider.Value.Value) > MaxValue then
-				Slider.Value.Value = MaxValue
-			end
-
-
-			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-			Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
-
-			Character.Humanoid.JumpPower = Slider.Value.Value
-		end
-	end
-
-	Slider.MouseEnter:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
-		end
-	end)
-
-	Slider.MouseLeave:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-		end	
-	end)
-
-	Slider.MouseButton1Down:Connect(function()
-		Dragging = true
-		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
-		Update_JH()
-	end)
-
-	UserInputService.InputEnded:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Dragging = false
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(Update_JH)
-
-	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-	Slider.Value.Value = Percent
-
-	if math.floor(Slider.Value.Value) < MinValue then
-		Slider.Value.Value = MinValue
-	elseif math.floor(Slider.Value.Value) > MaxValue then
-		Slider.Value.Value = MaxValue
-	end
-
-	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-	Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
-
-
---CharacterTab>Fly
-	speedget = 1
-	speedfly = 1
-	flying = false
-	flyToggle_checkboxToggled = false
-
-	local flySpeedValue = Instance.new('NumberValue')
-	flySpeedValue.Parent = characterTab['3_flyToggle']
-	flySpeedValue.Name = 'FlySpeed'
-	flySpeedValue.Value = 1
-
-	flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
-		speedfly = flySpeedValue.Value
-	end)
-
-	characterTab['3_flyToggle'].checkBox.checkedBox.MouseButton1Click:Connect(function()
-		if flyToggle_checkboxToggled == false 
-		then flyToggle_checkboxToggled = true 
-			checkboxHandler(characterTab['3_flyToggle'].checkBox.checkedBox, true)
-		else flyToggle_checkboxToggled = false 
-			checkboxHandler(characterTab['3_flyToggle'].checkBox.checkedBox, false)
-			flying = false
-
-			localPlr.Character.Humanoid.PlatformStand = false
-		end
-		plrMouse.KeyDown:Connect(function(k)
-			if k == "x" then
-				if flyToggle_checkboxToggled == true then
-					if flying == false then
-						flying = true 
-						repeat wait() until localPlr and localPlr.Character and localPlr.Character:FindFirstChild('HumanoidRootPart') and localPlr.Character:FindFirstChild('Humanoid')
-						repeat wait() until plrMouse
-
-						local T = localPlr.Character.HumanoidRootPart
-						local CONTROL = {F = 0, B = 0, L = 0, R = 0}
-						local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-						local SPEED = speedget
-
-						local function fly()
-							local BG = Instance.new('BodyGyro', T)
-							local BV = Instance.new('BodyVelocity', T)
-							BG.P = 9e4
-							BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-							BG.cframe = T.CFrame
-							BV.velocity = Vector3.new(0, 0.1, 0)
-							BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
-							spawn(function()
-								repeat wait()
-									localPlr.Character.Humanoid.PlatformStand = true
-									if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-										SPEED = 50
-									elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-										SPEED = 0
-									end
-									if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-										BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-										lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-									elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-										BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-									else
-										BV.velocity = Vector3.new(0, 0.1, 0)
-									end
-									BG.cframe = workspace.CurrentCamera.CoordinateFrame
-								until not flying
-								CONTROL = {F = 0, B = 0, L = 0, R = 0}
-								lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-								SPEED = 0
-								BG:destroy()
-								BV:destroy()
-								localPlr.Character.Humanoid.PlatformStand = false
-							end)
-						end
-						plrMouse.KeyDown:connect(function(KEY)
-							if KEY:lower() == 'w' then
-								CONTROL.F = speedfly
-							elseif KEY:lower() == 's' then
-								CONTROL.B = -speedfly
-							elseif KEY:lower() == 'a' then
-								CONTROL.L = -speedfly 
-							elseif KEY:lower() == 'd' then 
-								CONTROL.R = speedfly
-							end
-						end)
-						plrMouse.KeyUp:connect(function(KEY)
-							if KEY:lower() == 'w' then
-								CONTROL.F = 0
-							elseif KEY:lower() == 's' then
-								CONTROL.B = 0
-							elseif KEY:lower() == 'a' then
-								CONTROL.L = 0
-							elseif KEY:lower() == 'd' then
-								CONTROL.R = 0
-							end
-						end)
-						fly()
-					else
-						flying = false
-
-						localPlr.Character.Humanoid.PlatformStand = false
-					end
-
-				end
-			end
-		end)
-	end)
-
-	local Slider = characterTab['3_flyToggle'].Slider
-	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-	local Dragging = false
-
-	local Player = game.Players.LocalPlayer
-	local Character = Player.Character
-
-	local MaxValue = 25
-	local MinValue = 1
-
-	local currentSlideValue = Instance.new("IntValue")
-	currentSlideValue.Value = 1
-	currentSlideValue.Parent = Slider
-
-	local function Update_FLYSPD()
-		local Character = Player.Character
-		if Dragging == true then
-			local MousePos = UserInputService:GetMouseLocation()
-			local MinPoint = (Slider.AbsolutePosition.X)
-			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
-
-			if MousePos.X < MinPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
-			elseif MousePos.X > MaxPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
-			else
-				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
-			end
-
-			wait(0.1)
-
-			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-			Slider.Value.Value = Percent
-
-			if math.floor(Slider.Value.Value) < MinValue then
-				Slider.Value.Value = MinValue
-			elseif math.floor(Slider.Value.Value) > MaxValue then
-				Slider.Value.Value = MaxValue
-			end
-
-
-			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-
-
-			local flySpeedValue = characterTab['3_flyToggle']:WaitForChild('FlySpeed')
-			flySpeedValue.Value = Slider.Value.Value
-		end
-	end
-
-	Slider.MouseEnter:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
-		end
-	end)
-
-	Slider.MouseLeave:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-		end	
-	end)
-
-	Slider.MouseButton1Down:Connect(function()
-		Dragging = true
-		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
-		Update_FLYSPD()
-	end)
-
-	UserInputService.InputEnded:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Dragging = false
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(Update_FLYSPD)
-
-	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-
-
-	if math.floor(Slider.Value.Value) < MinValue then
-		Slider.Value.Value = MinValue
-	elseif math.floor(Slider.Value.Value) > MaxValue then
-		Slider.Value.Value = MaxValue
-	end
-
-	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-
-
---CharacterTab>VehicleOptions
-
-	local vNoclipping = nil
-	local currentlyVNC = false
-
-	function activateRegularNC()
-		Clip = false
-		wait(0.1)
-		local function NoclipLoop()
-			if Clip == false and localPlr.Character ~= nil then
-				for _, child in pairs(localPlr.Character:GetDescendants()) do
-					if child:IsA("BasePart") and child.CanCollide == true then
-						child.CanCollide = false
-					end
-				end
-			end
-		end
-		vNoclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
-	end
-
-	vnoclipParts = {}
-
-	function activateVehicleNC()
-		vnoclipParts = {}
-		local seat = localPlr.Character.Humanoid.SeatPart
-		local vehicleModel = seat.Parent
-		repeat
-			if vehicleModel.ClassName ~= "Model" then
-				vehicleModel = vehicleModel.Parent
-			end
-		until vehicleModel.ClassName == "Model"
-		wait(0.1)
-		activateRegularNC()
-		for i,v in pairs(vehicleModel:GetDescendants()) do
-			if v:IsA("BasePart") and v.CanCollide then
-				table.insert(vnoclipParts,v)
-				v.CanCollide = false
-			end
-		end
-	end
-
-	function disableRegularNC()
-		if vNoclipping then
-			vNoclipping:Disconnect()
-		end
-		Clip = true
-	end
-
-	function disableVehicleNC()
-		disableRegularNC()
-		for i,v in pairs(vnoclipParts) do
-			v.CanCollide = true
-		end
-		vnoclipParts = {}
-	end
-
-	characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox.MouseButton1Click:Connect(function()
-		if currentlyVNC == false 
-		then currentlyVNC = true 
-			checkboxHandler(characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox, true)
-			activateVehicleNC()
-		else currentlyVNC = false 
-			checkboxHandler(characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox, false)
-			disableVehicleNC()
-		end
-	end)
-
-
-	vFLYING = false
-	vFLYING_toggle = false
-	QEfly = true
-	vehicleflyspeed = 1
-
-	local flySpeedValue = Instance.new('NumberValue')
-	flySpeedValue.Parent = characterTab['3_vehicleOptions']
-	flySpeedValue.Name = 'vFlySpeed'
-	flySpeedValue.Value = 1
-
-	flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
-		vehicleflyspeed = flySpeedValue.Value
-	end)
-
-	function sFLY(vfly)
-
-		if vFLYING_toggle == true then
-
-			repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChild('Humanoid')
-			repeat wait() until plrMouse
-			if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
-
-			local T = getRoot(Players.LocalPlayer.Character)
-			local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
-			local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
-			local SPEED = 0
-
-			local function FLY()
-				vFLYING = true
-				local BG = Instance.new('BodyGyro')
-				local BV = Instance.new('BodyVelocity')
-				BG.P = 9e4
-				BG.Parent = T
-				BV.Parent = T
-				BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-				BG.cframe = T.CFrame
-				BV.velocity = Vector3.new(0, 0, 0)
-				BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
-				spawn(function()
-					repeat wait()
-						if not vfly and Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
-							Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
-						end
-						if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
-							SPEED = 50
-						elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0) and SPEED ~= 0 then
-							SPEED = 0
-						end
-						if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 or (CONTROL.Q + CONTROL.E) ~= 0 then
-							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-							lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-						elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and (CONTROL.Q + CONTROL.E) == 0 and SPEED ~= 0 then
-							BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-						else
-							BV.velocity = Vector3.new(0, 0, 0)
-						end
-						BG.cframe = workspace.CurrentCamera.CoordinateFrame
-					until not vFLYING
-					CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
-					lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
-					SPEED = 0
-					BG:Destroy()
-					BV:Destroy()
-					if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
-						Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+		Frame.InputBegan:Connect(function(Input)
+			if (Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch) and UserInputService:GetFocusedTextBox() == nil then
+				SmoothDragToggle = true
+				SmoothDragStart = Input.Position
+				startPos = Frame.Position
+				Input.Changed:Connect(function()
+					if Input.UserInputState == Enum.UserInputState.End then
+						SmoothDragToggle = false
 					end
 				end)
 			end
-			flyKeyDown = plrMouse.KeyDown:Connect(function(KEY)
-				if KEY:lower() == 'w' then
-					CONTROL.F = (vfly and vehicleflyspeed)
-				elseif KEY:lower() == 's' then
-					CONTROL.B = - (vfly and vehicleflyspeed)
-				elseif KEY:lower() == 'a' then
-					CONTROL.L = - (vfly and vehicleflyspeed)
-				elseif KEY:lower() == 'd' then 
-					CONTROL.R = (vfly and vehicleflyspeed)
-				elseif QEfly and KEY:lower() == 'e' then
-					CONTROL.Q = (vfly and vehicleflyspeed)*2
-				elseif QEfly and KEY:lower() == 'q' then
-					CONTROL.E = -(vfly and vehicleflyspeed)*2
-				end
-				pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
-			end)
-			flyKeyUp = plrMouse.KeyUp:Connect(function(KEY)
-				if KEY:lower() == 'w' then
-					CONTROL.F = 0
-				elseif KEY:lower() == 's' then
-					CONTROL.B = 0
-				elseif KEY:lower() == 'a' then
-					CONTROL.L = 0
-				elseif KEY:lower() == 'd' then
-					CONTROL.R = 0
-				elseif KEY:lower() == 'e' then
-					CONTROL.Q = 0
-				elseif KEY:lower() == 'q' then
-					CONTROL.E = 0
-				end
-			end)
-			FLY()
-		end
-
-
-	end
-
-	function NOFLY()
-		vFLYING = false
-		if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
-		if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
-			Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
-		end
-		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
-	end
-
-	characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox.MouseButton1Click:Connect(function()
-		if vFLYING_toggle == false 
-		then vFLYING_toggle = true 
-			checkboxHandler(characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox, true)
-			sFLY(true)
-		else vFLYING_toggle = false 
-			checkboxHandler(characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox, false)
-			NOFLY()
-		end
-	end)
-
-	local Slider = characterTab['3_vehicleOptions'].Slider
-	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-	local Dragging = false
-
-	local Player = game.Players.LocalPlayer
-	local Character = Player.Character
-
-	local MaxValue = 25
-	local MinValue = 1
-
-	local currentSlideValue = Instance.new("IntValue")
-	currentSlideValue.Value = 1
-	currentSlideValue.Parent = Slider
-
-	local function Update_VFLYSPD()
-		local Character = Player.Character
-		if Dragging == true then
-			local MousePos = UserInputService:GetMouseLocation()
-			local MinPoint = (Slider.AbsolutePosition.X)
-			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
-
-			if MousePos.X < MinPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
-			elseif MousePos.X > MaxPoint then
-				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
-			else
-				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+		end)
+		Frame.InputChanged:Connect(function(Input)
+			if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
+				SmoothDragInput = Input
 			end
-
-			wait(0.1)
-
-			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-			Slider.Value.Value = Percent
-
-			if math.floor(Slider.Value.Value) < MinValue then
-				Slider.Value.Value = MinValue
-			elseif math.floor(Slider.Value.Value) > MaxValue then
-				Slider.Value.Value = MaxValue
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(Input)
+			if Input == SmoothDragInput and SmoothDragToggle then
+				UpdateSmoothDragInput(Input)
 			end
+		end)
+	end
+	SmoothDrag(script.Parent)
+end
+coroutine.wrap(SVGOK_fake_script)()
+local function YNMOQ_fake_script() -- duckGif.gifHandler 
+	local script = Instance.new('LocalScript', duckGif)
 
-
-			Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-
-
-			local flySpeedValue = characterTab['3_vehicleOptions']:WaitForChild('vFlySpeed')
-			flySpeedValue.Value = Slider.Value.Value
+	
+	local frames = {'7198731897', 
+		'7198731990', 
+		'7198732069', 
+		'7198732159', 
+		'7198732250', 
+		'7198732331', 
+		'7198732410', 
+		'7198732500', 
+		'7198732572', 
+		'7198735882', 
+		--'7198735956', deleted
+		'7198736019', 
+		'7198736240', 
+		'7198736324', 
+		'7198736422', 
+		'7198736509', 
+		--'7198736630', deleted 
+		'7198736699', 
+		'7198736793', 
+		'7198739924', 
+		'7198740440', 
+		'7198740499', 
+		'7198740580', 
+		'7198740666',
+		'7198741929', 
+		'7198742024', 
+		'7198742114', 
+		'7198742208'} 
+	
+	local gifDelay = .04
+	
+	
+	while true do 
+		for _, frame in pairs(frames) do
+			--script.Parent.Visible = true
+			wait(gifDelay)
+			script.Parent.Image = 'http://www.roblox.com/asset/?id=' .. frame
 		end
 	end
+end
+coroutine.wrap(YNMOQ_fake_script)()
+local function IFJGT_fake_script() -- rgbBar.rgb 
+	local script = Instance.new('LocalScript', rgbBar)
 
-	Slider.MouseEnter:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+	-- Made By Auradomix --
+	-- Visit My Channel On YT and Twitch = @Auradomix
+	
+	-- PUT "RGB_GUI" ON STARTERGUI
+	-- PUT THIS ON ANY FRAME OR BUTTON OR BOX OR ...
+	-- ONLY ADAPTED FOR GUI, Please Referance To my Other Model For Brick
+	
+	-- Local Script = Client
+	-- Script = Server
+	
+	-- For more fast Server Put them as a Local Scrpit for Gui
+	
+	while wait() do
+		script.Parent.BackgroundColor3 = Color3.new(255/255,0/255,0/255)
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(255/255,i/255,0/255)
 		end
-	end)
-
-	Slider.MouseLeave:Connect(function()
-		if Dragging == false then
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-		end	
-	end)
-
-	Slider.MouseButton1Down:Connect(function()
-		Dragging = true
-		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
-		Update_VFLYSPD()
-	end)
-
-	UserInputService.InputEnded:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Dragging = false
-			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
-			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(i/255,255/255,0/255)
 		end
-	end)
-
-	UserInputService.InputChanged:Connect(Update_VFLYSPD)
-
-	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
-
-
-
-	if math.floor(Slider.Value.Value) < MinValue then
-		Slider.Value.Value = MinValue
-	elseif math.floor(Slider.Value.Value) > MaxValue then
-		Slider.Value.Value = MaxValue
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(0/255,255/255,i/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(0/255,i/255,255/255)
+		end
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(i/255,0/255,255/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BackgroundColor3 = Color3.new(255/255,0/255,i/255)
+		end
 	end
+end
+coroutine.wrap(IFJGT_fake_script)()
+local function CNIG_fake_script() -- coordinatesLabel.coordsHandler 
+	local script = Instance.new('LocalScript', coordinatesLabel)
 
-	Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
-
-
-
---CharacterTab>NoClip
-	local noclip = false
-	function noClip()
-		Clip = false
-		wait(0.1)
-		local function NoclipLoop()
-			if Clip == false and localPlr.Character ~= nil then
-				for _, child in pairs(localPlr.Character:GetDescendants()) do
-					if child:IsA("BasePart") and child.CanCollide == true then
-						child.CanCollide = false
-					end
-				end
-			end
+	local player = game.Players.LocalPlayer
+	local char = player.Character or player.CharacterAdded:Wait()
+	local box = script.Parent
+	
+	spawn(function()
+		while true do
+			wait(.5)
+			local char = player.Character or player.CharacterAdded:Wait()
+			local torso = char:WaitForChild("HumanoidRootPart")
+			box.Text = "" .. math.floor(torso.Position.x) .. "," .. math.floor(torso.Position.y) .. "," .. math.floor(torso.Position.z) .. ""
 		end
-		Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+	end)
+	
+	function leftClick()
+		syn.write_clipboard(script.coordinatesLabel.Text)
 	end
-
-	function clip()
-		if Noclipping then
-			Noclipping:Disconnect()
-		end
-		Clip = true
-	end
-
-	characterTab['4_noClip'].checkBox.checkedBox.MouseButton1Click:Connect(function()
-		if noclip == false 
-		then noclip = true 
-			checkboxHandler(characterTab['4_noClip'].checkBox.checkedBox, true)
-			noClip()
-		else noclip = false 
-			checkboxHandler(characterTab['4_noClip'].checkBox.checkedBox, false)
-			clip()
-		end
-	end)
-
-
---CharacterTab>ClickTP
-
-	local HoldingControl = false
-	local clickTpEnabled = false
-
-	plrMouse.Button1Down:connect(function()
-		if HoldingControl and clickTpEnabled then
-			Player.Character:MoveTo(plrMouse.Hit.p)
-		end
-	end)
-
-	UserInputService.InputBegan:connect(function(Input, Processed)
-		if Input.UserInputType == Enum.UserInputType.Keyboard then
-			if Input.KeyCode == Enum.KeyCode.LeftControl then
-				HoldingControl = true
-			elseif Input.KeyCode == Enum.KeyCode.RightControl then
-				HoldingControl = true 
-			end
-		end
-	end)
-
-	UserInputService.InputEnded:connect(function(Input, Processed)
-		if Input.UserInputType == Enum.UserInputType.Keyboard then
-			if Input.KeyCode == Enum.KeyCode.LeftControl then
-				HoldingControl = false
-			elseif Input.KeyCode == Enum.KeyCode.RightControl then
-				HoldingControl = false
-			end
-		end
-	end)
-
-	characterTab['5_clickTeleport'].checkBox.checkedBox.MouseButton1Click:Connect(function()
-		if clickTpEnabled == false 
-		then clickTpEnabled = true 
-			checkboxHandler(characterTab['5_clickTeleport'].checkBox.checkedBox, true)
-		else clickTpEnabled = false 
-			checkboxHandler(characterTab['5_clickTeleport'].checkBox.checkedBox, false)
-		end
-	end)
-
-
---CharacterTab>InfiniteJump
-	infiniteJumpEnabled = false
-	plrMouse.KeyDown:connect(function(k)
-		if infiniteJumpEnabled then
-			if k:byte() == 32 then
-				local Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-				Humanoid:ChangeState("Jumping")
-				wait(0.1)
-				Humanoid:ChangeState("Seated")
-			end
-		end
-	end)
-	characterTab['6_infiniteJump'].checkBox.checkedBox.MouseButton1Click:Connect(function()
-		if infiniteJumpEnabled == false 
-		then infiniteJumpEnabled = true 
-			checkboxHandler(characterTab['6_infiniteJump'].checkBox.checkedBox, true)
-		else infiniteJumpEnabled = false 
-			checkboxHandler(characterTab['6_infiniteJump'].checkBox.checkedBox, false)
-		end
-	end)
-
-
---CharacterTab>FishOutaWatuh
-	local currentlySwimming = false
-	function startSwim()
-		workspace.Gravity = 0
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
-		localPlr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-	end
-
-
-	function endSwim()
-		workspace.Gravity = 198.2
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
-		localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
-		localPlr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
-	end
-
-	characterTab['7_swimInAir'].checkBox.checkedBox.MouseButton1Click:Connect(function()
-		if currentlySwimming == false 
-		then currentlySwimming = true 
-			checkboxHandler(characterTab['7_swimInAir'].checkBox.checkedBox, true)
-			startSwim()
-		else currentlySwimming = false 
-			checkboxHandler(characterTab['7_swimInAir'].checkBox.checkedBox, false)
-			endSwim()
-		end
-	end)
-
-
-
---CharacterTab>RandomSettings
-	characterTab['99_randomSettings'].noFaceBtnBackground.noFaceBtnMain.MouseButton1Click:Connect(function()
-		for i,v in pairs(localPlr.Character:GetDescendants()) do
-			if v:IsA("Decal") and v.Name == 'face' then
-				v:Destroy()
-			end
-		end
-		rippleEffect(characterTab['99_randomSettings'].noFaceBtnBackground)
-	end)
-
-	characterTab['99_randomSettings'].squareHatBtnBackground.squareHatBtnMain.MouseButton1Click:Connect(function()
-		for _,v in pairs(Player.Character.Humanoid:GetAccessories()) do
-			for i,c in pairs(v:GetDescendants()) do
-				if c:IsA("SpecialMesh") then
-					c:Destroy()
-				end
-			end
-		end
-		rippleEffect(characterTab['99_randomSettings'].squareHatBtnBackground)
-	end)
-
-	characterTab['99_randomSettings'].squareHeadBtnBackground.squareHeadBtnMain.MouseButton1Click:Connect(function()
-		Player.Character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
-		rippleEffect(characterTab['99_randomSettings'].squareHeadBtnBackground)
-	end)	
-
-
-
-
-
-
---GameTab>
+	
+	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
+end
+coroutine.wrap(CNIG_fake_script)()
