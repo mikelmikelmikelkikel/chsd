@@ -1360,7 +1360,7 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 	
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
-			local victimChar = game:GetSercvice('PLayers')[instance.Parent.Parent.Parent.Name].Character
+			local victimChar = game:GetService('Players')[instance.Parent.Parent.Parent.Name].Character
 			if victimChar ~= nil then
 				victimChar.HumanoidRootPart.Anchored = true
 				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
