@@ -38,7 +38,7 @@ function getRoot(char)
 	return rootPart
 end
 
-local sample = mainFrame.Parent:WaitForChild('Sample')
+local sample = mainFrame:WaitForChild('Sample')
 function rippleEffect(btn)
 	local c = sample:Clone()
 	c.Parent = btn
@@ -57,6 +57,18 @@ function rippleEffect(btn)
 	end
 	c:Destroy()
 end
+
+function respawn(plr)
+	local char = plr.Character
+	if char:FindFirstChildOfClass("Humanoid") then char:FindFirstChildOfClass("Humanoid"):ChangeState(15) end
+	char:ClearAllChildren()
+	local newChar = Instance.new("Model")
+	newChar.Parent = workspace
+	plr.Character = newChar
+	wait()
+	plr.Character = char
+	newChar:Destroy()
+end
 --
 
 
@@ -65,6 +77,7 @@ end
 --Top Bar Scripts
 function startup()
 	topBar.welcomeLabel.Text = 'Welcome, ' .. localPlr.Name
+	topBar.welcomeLabel.Visible = true
 	local fadeInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
 	local fadeGoals = {TextTransparency = 1}
 	local fadeTween = tweenService:Create(topBar.welcomeLabel, fadeInfo, fadeGoals)
@@ -83,6 +96,18 @@ topBar.minimizeBtn.MouseButton1Click:Connect(function()
 	local goals = {Position = UDim2.new(0, 0,0.952, 0)}
 	local minimizeTween = tweenService:Create(mainFrame, info, goals)
 	minimizeTween:Play()
+end)
+
+topBar.refreshBtn.MouseButton1Click:Connect(function()
+	local refreshCmd = true
+	local Human = localPlr.Character and localPlr.Character:FindFirstChildOfClass("Humanoid", true)
+	local pos = Human and Human.RootPart and Human.RootPart.CFrame
+	local pos1 = workspace.CurrentCamera.CFrame
+	respawn(localPlr)
+	spawn(function()
+		localPlr.CharacterAdded:Wait():WaitForChild("Humanoid").RootPart.CFrame, workspace.CurrentCamera.CFrame = pos, wait() and pos1
+		refreshCmd = false
+	end)
 end)
 --Top Bar Scripts
 
