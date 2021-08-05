@@ -46,31 +46,32 @@ local bottomBar_3 = Instance.new("Frame")
 local topBar_4 = Instance.new("Frame")
 local clickBtn_3 = Instance.new("ImageButton")
 local tabIcon_3 = Instance.new("ImageLabel")
-local ScriptHub = Instance.new("Frame")
+local Players = Instance.new("Frame")
 local tabLabel_4 = Instance.new("TextLabel")
 local bottomBar_4 = Instance.new("Frame")
 local topBar_5 = Instance.new("Frame")
 local clickBtn_4 = Instance.new("ImageButton")
 local tabIcon_4 = Instance.new("ImageLabel")
-local ToolConfig = Instance.new("Frame")
+local ScriptHub = Instance.new("Frame")
 local tabLabel_5 = Instance.new("TextLabel")
 local bottomBar_5 = Instance.new("Frame")
 local topBar_6 = Instance.new("Frame")
 local clickBtn_5 = Instance.new("ImageButton")
 local tabIcon_5 = Instance.new("ImageLabel")
-local Players = Instance.new("Frame")
+local Statistics = Instance.new("Frame")
 local tabLabel_6 = Instance.new("TextLabel")
 local bottomBar_6 = Instance.new("Frame")
 local topBar_7 = Instance.new("Frame")
 local clickBtn_6 = Instance.new("ImageButton")
 local tabIcon_6 = Instance.new("ImageLabel")
-local Statistics = Instance.new("Frame")
+local ToolConfig = Instance.new("Frame")
 local tabLabel_7 = Instance.new("TextLabel")
 local bottomBar_7 = Instance.new("Frame")
 local topBar_8 = Instance.new("Frame")
 local clickBtn_7 = Instance.new("ImageButton")
 local tabIcon_7 = Instance.new("ImageLabel")
 local tabHolder = Instance.new("Frame")
+local Sample = Instance.new("ImageLabel")
 
 --Properties:
 
@@ -523,21 +524,21 @@ tabIcon_3.ZIndex = 30
 tabIcon_3.Image = "rbxassetid://7065886994"
 tabIcon_3.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-ScriptHub.Name = "Script Hub"
-ScriptHub.Parent = sideBar
-ScriptHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ScriptHub.BackgroundTransparency = 1.000
-ScriptHub.Size = UDim2.new(0, 195, 0, 43)
+Players.Name = "Players"
+Players.Parent = sideBar
+Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Players.BackgroundTransparency = 1.000
+Players.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_4.Name = "tabLabel"
-tabLabel_4.Parent = ScriptHub
+tabLabel_4.Parent = Players
 tabLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_4.BackgroundTransparency = 1.000
 tabLabel_4.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
 tabLabel_4.Size = UDim2.new(0, 154, 0, 33)
 tabLabel_4.ZIndex = 4
 tabLabel_4.Font = Enum.Font.ArialBold
-tabLabel_4.Text = "Script Hub"
+tabLabel_4.Text = "Players"
 tabLabel_4.TextColor3 = Color3.fromRGB(100, 100, 100)
 tabLabel_4.TextScaled = true
 tabLabel_4.TextSize = 14.000
@@ -545,7 +546,7 @@ tabLabel_4.TextWrapped = true
 tabLabel_4.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_4.Name = "bottomBar"
-bottomBar_4.Parent = ScriptHub
+bottomBar_4.Parent = Players
 bottomBar_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_4.BorderSizePixel = 0
 bottomBar_4.Position = UDim2.new(0.5, 0, 1, 0)
@@ -554,7 +555,7 @@ bottomBar_4.Visible = false
 bottomBar_4.ZIndex = 15
 
 topBar_5.Name = "topBar"
-topBar_5.Parent = ScriptHub
+topBar_5.Parent = Players
 topBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_5.BorderSizePixel = 0
 topBar_5.Position = UDim2.new(0.5, 0, 0, 0)
@@ -563,7 +564,7 @@ topBar_5.Visible = false
 topBar_5.ZIndex = 15
 
 clickBtn_4.Name = "clickBtn"
-clickBtn_4.Parent = ScriptHub
+clickBtn_4.Parent = Players
 clickBtn_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_4.BackgroundTransparency = 1.000
 clickBtn_4.Size = UDim2.new(1, 0, 1, 0)
@@ -572,30 +573,30 @@ clickBtn_4.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_4.ImageTransparency = 1.000
 
 tabIcon_4.Name = "tabIcon"
-tabIcon_4.Parent = ScriptHub
+tabIcon_4.Parent = Players
 tabIcon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_4.BackgroundTransparency = 1.000
 tabIcon_4.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
 tabIcon_4.Size = UDim2.new(0, 31, 0, 31)
 tabIcon_4.ZIndex = 30
-tabIcon_4.Image = "rbxassetid://7065899549"
+tabIcon_4.Image = "rbxassetid://7066292454"
 tabIcon_4.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-ToolConfig.Name = "Tool Config"
-ToolConfig.Parent = sideBar
-ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ToolConfig.BackgroundTransparency = 1.000
-ToolConfig.Size = UDim2.new(0, 195, 0, 43)
+ScriptHub.Name = "Script Hub"
+ScriptHub.Parent = sideBar
+ScriptHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScriptHub.BackgroundTransparency = 1.000
+ScriptHub.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_5.Name = "tabLabel"
-tabLabel_5.Parent = ToolConfig
+tabLabel_5.Parent = ScriptHub
 tabLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_5.BackgroundTransparency = 1.000
 tabLabel_5.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
 tabLabel_5.Size = UDim2.new(0, 154, 0, 33)
 tabLabel_5.ZIndex = 4
 tabLabel_5.Font = Enum.Font.ArialBold
-tabLabel_5.Text = "Tool Config"
+tabLabel_5.Text = "Script Hub"
 tabLabel_5.TextColor3 = Color3.fromRGB(100, 100, 100)
 tabLabel_5.TextScaled = true
 tabLabel_5.TextSize = 14.000
@@ -603,7 +604,7 @@ tabLabel_5.TextWrapped = true
 tabLabel_5.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_5.Name = "bottomBar"
-bottomBar_5.Parent = ToolConfig
+bottomBar_5.Parent = ScriptHub
 bottomBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_5.BorderSizePixel = 0
 bottomBar_5.Position = UDim2.new(0.5, 0, 1, 0)
@@ -612,7 +613,7 @@ bottomBar_5.Visible = false
 bottomBar_5.ZIndex = 15
 
 topBar_6.Name = "topBar"
-topBar_6.Parent = ToolConfig
+topBar_6.Parent = ScriptHub
 topBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_6.BorderSizePixel = 0
 topBar_6.Position = UDim2.new(0.5, 0, 0, 0)
@@ -621,7 +622,7 @@ topBar_6.Visible = false
 topBar_6.ZIndex = 15
 
 clickBtn_5.Name = "clickBtn"
-clickBtn_5.Parent = ToolConfig
+clickBtn_5.Parent = ScriptHub
 clickBtn_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_5.BackgroundTransparency = 1.000
 clickBtn_5.Size = UDim2.new(1, 0, 1, 0)
@@ -630,30 +631,30 @@ clickBtn_5.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_5.ImageTransparency = 1.000
 
 tabIcon_5.Name = "tabIcon"
-tabIcon_5.Parent = ToolConfig
+tabIcon_5.Parent = ScriptHub
 tabIcon_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_5.BackgroundTransparency = 1.000
 tabIcon_5.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
 tabIcon_5.Size = UDim2.new(0, 31, 0, 31)
 tabIcon_5.ZIndex = 30
-tabIcon_5.Image = "rbxassetid://560667850"
+tabIcon_5.Image = "rbxassetid://7065899549"
 tabIcon_5.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-Players.Name = "Players"
-Players.Parent = sideBar
-Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Players.BackgroundTransparency = 1.000
-Players.Size = UDim2.new(0, 195, 0, 43)
+Statistics.Name = "Statistics"
+Statistics.Parent = sideBar
+Statistics.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Statistics.BackgroundTransparency = 1.000
+Statistics.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_6.Name = "tabLabel"
-tabLabel_6.Parent = Players
+tabLabel_6.Parent = Statistics
 tabLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_6.BackgroundTransparency = 1.000
 tabLabel_6.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
 tabLabel_6.Size = UDim2.new(0, 154, 0, 33)
 tabLabel_6.ZIndex = 4
 tabLabel_6.Font = Enum.Font.ArialBold
-tabLabel_6.Text = "Players"
+tabLabel_6.Text = "Statistics"
 tabLabel_6.TextColor3 = Color3.fromRGB(100, 100, 100)
 tabLabel_6.TextScaled = true
 tabLabel_6.TextSize = 14.000
@@ -661,7 +662,7 @@ tabLabel_6.TextWrapped = true
 tabLabel_6.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_6.Name = "bottomBar"
-bottomBar_6.Parent = Players
+bottomBar_6.Parent = Statistics
 bottomBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_6.BorderSizePixel = 0
 bottomBar_6.Position = UDim2.new(0.5, 0, 1, 0)
@@ -670,7 +671,7 @@ bottomBar_6.Visible = false
 bottomBar_6.ZIndex = 15
 
 topBar_7.Name = "topBar"
-topBar_7.Parent = Players
+topBar_7.Parent = Statistics
 topBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_7.BorderSizePixel = 0
 topBar_7.Position = UDim2.new(0.5, 0, 0, 0)
@@ -679,7 +680,7 @@ topBar_7.Visible = false
 topBar_7.ZIndex = 15
 
 clickBtn_6.Name = "clickBtn"
-clickBtn_6.Parent = Players
+clickBtn_6.Parent = Statistics
 clickBtn_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_6.BackgroundTransparency = 1.000
 clickBtn_6.Size = UDim2.new(1, 0, 1, 0)
@@ -688,30 +689,30 @@ clickBtn_6.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_6.ImageTransparency = 1.000
 
 tabIcon_6.Name = "tabIcon"
-tabIcon_6.Parent = Players
+tabIcon_6.Parent = Statistics
 tabIcon_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_6.BackgroundTransparency = 1.000
 tabIcon_6.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
 tabIcon_6.Size = UDim2.new(0, 31, 0, 31)
 tabIcon_6.ZIndex = 30
-tabIcon_6.Image = "rbxassetid://7066292454"
+tabIcon_6.Image = "rbxassetid://7066206066"
 tabIcon_6.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-Statistics.Name = "Statistics"
-Statistics.Parent = sideBar
-Statistics.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Statistics.BackgroundTransparency = 1.000
-Statistics.Size = UDim2.new(0, 195, 0, 43)
+ToolConfig.Name = "Tool Config"
+ToolConfig.Parent = sideBar
+ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToolConfig.BackgroundTransparency = 1.000
+ToolConfig.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_7.Name = "tabLabel"
-tabLabel_7.Parent = Statistics
+tabLabel_7.Parent = ToolConfig
 tabLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_7.BackgroundTransparency = 1.000
 tabLabel_7.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
 tabLabel_7.Size = UDim2.new(0, 154, 0, 33)
 tabLabel_7.ZIndex = 4
 tabLabel_7.Font = Enum.Font.ArialBold
-tabLabel_7.Text = "Statistics"
+tabLabel_7.Text = "Tool Config"
 tabLabel_7.TextColor3 = Color3.fromRGB(100, 100, 100)
 tabLabel_7.TextScaled = true
 tabLabel_7.TextSize = 14.000
@@ -719,7 +720,7 @@ tabLabel_7.TextWrapped = true
 tabLabel_7.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_7.Name = "bottomBar"
-bottomBar_7.Parent = Statistics
+bottomBar_7.Parent = ToolConfig
 bottomBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_7.BorderSizePixel = 0
 bottomBar_7.Position = UDim2.new(0.5, 0, 1, 0)
@@ -728,7 +729,7 @@ bottomBar_7.Visible = false
 bottomBar_7.ZIndex = 15
 
 topBar_8.Name = "topBar"
-topBar_8.Parent = Statistics
+topBar_8.Parent = ToolConfig
 topBar_8.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_8.BorderSizePixel = 0
 topBar_8.Position = UDim2.new(0.5, 0, 0, 0)
@@ -737,7 +738,7 @@ topBar_8.Visible = false
 topBar_8.ZIndex = 15
 
 clickBtn_7.Name = "clickBtn"
-clickBtn_7.Parent = Statistics
+clickBtn_7.Parent = ToolConfig
 clickBtn_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_7.BackgroundTransparency = 1.000
 clickBtn_7.Size = UDim2.new(1, 0, 1, 0)
@@ -746,13 +747,13 @@ clickBtn_7.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_7.ImageTransparency = 1.000
 
 tabIcon_7.Name = "tabIcon"
-tabIcon_7.Parent = Statistics
+tabIcon_7.Parent = ToolConfig
 tabIcon_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_7.BackgroundTransparency = 1.000
 tabIcon_7.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
 tabIcon_7.Size = UDim2.new(0, 31, 0, 31)
 tabIcon_7.ZIndex = 30
-tabIcon_7.Image = "rbxassetid://7066206066"
+tabIcon_7.Image = "rbxassetid://560667850"
 tabIcon_7.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
 tabHolder.Name = "tabHolder"
@@ -763,9 +764,17 @@ tabHolder.Position = UDim2.new(0.309523821, 0, 0.189610392, 0)
 tabHolder.Size = UDim2.new(0, 492, 0, 311)
 tabHolder.ZIndex = 25
 
+Sample.Name = "Sample"
+Sample.Parent = mainFrame
+Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sample.BackgroundTransparency = 1.000
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Sample.ImageTransparency = 0.600
+
 -- Scripts:
 
-local function RKACAJ_fake_script() -- mainFrame.SmoothDrag 
+local function OMCQME_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -804,8 +813,8 @@ local function RKACAJ_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(RKACAJ_fake_script)()
-local function OYPLX_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(OMCQME_fake_script)()
+local function RNONM_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -849,8 +858,8 @@ local function OYPLX_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(OYPLX_fake_script)()
-local function XXLTLU_fake_script() -- rgbBar.rgb 
+coroutine.wrap(RNONM_fake_script)()
+local function RIWSZB_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -893,8 +902,8 @@ local function XXLTLU_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(XXLTLU_fake_script)()
-local function SMNQNSK_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(RIWSZB_fake_script)()
+local function KIZXH_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -916,4 +925,4 @@ local function SMNQNSK_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(SMNQNSK_fake_script)()
+coroutine.wrap(KIZXH_fake_script)()
