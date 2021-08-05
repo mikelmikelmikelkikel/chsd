@@ -12,6 +12,7 @@ local minimizeBtn = Instance.new("ImageButton")
 local patternImageBackground = Instance.new("ImageLabel")
 local welcomeLabel = Instance.new("TextLabel")
 local duckGif = Instance.new("ImageLabel")
+local refreshBtn = Instance.new("ImageButton")
 local backgroundFrames = Instance.new("Frame")
 local roundBackground = Instance.new("ImageLabel")
 local sidebarBackground = Instance.new("ImageLabel")
@@ -64,7 +65,7 @@ local bottomBar_6 = Instance.new("Frame")
 local topBar_7 = Instance.new("Frame")
 local clickBtn_6 = Instance.new("ImageButton")
 local tabIcon_6 = Instance.new("ImageLabel")
-local Game = Instance.new("Frame")
+local GameStuff = Instance.new("Frame")
 local tabLabel_7 = Instance.new("TextLabel")
 local bottomBar_7 = Instance.new("Frame")
 local topBar_8 = Instance.new("Frame")
@@ -162,6 +163,16 @@ duckGif.BackgroundTransparency = 1.000
 duckGif.Position = UDim2.new(0.0160807129, 0, 0.0116279088, 0)
 duckGif.Size = UDim2.new(0, 35, 0, 41)
 duckGif.ZIndex = 25
+
+refreshBtn.Name = "refreshBtn"
+refreshBtn.Parent = topBar
+refreshBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+refreshBtn.BackgroundTransparency = 1.000
+refreshBtn.Position = UDim2.new(0.813480318, 0, 0.0581395403, 0)
+refreshBtn.Size = UDim2.new(0, 35, 0, 35)
+refreshBtn.Visible = false
+refreshBtn.ZIndex = 6
+refreshBtn.Image = "rbxassetid://7205347840"
 
 backgroundFrames.Name = "backgroundFrames"
 backgroundFrames.Parent = mainFrame
@@ -699,14 +710,14 @@ tabIcon_6.ZIndex = 30
 tabIcon_6.Image = "rbxassetid://7065886994"
 tabIcon_6.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-Game.Name = "Game"
-Game.Parent = sideBar
-Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Game.BackgroundTransparency = 1.000
-Game.Size = UDim2.new(0, 195, 0, 43)
+GameStuff.Name = "Game Stuff"
+GameStuff.Parent = sideBar
+GameStuff.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GameStuff.BackgroundTransparency = 1.000
+GameStuff.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_7.Name = "tabLabel"
-tabLabel_7.Parent = Game
+tabLabel_7.Parent = GameStuff
 tabLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_7.BackgroundTransparency = 1.000
 tabLabel_7.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -721,7 +732,7 @@ tabLabel_7.TextWrapped = true
 tabLabel_7.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_7.Name = "bottomBar"
-bottomBar_7.Parent = Game
+bottomBar_7.Parent = GameStuff
 bottomBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_7.BorderSizePixel = 0
 bottomBar_7.Position = UDim2.new(0.5, 0, 1, 0)
@@ -730,7 +741,7 @@ bottomBar_7.Visible = false
 bottomBar_7.ZIndex = 15
 
 topBar_8.Name = "topBar"
-topBar_8.Parent = Game
+topBar_8.Parent = GameStuff
 topBar_8.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_8.BorderSizePixel = 0
 topBar_8.Position = UDim2.new(0.5, 0, 0, 0)
@@ -739,7 +750,7 @@ topBar_8.Visible = false
 topBar_8.ZIndex = 15
 
 clickBtn_7.Name = "clickBtn"
-clickBtn_7.Parent = Game
+clickBtn_7.Parent = GameStuff
 clickBtn_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_7.BackgroundTransparency = 1.000
 clickBtn_7.Size = UDim2.new(1, 0, 1, 0)
@@ -748,7 +759,7 @@ clickBtn_7.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_7.ImageTransparency = 1.000
 
 tabIcon_7.Name = "tabIcon"
-tabIcon_7.Parent = Game
+tabIcon_7.Parent = GameStuff
 tabIcon_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_7.BackgroundTransparency = 1.000
 tabIcon_7.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -775,7 +786,7 @@ Sample.ImageTransparency = 0.600
 
 -- Scripts:
 
-local function MQGN_fake_script() -- mainFrame.SmoothDrag 
+local function TNBAO_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -814,8 +825,8 @@ local function MQGN_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(MQGN_fake_script)()
-local function NEPFA_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(TNBAO_fake_script)()
+local function ZTULOTQ_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -859,8 +870,8 @@ local function NEPFA_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(NEPFA_fake_script)()
-local function GOQFA_fake_script() -- rgbBar.rgb 
+coroutine.wrap(ZTULOTQ_fake_script)()
+local function ZEDBF_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -903,8 +914,8 @@ local function GOQFA_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(GOQFA_fake_script)()
-local function AYMGCF_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(ZEDBF_fake_script)()
+local function RHQSK_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -926,4 +937,4 @@ local function AYMGCF_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(AYMGCF_fake_script)()
+coroutine.wrap(RHQSK_fake_script)()
