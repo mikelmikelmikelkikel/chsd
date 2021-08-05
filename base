@@ -12,6 +12,7 @@ local minimizeBtn = Instance.new("ImageButton")
 local patternImageBackground = Instance.new("ImageLabel")
 local welcomeLabel = Instance.new("TextLabel")
 local duckGif = Instance.new("ImageLabel")
+local refreshBtn = Instance.new("ImageButton")
 local backgroundFrames = Instance.new("Frame")
 local roundBackground = Instance.new("ImageLabel")
 local sidebarBackground = Instance.new("ImageLabel")
@@ -121,7 +122,7 @@ minimizeBtn.Name = "minimizeBtn"
 minimizeBtn.Parent = topBar
 minimizeBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 minimizeBtn.BackgroundTransparency = 1.000
-minimizeBtn.Position = UDim2.new(0.877906144, 0, 0.0581395403, 0)
+minimizeBtn.Position = UDim2.new(0.877906203, 0, 0.0581395365, 0)
 minimizeBtn.Size = UDim2.new(0, 35, 0, 35)
 minimizeBtn.ZIndex = 6
 minimizeBtn.Image = "rbxassetid://7062568804"
@@ -145,6 +146,7 @@ welcomeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 welcomeLabel.BackgroundTransparency = 1.000
 welcomeLabel.Position = UDim2.new(0.273535371, 0, 0.290697664, 0)
 welcomeLabel.Size = UDim2.new(0, 428, 0, 18)
+welcomeLabel.Visible = false
 welcomeLabel.ZIndex = 4
 welcomeLabel.Font = Enum.Font.ArialBold
 welcomeLabel.Text = "Welcome, LocalPlrUser"
@@ -161,6 +163,15 @@ duckGif.BackgroundTransparency = 1.000
 duckGif.Position = UDim2.new(0.0160807129, 0, 0.0116279088, 0)
 duckGif.Size = UDim2.new(0, 35, 0, 41)
 duckGif.ZIndex = 25
+
+refreshBtn.Name = "refreshBtn"
+refreshBtn.Parent = topBar
+refreshBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+refreshBtn.BackgroundTransparency = 1.000
+refreshBtn.Position = UDim2.new(0.813480318, 0, 0.0581395403, 0)
+refreshBtn.Size = UDim2.new(0, 35, 0, 35)
+refreshBtn.ZIndex = 6
+refreshBtn.Image = "rbxassetid://7205347840"
 
 backgroundFrames.Name = "backgroundFrames"
 backgroundFrames.Parent = mainFrame
@@ -765,7 +776,7 @@ tabHolder.Size = UDim2.new(0, 492, 0, 311)
 tabHolder.ZIndex = 25
 
 Sample.Name = "Sample"
-Sample.Parent = dietLib
+Sample.Parent = mainFrame
 Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Sample.BackgroundTransparency = 1.000
 Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
@@ -774,7 +785,7 @@ Sample.ImageTransparency = 0.600
 
 -- Scripts:
 
-local function YSYASVK_fake_script() -- mainFrame.SmoothDrag 
+local function YWFLWQQ_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -813,8 +824,8 @@ local function YSYASVK_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(YSYASVK_fake_script)()
-local function ZUDGQ_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(YWFLWQQ_fake_script)()
+local function CDLF_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -858,8 +869,8 @@ local function ZUDGQ_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(ZUDGQ_fake_script)()
-local function PRCFRG_fake_script() -- rgbBar.rgb 
+coroutine.wrap(CDLF_fake_script)()
+local function EXUF_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -902,8 +913,8 @@ local function PRCFRG_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(PRCFRG_fake_script)()
-local function FRDI_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(EXUF_fake_script)()
+local function ZEMWOBI_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -925,4 +936,4 @@ local function FRDI_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(FRDI_fake_script)()
+coroutine.wrap(ZEMWOBI_fake_script)()
