@@ -172,6 +172,7 @@ refreshBtn.Position = UDim2.new(0.813480318, 0, 0.0581395403, 0)
 refreshBtn.Size = UDim2.new(0, 35, 0, 35)
 refreshBtn.ZIndex = 6
 refreshBtn.Image = "rbxassetid://7205347840"
+refrsehBtn.Visible = false
 
 backgroundFrames.Name = "backgroundFrames"
 backgroundFrames.Parent = mainFrame
