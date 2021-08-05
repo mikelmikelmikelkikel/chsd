@@ -16,8 +16,9 @@ local sideBar = mainFrame.sideBar
 local tabHolder = mainFrame.tabHolder
 local backgroundFrames = mainFrame.backgroundFrames
 --Gui>Tabs
-	local characterTab = tabHolder:WaitForChild('Character')
-	
+	local characterTab = tabHolder['Character']
+    local toolConfigTab = tabHolder['Tool Config']
+	local playersTab = tabHolder['Players']
 
 
 
@@ -58,7 +59,12 @@ function rippleEffect(btn)
 	c:Destroy()
 end
 
---
+function round(num, numDecimalPlaces)
+	local mult = 10^(numDecimalPlaces or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
+--FUNCTIONS
+
 
 
 
@@ -1056,10 +1062,312 @@ end
 		Player.Character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
 		rippleEffect(characterTab['99_randomSettings'].squareHeadBtnBackground)
 	end)	
+--GameTab Scripts
 
 
 
 
 
+--ToolConfig Scripts
+	local Slider = toolConfigTab['3_transparencyEditor'].Slider
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	local Dragging = false
 
---GameTab>
+	local Player = game.Players.LocalPlayer
+	local Character = Player.Character
+
+	local MaxValue = 1
+	local MinValue = 0
+
+	local currentSlideValue = Instance.new("NumberValue")
+	currentSlideValue.Value = 0
+	currentSlideValue.Parent = Slider
+
+	local function Update()
+		local Character = Player.Character
+		if Dragging == true then
+			local MousePos = UserInputService:GetMouseLocation()
+			local MinPoint = (Slider.AbsolutePosition.X)
+			local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+
+			if MousePos.X < MinPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+			elseif MousePos.X > MaxPoint then
+				Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+			else
+				Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+			end
+
+			wait(0.1)
+
+			local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+			Slider.Value.Value = Percent
+
+			if round(Slider.Value.Value, 1) < MinValue then
+				Slider.Value.Value = MinValue
+			elseif round(Slider.Value.Value, 1) > MaxValue then
+				Slider.Value.Value = MaxValue
+			end
+
+
+			Slider.Indicator.HolderButton.Value.Text = round(currentSlideValue.Value, 1) 
+			Slider.Parent.Value.Text = tostring(round(Slider.Value.Value, 1)).." | "..MaxValue
+
+
+		end
+	end
+
+	Slider.MouseEnter:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+		end
+	end)
+
+	Slider.MouseLeave:Connect(function()
+		if Dragging == false then
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		end	
+	end)
+
+	Slider.MouseButton1Down:Connect(function()
+		Dragging = true
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+		Update()
+	end)
+
+	UserInputService.InputEnded:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+			Dragging = false
+			TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+			TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(Update)
+
+	local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+	Slider.Value.Value = Percent
+
+	if round(Slider.Value.Value, 1) < MinValue then
+		Slider.Value.Value = MinValue
+	elseif round(Slider.Value.Value, 1) > MaxValue then
+		Slider.Value.Value = MaxValue
+	end
+
+	Slider.Indicator.HolderButton.Value.Text = tostring(round(Slider.Value.Value), 1)
+	Slider.Parent.Value.Text = tostring(round(Slider.Value.Value, 1)).." | "..MaxValue
+
+	local selectedToolFrame = toolConfigTab['1_selectedTool']
+	local propertyEditorFrame = toolConfigTab['2_propertyEditor']
+	local appearanceEditorFrame = toolConfigTab['4_appearanceEditor']
+
+	selectedTool = nil
+	selectedToolHandle = nil
+
+	Character.ChildAdded:Connect(function(NewChild)
+		if NewChild:IsA("Tool") then
+
+			selectedTool = NewChild
+
+			for partsInTool, partInTool in pairs(selectedTool:GetDescendants()) do
+				if partInTool.Name == 'Handle' then selectedToolHandle = partInTool
+				end end
+
+			selectedToolFrame.nameLabel.Text = 'Selected Tool: ' .. NewChild.Name
+
+			if selectedToolHandle ~= nil then 
+
+				propertyEditorFrame.sizeEditor.SizeXTextBox.PlaceholderText = round(selectedToolHandle.Size.X)
+				propertyEditorFrame.sizeEditor.SizeYTextBox.PlaceholderText = round(selectedToolHandle.Size.Y)
+				propertyEditorFrame.sizeEditor.SizeZTextBox.PlaceholderText = round(selectedToolHandle.Size.Z)
+			end
+		end
+	end)
+
+	Character.ChildRemoved:Connect(function(RemovedChild)
+		if RemovedChild:IsA("Tool") then
+
+			selectedTool = nil
+			selectedToolHandle = nil
+
+			propertyEditorFrame.sizeEditor.SizeXTextBox.PlaceholderText = 1
+			propertyEditorFrame.sizeEditor.SizeYTextBox.PlaceholderText = 1
+			propertyEditorFrame.sizeEditor.SizeZTextBox.PlaceholderText = 1
+
+			selectedToolFrame.nameLabel.Text = 'Selected Tool: None'
+
+		end
+	end)
+
+	toolConfigTab['2_propertyEditor'].otherProperties.canCollideBackground.checkBox.checkedBox.MouseButton1Click:Connect(function()
+		if toolConfigTab['2_propertyEditor'].otherProperties.canCollideBackground.checkBox.checkedBox.ImageTransparency == 1 then
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.canCollideBackground.checkBox.checkedBox, true)
+		else
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.canCollideBackground.checkBox.checkedBox, false)
+		end
+	end)
+
+	toolConfigTab['2_propertyEditor'].otherProperties.castShadowBackground.checkBox.checkedBox.MouseButton1Click:Connect(function()
+		if toolConfigTab['2_propertyEditor'].otherProperties.castShadowBackground.checkBox.checkedBox.ImageTransparency == 1 then
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.castShadowBackground.checkBox.checkedBox, true)
+		else
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.castShadowBackground.checkBox.checkedBox, false)
+		end
+	end)
+
+	toolConfigTab['2_propertyEditor'].otherProperties.masslessBackground.checkBox.checkedBox.MouseButton1Click:Connect(function()
+		if toolConfigTab['2_propertyEditor'].otherProperties.masslessBackground.checkBox.checkedBox.ImageTransparency == 1 then
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.masslessBackground.checkBox.checkedBox, true)
+		else
+			checkboxHandler(toolConfigTab['2_propertyEditor'].otherProperties.masslessBackground.checkBox.checkedBox, false)
+		end
+	end)
+
+	toolConfigTab['3_transparencyEditor'].Slider:WaitForChild('Value'):GetPropertyChangedSignal("Value"):Connect(function()
+		if selectedTool ~= nil and selectedToolHandle ~= nil then
+			selectedToolHandle.Transparency = round(toolConfigTab['3_transparencyEditor'].Slider:WaitForChild('Value').Value, 1)
+			print('handle transparency updated')
+		end
+	end)
+
+	propertyEditorFrame.sizeEditor.applyBtnBackground.applyBtnMain.MouseButton1Click:Connect(function()
+		if selectedTool ~= nil then
+			local desiredXSize = nil
+			local desiredYSize = nil
+			local desiredZSize = nil
+
+			if propertyEditorFrame.sizeEditor.SizeXTextBox.Text ~= '' 
+			then desiredXSize = tonumber(propertyEditorFrame.sizeEditor.SizeXTextBox.Text)
+			else
+				desiredXSize = tonumber(propertyEditorFrame.sizeEditor.SizeXTextBox.PlaceholderText)
+			end
+			if propertyEditorFrame.sizeEditor.SizeYTextBox.Text ~= '' 
+			then desiredYSize = tonumber(propertyEditorFrame.sizeEditor.SizeYTextBox.Text)
+			else
+				desiredYSize = tonumber(propertyEditorFrame.sizeEditor.SizeYTextBox.PlaceholderText)
+			end
+			if propertyEditorFrame.sizeEditor.SizeZTextBox.Text ~= '' 
+			then desiredZSize = tonumber(propertyEditorFrame.sizeEditor.SizeZTextBox.Text)
+			else
+				desiredZSize = tonumber(propertyEditorFrame.sizeEditor.SizeZTextBox.PlaceholderText)
+			end
+			selectedToolHandle.Size = Vector3.new(desiredXSize, desiredYSize, desiredZSize)
+		end
+		rippleEffect(propertyEditorFrame.sizeEditor.applyBtnBackground)
+	end)
+
+	propertyEditorFrame.otherProperties.applyBtnBackground.applyBtnMain.MouseButton1Click:Connect(function()
+		if selectedTool ~= nil then
+			if propertyEditorFrame.otherProperties.masslessBackground.checkBox.checkedBox.ImageTransparency == 1 
+			then selectedToolHandle.Massless = false else selectedToolHandle.Massless = true
+			end
+			if propertyEditorFrame.otherProperties.canCollideBackground.checkBox.checkedBox.ImageTransparency == 1 
+			then selectedToolHandle.CanCollide = false else selectedToolHandle.CanCollide = true
+			end
+			if propertyEditorFrame.otherProperties.castShadowBackground.checkBox.checkedBox.ImageTransparency == 1 
+			then selectedToolHandle.CastShadow = false else selectedToolHandle.CastShadow = true
+			end
+		end
+		rippleEffect(propertyEditorFrame.otherProperties.applyBtnBackground)
+	end)
+
+	appearanceEditorFrame.removeMeshBtnBackground.removeMeshBtnMain.MouseButton1Click:Connect(function()
+		if selectedTool ~= nil and selectedToolHandle ~= nil then
+			for partsInTool, partInTool in pairs(selectedTool:GetDescendants()) do
+				if partInTool:IsA('SpecialMesh') or partInTool:IsA('BlockMesh') then partInTool:Destroy()
+				end
+			end
+		end
+		rippleEffect(appearanceEditorFrame.removeMeshBtnBackground)
+	end)
+
+	appearanceEditorFrame.removeDecalBtnBackground.removeDecalBtnMain.MouseButton1Click:Connect(function()
+		if selectedTool ~= nil then
+			for partsInTool, partInTool in pairs(selectedTool:GetDescendants()) do
+				if partInTool:IsA('Decal') then partInTool:Destroy()
+				end
+			end
+		end
+		rippleEffect(appearanceEditorFrame.removeDecalBtnBackground)
+	end)
+--ToolConfig Scripts
+
+
+
+
+--PlayerTab Scripts
+local currentPlayersInGame = Players:GetPlayers()
+local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
+
+wait(1.5)
+for _, player in pairs(currentPlayersInGame) do
+	if player.Name ~= localPlr.Name then 
+		
+	local plrTempClone = plrTemp:Clone()
+	
+	local userId = player.UserId
+	local thumbType = Enum.ThumbnailType.AvatarBust
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	
+	plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
+	plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+	
+	plrTempClone.Name = player.Name
+	plrTempClone.playerRealName.Text = '@' .. player.Name
+	plrTempClone.playerDisplayName.Text = player.DisplayName
+	
+	if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
+	
+	plrTempClone.Parent = playersTab.playersHolder
+	end
+end
+
+Players.PlayerAdded:Connect(function(player)
+	if player.Name ~= localPlr.Name then 
+
+		local plrTempClone = plrTemp:Clone()
+
+		local userId = player.UserId
+		local thumbType = Enum.ThumbnailType.AvatarBust
+		local thumbSize = Enum.ThumbnailSize.Size420x420
+		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+
+		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
+		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+
+		plrTempClone.Name = player.Name
+		plrTempClone.playerRealName.Text = '@' .. player.Name
+		plrTempClone.playerDisplayName.Text = player.DisplayName
+
+		if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
+
+		plrTempClone.Parent = playersTab.playersHolder
+	end
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+	playersTab.playersHolder[player.Name]:Destroy()
+end)
+
+for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
+	
+	if instance.Name == 'teleportToBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			if victimChar ~= nil then
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame + Vector3.new(0,0,5))
+			end
+			rippleEffect(instance.Parent)
+		end)
+	end 
+	
+end
