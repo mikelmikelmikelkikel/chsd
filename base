@@ -786,7 +786,7 @@ Sample.ImageTransparency = 0.600
 
 -- Scripts:
 
-local function TNBAO_fake_script() -- mainFrame.SmoothDrag 
+local function ZCMXA_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -825,8 +825,8 @@ local function TNBAO_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(TNBAO_fake_script)()
-local function ZTULOTQ_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(ZCMXA_fake_script)()
+local function TWBB_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -870,8 +870,8 @@ local function ZTULOTQ_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(ZTULOTQ_fake_script)()
-local function ZEDBF_fake_script() -- rgbBar.rgb 
+coroutine.wrap(TWBB_fake_script)()
+local function XQATU_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -914,8 +914,8 @@ local function ZEDBF_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(ZEDBF_fake_script)()
-local function RHQSK_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(XQATU_fake_script)()
+local function CKPYVIC_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -937,4 +937,4 @@ local function RHQSK_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(RHQSK_fake_script)()
+coroutine.wrap(CKPYVIC_fake_script)()
