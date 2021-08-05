@@ -38,7 +38,7 @@ function getRoot(char)
 	return rootPart
 end
 
-local sample = script:WaitForChild('Sample')
+local sample = mainFrame.Parent:WaitForChild('Sample')
 function rippleEffect(btn)
 	local c = sample:Clone()
 	c.Parent = btn
