@@ -79,6 +79,7 @@ local Sample = Instance.new("ImageLabel")
 dietLib.Name = "dietLib"
 dietLib.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 dietLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+dietLib.ResetOnSpawn = false
 
 mainFrame.Name = "mainFrame"
 mainFrame.Parent = dietLib
