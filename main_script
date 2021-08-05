@@ -1,3 +1,4 @@
+print('loaded_script')
 --VARIABLES
 local Players = game:GetService('Players')
 localPlr = Players.LocalPlayer
