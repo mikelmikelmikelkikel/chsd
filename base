@@ -12,7 +12,6 @@ local minimizeBtn = Instance.new("ImageButton")
 local patternImageBackground = Instance.new("ImageLabel")
 local welcomeLabel = Instance.new("TextLabel")
 local duckGif = Instance.new("ImageLabel")
-local refreshBtn = Instance.new("ImageButton")
 local backgroundFrames = Instance.new("Frame")
 local roundBackground = Instance.new("ImageLabel")
 local sidebarBackground = Instance.new("ImageLabel")
@@ -163,16 +162,6 @@ duckGif.BackgroundTransparency = 1.000
 duckGif.Position = UDim2.new(0.0160807129, 0, 0.0116279088, 0)
 duckGif.Size = UDim2.new(0, 35, 0, 41)
 duckGif.ZIndex = 25
-
-refreshBtn.Name = "refreshBtn"
-refreshBtn.Parent = topBar
-refreshBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-refreshBtn.BackgroundTransparency = 1.000
-refreshBtn.Position = UDim2.new(0.813480318, 0, 0.0581395403, 0)
-refreshBtn.Size = UDim2.new(0, 35, 0, 35)
-refreshBtn.Visible = false
-refreshBtn.ZIndex = 6
-refreshBtn.Image = "rbxassetid://7205347840"
 
 backgroundFrames.Name = "backgroundFrames"
 backgroundFrames.Parent = mainFrame
@@ -786,7 +775,7 @@ Sample.ImageTransparency = 0.600
 
 -- Scripts:
 
-local function TMESWWL_fake_script() -- mainFrame.SmoothDrag 
+local function MQGN_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -825,8 +814,8 @@ local function TMESWWL_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(TMESWWL_fake_script)()
-local function CLXB_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(MQGN_fake_script)()
+local function NEPFA_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -870,8 +859,8 @@ local function CLXB_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(CLXB_fake_script)()
-local function FUFZ_fake_script() -- rgbBar.rgb 
+coroutine.wrap(NEPFA_fake_script)()
+local function GOQFA_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -914,8 +903,8 @@ local function FUFZ_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(FUFZ_fake_script)()
-local function YLTEWAZ_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(GOQFA_fake_script)()
+local function AYMGCF_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -937,4 +926,4 @@ local function YLTEWAZ_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(YLTEWAZ_fake_script)()
+coroutine.wrap(AYMGCF_fake_script)()
