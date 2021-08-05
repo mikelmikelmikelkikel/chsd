@@ -765,7 +765,7 @@ tabHolder.Size = UDim2.new(0, 492, 0, 311)
 tabHolder.ZIndex = 25
 
 Sample.Name = "Sample"
-Sample.Parent = mainFrame
+Sample.Parent = dietLib
 Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Sample.BackgroundTransparency = 1.000
 Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
@@ -774,7 +774,7 @@ Sample.ImageTransparency = 0.600
 
 -- Scripts:
 
-local function SVGOK_fake_script() -- mainFrame.SmoothDrag 
+local function YSYASVK_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -813,8 +813,8 @@ local function SVGOK_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(SVGOK_fake_script)()
-local function YNMOQ_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(YSYASVK_fake_script)()
+local function ZUDGQ_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -858,8 +858,8 @@ local function YNMOQ_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(YNMOQ_fake_script)()
-local function IFJGT_fake_script() -- rgbBar.rgb 
+coroutine.wrap(ZUDGQ_fake_script)()
+local function PRCFRG_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -902,8 +902,8 @@ local function IFJGT_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(IFJGT_fake_script)()
-local function CNIG_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(PRCFRG_fake_script)()
+local function FRDI_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -925,4 +925,4 @@ local function CNIG_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(CNIG_fake_script)()
+coroutine.wrap(FRDI_fake_script)()
