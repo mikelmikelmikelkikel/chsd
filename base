@@ -28,43 +28,43 @@ local sidebarBackgroundDarker = Instance.new("ImageLabel")
 local selectedSectionBackgroundDarker = Instance.new("ImageLabel")
 local sideBar = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
-local _1_Character = Instance.new("Frame")
+local Character = Instance.new("Frame")
 local tabLabel = Instance.new("TextLabel")
 local bottomBar = Instance.new("Frame")
 local topBar_2 = Instance.new("Frame")
 local clickBtn = Instance.new("ImageButton")
 local tabIcon = Instance.new("ImageLabel")
-local _2_Game = Instance.new("Frame")
+local Game = Instance.new("Frame")
 local tabLabel_2 = Instance.new("TextLabel")
 local bottomBar_2 = Instance.new("Frame")
 local topBar_3 = Instance.new("Frame")
 local clickBtn_2 = Instance.new("ImageButton")
 local tabIcon_2 = Instance.new("ImageLabel")
-local _3_GuiHub = Instance.new("Frame")
+local GuiHub = Instance.new("Frame")
 local tabLabel_3 = Instance.new("TextLabel")
 local bottomBar_3 = Instance.new("Frame")
 local topBar_4 = Instance.new("Frame")
 local clickBtn_3 = Instance.new("ImageButton")
 local tabIcon_3 = Instance.new("ImageLabel")
-local _4_ScriptHub = Instance.new("Frame")
+local ScriptHub = Instance.new("Frame")
 local tabLabel_4 = Instance.new("TextLabel")
 local bottomBar_4 = Instance.new("Frame")
 local topBar_5 = Instance.new("Frame")
 local clickBtn_4 = Instance.new("ImageButton")
 local tabIcon_4 = Instance.new("ImageLabel")
-local _5_ToolConfig = Instance.new("Frame")
+local ToolConfig = Instance.new("Frame")
 local tabLabel_5 = Instance.new("TextLabel")
 local bottomBar_5 = Instance.new("Frame")
 local topBar_6 = Instance.new("Frame")
 local clickBtn_5 = Instance.new("ImageButton")
 local tabIcon_5 = Instance.new("ImageLabel")
-local _6_Players = Instance.new("Frame")
+local Players = Instance.new("Frame")
 local tabLabel_6 = Instance.new("TextLabel")
 local bottomBar_6 = Instance.new("Frame")
 local topBar_7 = Instance.new("Frame")
 local clickBtn_6 = Instance.new("ImageButton")
 local tabIcon_6 = Instance.new("ImageLabel")
-local _7_Statistics = Instance.new("Frame")
+local Statistics = Instance.new("Frame")
 local tabLabel_7 = Instance.new("TextLabel")
 local bottomBar_7 = Instance.new("Frame")
 local topBar_8 = Instance.new("Frame")
@@ -349,14 +349,14 @@ UIListLayout.Parent = sideBar
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0.00999999978, 0)
 
-_1_Character.Name = "1_Character"
-_1_Character.Parent = sideBar
-_1_Character.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_1_Character.BackgroundTransparency = 1.000
-_1_Character.Size = UDim2.new(0, 195, 0, 43)
+Character.Name = "Character"
+Character.Parent = sideBar
+Character.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Character.BackgroundTransparency = 1.000
+Character.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel.Name = "tabLabel"
-tabLabel.Parent = _1_Character
+tabLabel.Parent = Character
 tabLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel.BackgroundTransparency = 1.000
 tabLabel.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -371,7 +371,7 @@ tabLabel.TextWrapped = true
 tabLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar.Name = "bottomBar"
-bottomBar.Parent = _1_Character
+bottomBar.Parent = Character
 bottomBar.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar.BorderSizePixel = 0
 bottomBar.Position = UDim2.new(0.5, 0, 1, 0)
@@ -380,7 +380,7 @@ bottomBar.Visible = false
 bottomBar.ZIndex = 15
 
 topBar_2.Name = "topBar"
-topBar_2.Parent = _1_Character
+topBar_2.Parent = Character
 topBar_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_2.BorderSizePixel = 0
 topBar_2.Position = UDim2.new(0.5, 0, 0, 0)
@@ -389,7 +389,7 @@ topBar_2.Visible = false
 topBar_2.ZIndex = 15
 
 clickBtn.Name = "clickBtn"
-clickBtn.Parent = _1_Character
+clickBtn.Parent = Character
 clickBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn.BackgroundTransparency = 1.000
 clickBtn.Size = UDim2.new(1, 0, 1, 0)
@@ -398,7 +398,7 @@ clickBtn.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn.ImageTransparency = 1.000
 
 tabIcon.Name = "tabIcon"
-tabIcon.Parent = _1_Character
+tabIcon.Parent = Character
 tabIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon.BackgroundTransparency = 1.000
 tabIcon.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -407,14 +407,14 @@ tabIcon.ZIndex = 30
 tabIcon.Image = "rbxassetid://7065829526"
 tabIcon.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_2_Game.Name = "2_Game"
-_2_Game.Parent = sideBar
-_2_Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_2_Game.BackgroundTransparency = 1.000
-_2_Game.Size = UDim2.new(0, 195, 0, 43)
+Game.Name = "Game"
+Game.Parent = sideBar
+Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Game.BackgroundTransparency = 1.000
+Game.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_2.Name = "tabLabel"
-tabLabel_2.Parent = _2_Game
+tabLabel_2.Parent = Game
 tabLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_2.BackgroundTransparency = 1.000
 tabLabel_2.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -429,7 +429,7 @@ tabLabel_2.TextWrapped = true
 tabLabel_2.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_2.Name = "bottomBar"
-bottomBar_2.Parent = _2_Game
+bottomBar_2.Parent = Game
 bottomBar_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_2.BorderSizePixel = 0
 bottomBar_2.Position = UDim2.new(0.5, 0, 1, 0)
@@ -438,7 +438,7 @@ bottomBar_2.Visible = false
 bottomBar_2.ZIndex = 15
 
 topBar_3.Name = "topBar"
-topBar_3.Parent = _2_Game
+topBar_3.Parent = Game
 topBar_3.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_3.BorderSizePixel = 0
 topBar_3.Position = UDim2.new(0.5, 0, 0, 0)
@@ -447,7 +447,7 @@ topBar_3.Visible = false
 topBar_3.ZIndex = 15
 
 clickBtn_2.Name = "clickBtn"
-clickBtn_2.Parent = _2_Game
+clickBtn_2.Parent = Game
 clickBtn_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_2.BackgroundTransparency = 1.000
 clickBtn_2.Size = UDim2.new(1, 0, 1, 0)
@@ -456,7 +456,7 @@ clickBtn_2.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_2.ImageTransparency = 1.000
 
 tabIcon_2.Name = "tabIcon"
-tabIcon_2.Parent = _2_Game
+tabIcon_2.Parent = Game
 tabIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_2.BackgroundTransparency = 1.000
 tabIcon_2.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -465,14 +465,14 @@ tabIcon_2.ZIndex = 30
 tabIcon_2.Image = "rbxassetid://2914903943"
 tabIcon_2.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_3_GuiHub.Name = "3_GuiHub"
-_3_GuiHub.Parent = sideBar
-_3_GuiHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_3_GuiHub.BackgroundTransparency = 1.000
-_3_GuiHub.Size = UDim2.new(0, 195, 0, 43)
+GuiHub.Name = "Gui Hub"
+GuiHub.Parent = sideBar
+GuiHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuiHub.BackgroundTransparency = 1.000
+GuiHub.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_3.Name = "tabLabel"
-tabLabel_3.Parent = _3_GuiHub
+tabLabel_3.Parent = GuiHub
 tabLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_3.BackgroundTransparency = 1.000
 tabLabel_3.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -487,7 +487,7 @@ tabLabel_3.TextWrapped = true
 tabLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_3.Name = "bottomBar"
-bottomBar_3.Parent = _3_GuiHub
+bottomBar_3.Parent = GuiHub
 bottomBar_3.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_3.BorderSizePixel = 0
 bottomBar_3.Position = UDim2.new(0.5, 0, 1, 0)
@@ -496,7 +496,7 @@ bottomBar_3.Visible = false
 bottomBar_3.ZIndex = 15
 
 topBar_4.Name = "topBar"
-topBar_4.Parent = _3_GuiHub
+topBar_4.Parent = GuiHub
 topBar_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_4.BorderSizePixel = 0
 topBar_4.Position = UDim2.new(0.5, 0, 0, 0)
@@ -505,7 +505,7 @@ topBar_4.Visible = false
 topBar_4.ZIndex = 15
 
 clickBtn_3.Name = "clickBtn"
-clickBtn_3.Parent = _3_GuiHub
+clickBtn_3.Parent = GuiHub
 clickBtn_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_3.BackgroundTransparency = 1.000
 clickBtn_3.Size = UDim2.new(1, 0, 1, 0)
@@ -514,7 +514,7 @@ clickBtn_3.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_3.ImageTransparency = 1.000
 
 tabIcon_3.Name = "tabIcon"
-tabIcon_3.Parent = _3_GuiHub
+tabIcon_3.Parent = GuiHub
 tabIcon_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_3.BackgroundTransparency = 1.000
 tabIcon_3.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -523,14 +523,14 @@ tabIcon_3.ZIndex = 30
 tabIcon_3.Image = "rbxassetid://7065886994"
 tabIcon_3.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_4_ScriptHub.Name = "4_ScriptHub"
-_4_ScriptHub.Parent = sideBar
-_4_ScriptHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_4_ScriptHub.BackgroundTransparency = 1.000
-_4_ScriptHub.Size = UDim2.new(0, 195, 0, 43)
+ScriptHub.Name = "Script Hub"
+ScriptHub.Parent = sideBar
+ScriptHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScriptHub.BackgroundTransparency = 1.000
+ScriptHub.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_4.Name = "tabLabel"
-tabLabel_4.Parent = _4_ScriptHub
+tabLabel_4.Parent = ScriptHub
 tabLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_4.BackgroundTransparency = 1.000
 tabLabel_4.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -545,7 +545,7 @@ tabLabel_4.TextWrapped = true
 tabLabel_4.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_4.Name = "bottomBar"
-bottomBar_4.Parent = _4_ScriptHub
+bottomBar_4.Parent = ScriptHub
 bottomBar_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_4.BorderSizePixel = 0
 bottomBar_4.Position = UDim2.new(0.5, 0, 1, 0)
@@ -554,7 +554,7 @@ bottomBar_4.Visible = false
 bottomBar_4.ZIndex = 15
 
 topBar_5.Name = "topBar"
-topBar_5.Parent = _4_ScriptHub
+topBar_5.Parent = ScriptHub
 topBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_5.BorderSizePixel = 0
 topBar_5.Position = UDim2.new(0.5, 0, 0, 0)
@@ -563,7 +563,7 @@ topBar_5.Visible = false
 topBar_5.ZIndex = 15
 
 clickBtn_4.Name = "clickBtn"
-clickBtn_4.Parent = _4_ScriptHub
+clickBtn_4.Parent = ScriptHub
 clickBtn_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_4.BackgroundTransparency = 1.000
 clickBtn_4.Size = UDim2.new(1, 0, 1, 0)
@@ -572,7 +572,7 @@ clickBtn_4.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_4.ImageTransparency = 1.000
 
 tabIcon_4.Name = "tabIcon"
-tabIcon_4.Parent = _4_ScriptHub
+tabIcon_4.Parent = ScriptHub
 tabIcon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_4.BackgroundTransparency = 1.000
 tabIcon_4.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -581,14 +581,14 @@ tabIcon_4.ZIndex = 30
 tabIcon_4.Image = "rbxassetid://7065899549"
 tabIcon_4.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_5_ToolConfig.Name = "5_ToolConfig"
-_5_ToolConfig.Parent = sideBar
-_5_ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_5_ToolConfig.BackgroundTransparency = 1.000
-_5_ToolConfig.Size = UDim2.new(0, 195, 0, 43)
+ToolConfig.Name = "Tool Config"
+ToolConfig.Parent = sideBar
+ToolConfig.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToolConfig.BackgroundTransparency = 1.000
+ToolConfig.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_5.Name = "tabLabel"
-tabLabel_5.Parent = _5_ToolConfig
+tabLabel_5.Parent = ToolConfig
 tabLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_5.BackgroundTransparency = 1.000
 tabLabel_5.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -603,7 +603,7 @@ tabLabel_5.TextWrapped = true
 tabLabel_5.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_5.Name = "bottomBar"
-bottomBar_5.Parent = _5_ToolConfig
+bottomBar_5.Parent = ToolConfig
 bottomBar_5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_5.BorderSizePixel = 0
 bottomBar_5.Position = UDim2.new(0.5, 0, 1, 0)
@@ -612,7 +612,7 @@ bottomBar_5.Visible = false
 bottomBar_5.ZIndex = 15
 
 topBar_6.Name = "topBar"
-topBar_6.Parent = _5_ToolConfig
+topBar_6.Parent = ToolConfig
 topBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_6.BorderSizePixel = 0
 topBar_6.Position = UDim2.new(0.5, 0, 0, 0)
@@ -621,7 +621,7 @@ topBar_6.Visible = false
 topBar_6.ZIndex = 15
 
 clickBtn_5.Name = "clickBtn"
-clickBtn_5.Parent = _5_ToolConfig
+clickBtn_5.Parent = ToolConfig
 clickBtn_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_5.BackgroundTransparency = 1.000
 clickBtn_5.Size = UDim2.new(1, 0, 1, 0)
@@ -630,7 +630,7 @@ clickBtn_5.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_5.ImageTransparency = 1.000
 
 tabIcon_5.Name = "tabIcon"
-tabIcon_5.Parent = _5_ToolConfig
+tabIcon_5.Parent = ToolConfig
 tabIcon_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_5.BackgroundTransparency = 1.000
 tabIcon_5.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -639,14 +639,14 @@ tabIcon_5.ZIndex = 30
 tabIcon_5.Image = "rbxassetid://560667850"
 tabIcon_5.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_6_Players.Name = "6_Players"
-_6_Players.Parent = sideBar
-_6_Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_6_Players.BackgroundTransparency = 1.000
-_6_Players.Size = UDim2.new(0, 195, 0, 43)
+Players.Name = "Players"
+Players.Parent = sideBar
+Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Players.BackgroundTransparency = 1.000
+Players.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_6.Name = "tabLabel"
-tabLabel_6.Parent = _6_Players
+tabLabel_6.Parent = Players
 tabLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_6.BackgroundTransparency = 1.000
 tabLabel_6.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -661,7 +661,7 @@ tabLabel_6.TextWrapped = true
 tabLabel_6.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_6.Name = "bottomBar"
-bottomBar_6.Parent = _6_Players
+bottomBar_6.Parent = Players
 bottomBar_6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_6.BorderSizePixel = 0
 bottomBar_6.Position = UDim2.new(0.5, 0, 1, 0)
@@ -670,7 +670,7 @@ bottomBar_6.Visible = false
 bottomBar_6.ZIndex = 15
 
 topBar_7.Name = "topBar"
-topBar_7.Parent = _6_Players
+topBar_7.Parent = Players
 topBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_7.BorderSizePixel = 0
 topBar_7.Position = UDim2.new(0.5, 0, 0, 0)
@@ -679,7 +679,7 @@ topBar_7.Visible = false
 topBar_7.ZIndex = 15
 
 clickBtn_6.Name = "clickBtn"
-clickBtn_6.Parent = _6_Players
+clickBtn_6.Parent = Players
 clickBtn_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_6.BackgroundTransparency = 1.000
 clickBtn_6.Size = UDim2.new(1, 0, 1, 0)
@@ -688,7 +688,7 @@ clickBtn_6.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_6.ImageTransparency = 1.000
 
 tabIcon_6.Name = "tabIcon"
-tabIcon_6.Parent = _6_Players
+tabIcon_6.Parent = Players
 tabIcon_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_6.BackgroundTransparency = 1.000
 tabIcon_6.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -697,14 +697,14 @@ tabIcon_6.ZIndex = 30
 tabIcon_6.Image = "rbxassetid://7066292454"
 tabIcon_6.ImageColor3 = Color3.fromRGB(100, 100, 100)
 
-_7_Statistics.Name = "7_Statistics"
-_7_Statistics.Parent = sideBar
-_7_Statistics.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_7_Statistics.BackgroundTransparency = 1.000
-_7_Statistics.Size = UDim2.new(0, 195, 0, 43)
+Statistics.Name = "Statistics"
+Statistics.Parent = sideBar
+Statistics.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Statistics.BackgroundTransparency = 1.000
+Statistics.Size = UDim2.new(0, 195, 0, 43)
 
 tabLabel_7.Name = "tabLabel"
-tabLabel_7.Parent = _7_Statistics
+tabLabel_7.Parent = Statistics
 tabLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabLabel_7.BackgroundTransparency = 1.000
 tabLabel_7.Position = UDim2.new(0.225259751, 0, 0.110000253, 0)
@@ -719,7 +719,7 @@ tabLabel_7.TextWrapped = true
 tabLabel_7.TextXAlignment = Enum.TextXAlignment.Left
 
 bottomBar_7.Name = "bottomBar"
-bottomBar_7.Parent = _7_Statistics
+bottomBar_7.Parent = Statistics
 bottomBar_7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 bottomBar_7.BorderSizePixel = 0
 bottomBar_7.Position = UDim2.new(0.5, 0, 1, 0)
@@ -728,7 +728,7 @@ bottomBar_7.Visible = false
 bottomBar_7.ZIndex = 15
 
 topBar_8.Name = "topBar"
-topBar_8.Parent = _7_Statistics
+topBar_8.Parent = Statistics
 topBar_8.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 topBar_8.BorderSizePixel = 0
 topBar_8.Position = UDim2.new(0.5, 0, 0, 0)
@@ -737,7 +737,7 @@ topBar_8.Visible = false
 topBar_8.ZIndex = 15
 
 clickBtn_7.Name = "clickBtn"
-clickBtn_7.Parent = _7_Statistics
+clickBtn_7.Parent = Statistics
 clickBtn_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 clickBtn_7.BackgroundTransparency = 1.000
 clickBtn_7.Size = UDim2.new(1, 0, 1, 0)
@@ -746,7 +746,7 @@ clickBtn_7.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 clickBtn_7.ImageTransparency = 1.000
 
 tabIcon_7.Name = "tabIcon"
-tabIcon_7.Parent = _7_Statistics
+tabIcon_7.Parent = Statistics
 tabIcon_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tabIcon_7.BackgroundTransparency = 1.000
 tabIcon_7.Position = UDim2.new(0.06204715, 0, 0.116279066, 0)
@@ -765,7 +765,7 @@ tabHolder.ZIndex = 25
 
 -- Scripts:
 
-local function PXCYJBO_fake_script() -- mainFrame.SmoothDrag 
+local function AFXRK_fake_script() -- mainFrame.SmoothDrag 
 	local script = Instance.new('LocalScript', mainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -804,60 +804,8 @@ local function PXCYJBO_fake_script() -- mainFrame.SmoothDrag
 	end
 	SmoothDrag(script.Parent)
 end
-coroutine.wrap(PXCYJBO_fake_script)()
-local function LCFFB_fake_script() -- topBar.topBarHandler 
-	local script = Instance.new('LocalScript', topBar)
-
-	
-	local tweenService = game:GetService('TweenService')
-	
-	script.Parent.welcomeLabel.Text = 'Welcome, ' .. game:GetService('Players').LocalPlayer.Name
-	
-	
-	script.Parent.closeBtn.MouseButton1Click:Connect(function()
-		
-		script.Parent.Parent.Parent:Destroy()
-		
-	end)
-	
-	
-	script.Parent.minimizeBtn.MouseButton1Click:Connect(function()
-		
-		local mainFrame = script.Parent.Parent
-		local info = TweenInfo.new(.05, Enum.EasingStyle.Quart, Enum.EasingDirection.In, 0, false, 0)
-		local goals = {Position = UDim2.new(0, 0,0.952, 0)}
-		
-		local minimizeTween = tweenService:Create(mainFrame, info, goals)
-		
-		minimizeTween:Play()
-	
-	end)
-	
-	
-	wait(1)
-	
-	local function welcomeFade()
-		
-		local fadeInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-		local fadeGoals = {TextTransparency = 1}
-	
-		local fadeTween = tweenService:Create(script.Parent.welcomeLabel, fadeInfo, fadeGoals)
-	
-		fadeTween:Play()
-	
-		wait(2)
-	
-		script.Parent.welcomeLabel:Destroy()
-		
-	end
-	
-	welcomeFade()
-	
-	
-	
-end
-coroutine.wrap(LCFFB_fake_script)()
-local function GGARW_fake_script() -- duckGif.gifHandler 
+coroutine.wrap(AFXRK_fake_script)()
+local function QBRN_fake_script() -- duckGif.gifHandler 
 	local script = Instance.new('LocalScript', duckGif)
 
 	
@@ -901,8 +849,8 @@ local function GGARW_fake_script() -- duckGif.gifHandler
 		end
 	end
 end
-coroutine.wrap(GGARW_fake_script)()
-local function ZSWSN_fake_script() -- rgbBar.rgb 
+coroutine.wrap(QBRN_fake_script)()
+local function MEHGF_fake_script() -- rgbBar.rgb 
 	local script = Instance.new('LocalScript', rgbBar)
 
 	-- Made By Auradomix --
@@ -945,8 +893,8 @@ local function ZSWSN_fake_script() -- rgbBar.rgb
 		end
 	end
 end
-coroutine.wrap(ZSWSN_fake_script)()
-local function ARZLNS_fake_script() -- coordinatesLabel.coordsHandler 
+coroutine.wrap(MEHGF_fake_script)()
+local function GCCW_fake_script() -- coordinatesLabel.coordsHandler 
 	local script = Instance.new('LocalScript', coordinatesLabel)
 
 	local player = game.Players.LocalPlayer
@@ -968,932 +916,4 @@ local function ARZLNS_fake_script() -- coordinatesLabel.coordsHandler
 	
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
-coroutine.wrap(ARZLNS_fake_script)()
-local function MVQC_fake_script() -- _1_Character.tabHandler 
-	local script = Instance.new('LocalScript', _1_Character)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Character'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-		
-		
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-		
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-				
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.characterTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-		
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(MVQC_fake_script)()
-local function NESU_fake_script() -- sideBar.tabHandMain 
-	local script = Instance.new('LocalScript', sideBar)
-
-	
-	
-	for tabs, thingInTab in pairs(script.Parent:GetDescendants()) do
-		
-		if thingInTab.Name == 'clickBtn' then 
-			
-			local currentlySelectedVal = Instance.new('BoolValue')
-			currentlySelectedVal.Parent = thingInTab.Parent
-			currentlySelectedVal.Name = 'currentlySelected'
-			
-		end
-		
-	end
-end
-coroutine.wrap(NESU_fake_script)()
-local function HZQEVF_fake_script() -- _2_Game.tabHandler 
-	local script = Instance.new('LocalScript', _2_Game)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Game'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.gameTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(HZQEVF_fake_script)()
-local function QDWVLU_fake_script() -- _3_GuiHub.tabHandler 
-	local script = Instance.new('LocalScript', _3_GuiHub)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Gui Hub'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.guiHubTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(QDWVLU_fake_script)()
-local function KSMHJUZ_fake_script() -- _4_ScriptHub.tabHandler 
-	local script = Instance.new('LocalScript', _4_ScriptHub)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Script Hub'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.scriptHubTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(KSMHJUZ_fake_script)()
-local function JTCV_fake_script() -- _5_ToolConfig.tabHandler 
-	local script = Instance.new('LocalScript', _5_ToolConfig)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Tool Config'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.toolConfigTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(JTCV_fake_script)()
-local function VHDQ_fake_script() -- _6_Players.tabHandler 
-	local script = Instance.new('LocalScript', _6_Players)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Players'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.playersTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(VHDQ_fake_script)()
-local function RYHN_fake_script() -- _7_Statistics.tabHandler 
-	local script = Instance.new('LocalScript', _7_Statistics)
-
-	
-	currentlyClicked = script.Parent:WaitForChild('currentlySelected')
-	tabName = 'Statistics'
-	
-	local tweenService = game:GetService('TweenService')
-	
-	local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
-	
-	local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
-	local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
-	
-	
-	local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
-	local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
-	
-	local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
-	local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
-	
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			script.Parent.topBar.Visible = true
-			script.Parent.bottomBar.Visible = true
-	
-			local topBarHover = tweenService:Create(script.Parent.topBar, lineHoverInfo, lineHoverGoalsTop)
-			topBarHover:Play()
-			local bottomBarHover = tweenService:Create(script.Parent.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
-			bottomBarHover:Play()
-			local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-			textSizeHover:Play()
-			local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-			imageSizeHover:Play()
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.MouseLeave:Connect(function()
-	
-	
-	
-		if currentlyClicked.Value == false then
-	
-			local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-			topBarLeave:Play()
-			local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-			bottomBarLeave:Play()
-			local textSizeLeave = tweenService:Create(script.Parent.tabLabel, lineHoverInfo2, textSizeGoals2)
-			textSizeLeave:Play()
-			local imageSizeLeave = tweenService:Create(script.Parent.tabIcon, lineHoverInfo2, imageSizeGoals2)
-			imageSizeLeave:Play()
-	
-			wait(.1)
-	
-			script.Parent.topBar.Visible = false
-			script.Parent.bottomBar.Visible = false
-	
-		end
-	
-	end)
-	
-	
-	script.Parent.clickBtn.MouseButton1Click:Connect(function()
-	
-		script.Parent.Parent.Parent.backgroundFrames.tabName.Text = tabName
-	
-		for tabs, thingInTab in pairs(script.Parent.Parent:GetDescendants()) do
-	
-			if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
-	
-			elseif thingInTab.Name == 'bottomBar' then 	
-				local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
-				bottomBarLeave:Play()
-	
-			elseif thingInTab.Name == 'topBar' then 
-				local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
-				topBarLeave:Play()
-	
-			elseif thingInTab.Name == 'tabLabel' then 
-				local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
-				textSizeLeave:Play()
-	
-			elseif thingInTab.Name == 'tabIcon' then
-				local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
-				imageSizeLeave:Play()
-	
-			end
-	
-		end
-	
-		currentlyClicked.Value = true
-	
-		local tabHolderFrame = script.Parent.Parent.Parent.tabHolder
-	
-		for tabs, tab in pairs(tabHolderFrame:GetChildren()) do
-			tab.Visible = false
-		end
-	
-		tabHolderFrame.statsTabHolder.Visible = true
-	
-		local topBarLeave = tweenService:Create(script.Parent.topBar, lineHoverInfo2, lineHoverGoalsTop2)
-		topBarLeave:Play()
-		local bottomBarLeave = tweenService:Create(script.Parent.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
-		bottomBarLeave:Play()
-	
-		local textSizeHover = tweenService:Create(script.Parent.tabLabel, lineHoverInfo, textSizeGoals)
-		textSizeHover:Play()
-	
-		local imageSizeHover = tweenService:Create(script.Parent.tabIcon, lineHoverInfo, imageSizeGoals)
-		imageSizeHover:Play()
-	
-		wait(.1)
-	
-		script.Parent.topBar.Visible = false
-		script.Parent.bottomBar.Visible = false
-	
-	end)
-end
-coroutine.wrap(RYHN_fake_script)()
+coroutine.wrap(GCCW_fake_script)()
