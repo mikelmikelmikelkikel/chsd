@@ -917,3 +917,1073 @@ local function GCCW_fake_script() -- coordinatesLabel.coordsHandler
 	script.Parent.Parent.MouseButton1Click:Connect(leftClick)
 end
 coroutine.wrap(GCCW_fake_script)()
+
+
+--VARIABLES
+local Players = game:GetService('Players')
+localPlr = Players.LocalPlayer
+
+plrMouse = localPlr:GetMouse()
+tweenService = game:GetService('TweenService')
+UserInputService = game:GetService("UserInputService")
+--
+
+
+--GUI VARIALBES
+local mainFrame = dietLib.mainFrame
+local topBar = mainFrame.topBar
+local sideBar = mainFrame.sideBar
+local tabHolder = mainFrame.tabHolder
+local backgroundFrames = mainFrame.backgroundFrames
+--Gui>Tabs
+local characterTab = tabHolder.Character
+local gameTab = tabHolder.Game
+local guiHubTab = tabHolder['Gui Hub']
+local playerTab = tabHolder.Players
+local scriptHubTab = tabHolder['Script Hub']
+local statsTab = tabHolder.Statistics
+local toolConfigTab = tabHolder['Tool Config']
+--
+
+
+
+--FUNCTIONS
+local info1_checkpoint = TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0) local goals1_checkpoint = {ImageTransparency = 1} local goals2_checkpoint = {ImageTransparency = 0}
+function checkboxHandler(checkBoxInstance, Bool)
+	if Bool == true then
+		local checkBox_checkTween = tweenService:Create(checkBoxInstance, info1_checkpoint, goals2_checkpoint)
+		checkBox_checkTween:Play()
+	else
+		local checkBox_uncheckTween = tweenService:Create(checkBoxInstance, info1_checkpoint, goals1_checkpoint)
+		checkBox_uncheckTween:Play()
+	end
+end
+
+function getRoot(char)
+	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
+	return rootPart
+end
+
+local sample = script:WaitForChild('Sample')
+function rippleEffect(btn)
+	local c = sample:Clone()
+	c.Parent = btn
+	local x, y = (plrMouse.X - c.AbsolutePosition.X), (plrMouse.Y - c.AbsolutePosition.Y)
+	c.Position = UDim2.new(0, x, 0, y)
+	local len, size = 0.35, nil
+	if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+		size = (btn.AbsoluteSize.X * 1.5)
+	else
+		size = (btn.AbsoluteSize.Y * 1.5)
+	end
+	c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
+	for i = 1, 10 do
+		c.ImageTransparency = c.ImageTransparency + 0.05
+		wait(len / 12)
+	end
+	c:Destroy()
+end
+--
+
+
+
+
+--Top Bar Scripts
+function startup()
+	topBar.welcomeLabel.Text = 'Welcome, ' .. localPlr.Name
+	local fadeInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+	local fadeGoals = {TextTransparency = 1}
+	local fadeTween = tweenService:Create(topBar.welcomeLabel, fadeInfo, fadeGoals)
+	fadeTween:Play()
+	wait(2)
+	topBar.welcomeLabel:Destroy()
+end
+startup()
+
+topBar.closeBtn.MouseButton1Click:Connect(function()
+	mainFrame.Parent:Destroy()
+end)
+
+topBar.minimizeBtn.MouseButton1Click:Connect(function()
+	local info = TweenInfo.new(.05, Enum.EasingStyle.Quart, Enum.EasingDirection.In, 0, false, 0)
+	local goals = {Position = UDim2.new(0, 0,0.952, 0)}
+	local minimizeTween = tweenService:Create(mainFrame, info, goals)
+	minimizeTween:Play()
+end)
+--Top Bar Scripts
+
+
+
+
+--Side Bar Scripts
+local lineHoverInfo = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+local lineHoverGoalsTop = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,-0.047, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
+local lineHoverGoalsBottom = {Size = UDim2.new(0, 147,0, 1), Position = UDim2.new(0.156, 0,0.953, 0), BackgroundColor3 = Color3.fromRGB(255,255,255)}
+local textSizeGoals = {Size = UDim2.new(0, 181,0, 39), Position = UDim2.new(0.215, 0,0.03, 0), TextColor3 = Color3.fromRGB(255,255,255)}
+local imageSizeGoals = {Size = UDim2.new(0, 39,0, 39), Position = UDim2.new(0.021, 0,0.023, 0), ImageColor3 = Color3.fromRGB(255,255,255)}
+local lineHoverInfo2 = TweenInfo.new(.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+local lineHoverGoalsTop2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,0, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
+local lineHoverGoalsBottom2 = {Size = UDim2.new(0, 21,0, 1), Position = UDim2.new(0.5, 0,1, 0), BackgroundColor3 = Color3.fromRGB(100,100,100)}
+local textSizeGoals2 = {Size = UDim2.new(0, 154,0, 33), Position = UDim2.new(0.225, 0,0.11, 0), TextColor3 = Color3.fromRGB(100,100,100)}
+local imageSizeGoals2 = {Size = UDim2.new(0, 31,0, 31), Position = UDim2.new(0.062, 0,0.116, 0), ImageColor3 = Color3.fromRGB(100,100,100)}
+
+for tabs, thingInTab in pairs(sideBar:GetDescendants()) do
+	if thingInTab.Name == 'clickBtn' then 
+		local currentlySelectedVal = Instance.new('BoolValue')
+		currentlySelectedVal.Parent = thingInTab
+		currentlySelectedVal.Name = 'CurrentlySelected'
+	end
+	if thingInTab.Name ~= 'bottomBar' and thingInTab.Name ~= 'topBar' and thingInTab:IsA('Frame') then
+
+		thingInTab.clickBtn.MouseEnter:Connect(function()
+			if thingInTab.clickBtn.CurrentlySelected.Value == false then
+				thingInTab.topBar.Visible = true
+				thingInTab.bottomBar.Visible = true
+				local topBarHover = tweenService:Create(thingInTab.topBar, lineHoverInfo, lineHoverGoalsTop)
+				topBarHover:Play()
+				local bottomBarHover = tweenService:Create(thingInTab.bottomBar, lineHoverInfo, lineHoverGoalsBottom)
+				bottomBarHover:Play()
+				local textSizeHover = tweenService:Create(thingInTab.tabLabel, lineHoverInfo, textSizeGoals)
+				textSizeHover:Play()
+				local imageSizeHover = tweenService:Create(thingInTab.tabIcon, lineHoverInfo, imageSizeGoals)
+				imageSizeHover:Play()
+			end
+		end)
+
+		thingInTab.clickBtn.MouseLeave:Connect(function()
+			if thingInTab.clickBtn.CurrentlySelected.Value == false then
+				local topBarLeave = tweenService:Create(thingInTab.topBar, lineHoverInfo2, lineHoverGoalsTop2)
+				topBarLeave:Play()
+				local bottomBarLeave = tweenService:Create(thingInTab.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
+				bottomBarLeave:Play()
+				local textSizeLeave = tweenService:Create(thingInTab.tabLabel, lineHoverInfo2, textSizeGoals2)
+				textSizeLeave:Play()
+				local imageSizeLeave = tweenService:Create(thingInTab.tabIcon, lineHoverInfo2, imageSizeGoals2)
+				imageSizeLeave:Play()
+				wait(.1)
+				thingInTab.topBar.Visible = false
+				thingInTab.bottomBar.Visible = false
+			end
+		end)
+
+		thingInTab.clickBtn.MouseButton1Click:Connect(function()
+			backgroundFrames.tabName.Text = thingInTab.Name
+			for tabs, thingInTab in pairs(sideBar:GetDescendants()) do
+				if thingInTab.Name == 'currentlySelected' then thingInTab.Value = false 
+				elseif thingInTab.Name == 'bottomBar' then 	
+					local bottomBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsBottom2)
+					bottomBarLeave:Play()
+				elseif thingInTab.Name == 'topBar' then 
+					local topBarLeave = tweenService:Create(thingInTab, lineHoverInfo2, lineHoverGoalsTop2)
+					topBarLeave:Play()
+				elseif thingInTab.Name == 'tabLabel' then 
+					local textSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, textSizeGoals2)
+					textSizeLeave:Play()
+				elseif thingInTab.Name == 'tabIcon' then
+					local imageSizeLeave = tweenService:Create(thingInTab, lineHoverInfo2, imageSizeGoals2)
+					imageSizeLeave:Play()
+				end
+			end
+			thingInTab.clickBtn.CurrentlySelected.Value = true
+			for tabs, tab in pairs(tabHolder:GetChildren()) do
+				tab.Visible = false
+			end
+			tabHolder[thingInTab.Name].Visible = true
+			local topBarLeave = tweenService:Create(thingInTab.topBar, lineHoverInfo2, lineHoverGoalsTop2)
+			topBarLeave:Play()
+			local bottomBarLeave = tweenService:Create(thingInTab.bottomBar, lineHoverInfo2, lineHoverGoalsBottom2)
+			bottomBarLeave:Play()
+			local textSizeHover = tweenService:Create(thingInTab.tabLabel, lineHoverInfo, textSizeGoals)
+			textSizeHover:Play()
+			local imageSizeHover = tweenService:Create(thingInTab.tabIcon, lineHoverInfo, imageSizeGoals)
+			imageSizeHover:Play()
+			wait(.1)
+			thingInTab.topBar.Visible = false
+			thingInTab.bottomBar.Visible = false
+		end)
+	end
+end
+--Side Bar Scripts
+
+
+
+
+--Character Tab Scripts
+
+--CharacterTab>WalkSpeedSlider
+local Slider = characterTab['1_walkspeedSlider'].Slider
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Dragging = false
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+
+local MaxValue = 250
+local MinValue = 16
+
+local currentSlideValue = Instance.new("IntValue")
+currentSlideValue.Value = 16
+currentSlideValue.Parent = Slider
+
+local function Update_WS()
+	local Character = Player.Character
+	if Dragging == true then
+		local MousePos = UserInputService:GetMouseLocation()
+		local MinPoint = (Slider.AbsolutePosition.X)
+		local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+
+		if MousePos.X < MinPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+		elseif MousePos.X > MaxPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+		else
+			Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+		end
+
+		wait(0.1)
+
+		local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+		Slider.Value.Value = Percent
+
+		if math.floor(Slider.Value.Value) < MinValue then
+			Slider.Value.Value = MinValue
+		elseif math.floor(Slider.Value.Value) > MaxValue then
+			Slider.Value.Value = MaxValue
+		end
+
+
+		Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+		Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+
+		Character.Humanoid.WalkSpeed = Slider.Value.Value
+	end
+end
+
+Slider.MouseEnter:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+	end
+end)
+
+Slider.MouseLeave:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+	end	
+end)
+
+Slider.MouseButton1Down:Connect(function()
+	Dragging = true
+	TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+	Update_WS()
+end)
+
+UserInputService.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Dragging = false
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+	end
+end)
+
+UserInputService.InputChanged:Connect(Update_WS)
+
+local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+Slider.Value.Value = Percent
+
+if math.floor(Slider.Value.Value) < MinValue then
+	Slider.Value.Value = MinValue
+elseif math.floor(Slider.Value.Value) > MaxValue then
+	Slider.Value.Value = MaxValue
+end
+
+Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+
+
+--CharacterTab>JumpHeightSlider
+local Slider = characterTab['2_jumpheightSlider'].Slider
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Dragging = false
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+
+local MaxValue = 500
+local MinValue = 50
+
+local currentSlideValue = Instance.new("IntValue")
+currentSlideValue.Value = 50
+currentSlideValue.Parent = Slider
+
+local function Update_JH()
+	local Character = Player.Character
+	if Dragging == true then
+		local MousePos = UserInputService:GetMouseLocation()
+		local MinPoint = (Slider.AbsolutePosition.X)
+		local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+
+		if MousePos.X < MinPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+		elseif MousePos.X > MaxPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+		else
+			Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+		end
+
+		wait(0.1)
+
+		local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+		Slider.Value.Value = Percent
+
+		if math.floor(Slider.Value.Value) < MinValue then
+			Slider.Value.Value = MinValue
+		elseif math.floor(Slider.Value.Value) > MaxValue then
+			Slider.Value.Value = MaxValue
+		end
+
+
+		Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+		Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+
+		Character.Humanoid.JumpPower = Slider.Value.Value
+	end
+end
+
+Slider.MouseEnter:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+	end
+end)
+
+Slider.MouseLeave:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+	end	
+end)
+
+Slider.MouseButton1Down:Connect(function()
+	Dragging = true
+	TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+	Update_JH()
+end)
+
+UserInputService.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Dragging = false
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+	end
+end)
+
+UserInputService.InputChanged:Connect(Update_JH)
+
+local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+Slider.Value.Value = Percent
+
+if math.floor(Slider.Value.Value) < MinValue then
+	Slider.Value.Value = MinValue
+elseif math.floor(Slider.Value.Value) > MaxValue then
+	Slider.Value.Value = MaxValue
+end
+
+Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+Slider.Parent.Value.Text = tostring(math.floor(Slider.Value.Value)).." | "..MaxValue
+
+
+--CharacterTab>Fly
+speedget = 1
+speedfly = 1
+flying = false
+flyToggle_checkboxToggled = false
+
+local flySpeedValue = Instance.new('NumberValue')
+flySpeedValue.Parent = characterTab['3_flyToggle']
+flySpeedValue.Name = 'FlySpeed'
+flySpeedValue.Value = 1
+
+flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
+	speedfly = flySpeedValue.Value
+end)
+
+characterTab['3_flyToggle'].checkBox.checkedBox.MouseButton1Click:Connect(function()
+	if flyToggle_checkboxToggled == false 
+	then flyToggle_checkboxToggled = true 
+		checkboxHandler(characterTab['3_flyToggle'].checkBox.checkedBox, true)
+	else flyToggle_checkboxToggled = false 
+		checkboxHandler(characterTab['3_flyToggle'].checkBox.checkedBox, false)
+		flying = false
+
+		localPlr.Character.Humanoid.PlatformStand = false
+	end
+	plrMouse.KeyDown:Connect(function(k)
+		if k == "x" then
+			if flyToggle_checkboxToggled == true then
+				if flying == false then
+					flying = true 
+					repeat wait() until localPlr and localPlr.Character and localPlr.Character:FindFirstChild('HumanoidRootPart') and localPlr.Character:FindFirstChild('Humanoid')
+					repeat wait() until plrMouse
+
+					local T = localPlr.Character.HumanoidRootPart
+					local CONTROL = {F = 0, B = 0, L = 0, R = 0}
+					local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+					local SPEED = speedget
+
+					local function fly()
+						local BG = Instance.new('BodyGyro', T)
+						local BV = Instance.new('BodyVelocity', T)
+						BG.P = 9e4
+						BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+						BG.cframe = T.CFrame
+						BV.velocity = Vector3.new(0, 0.1, 0)
+						BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+						spawn(function()
+							repeat wait()
+								localPlr.Character.Humanoid.PlatformStand = true
+								if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+									SPEED = 50
+								elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+									SPEED = 0
+								end
+								if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+									BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+									lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+								elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+									BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+								else
+									BV.velocity = Vector3.new(0, 0.1, 0)
+								end
+								BG.cframe = workspace.CurrentCamera.CoordinateFrame
+							until not flying
+							CONTROL = {F = 0, B = 0, L = 0, R = 0}
+							lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+							SPEED = 0
+							BG:destroy()
+							BV:destroy()
+							localPlr.Character.Humanoid.PlatformStand = false
+						end)
+					end
+					plrMouse.KeyDown:connect(function(KEY)
+						if KEY:lower() == 'w' then
+							CONTROL.F = speedfly
+						elseif KEY:lower() == 's' then
+							CONTROL.B = -speedfly
+						elseif KEY:lower() == 'a' then
+							CONTROL.L = -speedfly 
+						elseif KEY:lower() == 'd' then 
+							CONTROL.R = speedfly
+						end
+					end)
+					plrMouse.KeyUp:connect(function(KEY)
+						if KEY:lower() == 'w' then
+							CONTROL.F = 0
+						elseif KEY:lower() == 's' then
+							CONTROL.B = 0
+						elseif KEY:lower() == 'a' then
+							CONTROL.L = 0
+						elseif KEY:lower() == 'd' then
+							CONTROL.R = 0
+						end
+					end)
+					fly()
+				else
+					flying = false
+
+					localPlr.Character.Humanoid.PlatformStand = false
+				end
+
+			end
+		end
+	end)
+end)
+
+local Slider = characterTab['3_flyToggle'].Slider
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Dragging = false
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+
+local MaxValue = 25
+local MinValue = 1
+
+local currentSlideValue = Instance.new("IntValue")
+currentSlideValue.Value = 1
+currentSlideValue.Parent = Slider
+
+local function Update_FLYSPD()
+	local Character = Player.Character
+	if Dragging == true then
+		local MousePos = UserInputService:GetMouseLocation()
+		local MinPoint = (Slider.AbsolutePosition.X)
+		local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+
+		if MousePos.X < MinPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+		elseif MousePos.X > MaxPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+		else
+			Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+		end
+
+		wait(0.1)
+
+		local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+		Slider.Value.Value = Percent
+
+		if math.floor(Slider.Value.Value) < MinValue then
+			Slider.Value.Value = MinValue
+		elseif math.floor(Slider.Value.Value) > MaxValue then
+			Slider.Value.Value = MaxValue
+		end
+
+
+		Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+
+
+		local flySpeedValue = characterTab['3_flyToggle']:WaitForChild('FlySpeed')
+		flySpeedValue.Value = Slider.Value.Value
+	end
+end
+
+Slider.MouseEnter:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+	end
+end)
+
+Slider.MouseLeave:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+	end	
+end)
+
+Slider.MouseButton1Down:Connect(function()
+	Dragging = true
+	TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+	Update_FLYSPD()
+end)
+
+UserInputService.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Dragging = false
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+	end
+end)
+
+UserInputService.InputChanged:Connect(Update_FLYSPD)
+
+local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+
+
+if math.floor(Slider.Value.Value) < MinValue then
+	Slider.Value.Value = MinValue
+elseif math.floor(Slider.Value.Value) > MaxValue then
+	Slider.Value.Value = MaxValue
+end
+
+Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+
+
+--CharacterTab>VehicleOptions
+
+local vNoclipping = nil
+local currentlyVNC = false
+
+function activateRegularNC()
+	Clip = false
+	wait(0.1)
+	local function NoclipLoop()
+		if Clip == false and localPlr.Character ~= nil then
+			for _, child in pairs(localPlr.Character:GetDescendants()) do
+				if child:IsA("BasePart") and child.CanCollide == true then
+					child.CanCollide = false
+				end
+			end
+		end
+	end
+	vNoclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+end
+
+vnoclipParts = {}
+
+function activateVehicleNC()
+	vnoclipParts = {}
+	local seat = localPlr.Character.Humanoid.SeatPart
+	local vehicleModel = seat.Parent
+	repeat
+		if vehicleModel.ClassName ~= "Model" then
+			vehicleModel = vehicleModel.Parent
+		end
+	until vehicleModel.ClassName == "Model"
+	wait(0.1)
+	activateRegularNC()
+	for i,v in pairs(vehicleModel:GetDescendants()) do
+		if v:IsA("BasePart") and v.CanCollide then
+			table.insert(vnoclipParts,v)
+			v.CanCollide = false
+		end
+	end
+end
+
+function disableRegularNC()
+	if vNoclipping then
+		vNoclipping:Disconnect()
+	end
+	Clip = true
+end
+
+function disableVehicleNC()
+	disableRegularNC()
+	for i,v in pairs(vnoclipParts) do
+		v.CanCollide = true
+	end
+	vnoclipParts = {}
+end
+
+characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox.MouseButton1Click:Connect(function()
+	if currentlyVNC == false 
+	then currentlyVNC = true 
+		checkboxHandler(characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox, true)
+		activateVehicleNC()
+	else currentlyVNC = false 
+		checkboxHandler(characterTab['3_vehicleOptions'].vNoClip_CheckBox.checkedBox, false)
+		disableVehicleNC()
+	end
+end)
+
+
+vFLYING = false
+vFLYING_toggle = false
+QEfly = true
+vehicleflyspeed = 1
+
+local flySpeedValue = Instance.new('NumberValue')
+flySpeedValue.Parent = characterTab['3_vehicleOptions']
+flySpeedValue.Name = 'vFlySpeed'
+flySpeedValue.Value = 1
+
+flySpeedValue:GetPropertyChangedSignal("Value"):Connect(function()
+	vehicleflyspeed = flySpeedValue.Value
+end)
+
+function sFLY(vfly)
+
+	if vFLYING_toggle == true then
+
+		repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChild('Humanoid')
+		repeat wait() until plrMouse
+		if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+
+		local T = getRoot(Players.LocalPlayer.Character)
+		local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+		local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+		local SPEED = 0
+
+		local function FLY()
+			vFLYING = true
+			local BG = Instance.new('BodyGyro')
+			local BV = Instance.new('BodyVelocity')
+			BG.P = 9e4
+			BG.Parent = T
+			BV.Parent = T
+			BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+			BG.cframe = T.CFrame
+			BV.velocity = Vector3.new(0, 0, 0)
+			BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+			spawn(function()
+				repeat wait()
+					if not vfly and Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+						Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
+					end
+					if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+						SPEED = 50
+					elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0) and SPEED ~= 0 then
+						SPEED = 0
+					end
+					if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 or (CONTROL.Q + CONTROL.E) ~= 0 then
+						BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+						lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+					elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and (CONTROL.Q + CONTROL.E) == 0 and SPEED ~= 0 then
+						BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+					else
+						BV.velocity = Vector3.new(0, 0, 0)
+					end
+					BG.cframe = workspace.CurrentCamera.CoordinateFrame
+				until not vFLYING
+				CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+				lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+				SPEED = 0
+				BG:Destroy()
+				BV:Destroy()
+				if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+					Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+				end
+			end)
+		end
+		flyKeyDown = plrMouse.KeyDown:Connect(function(KEY)
+			if KEY:lower() == 'w' then
+				CONTROL.F = (vfly and vehicleflyspeed)
+			elseif KEY:lower() == 's' then
+				CONTROL.B = - (vfly and vehicleflyspeed)
+			elseif KEY:lower() == 'a' then
+				CONTROL.L = - (vfly and vehicleflyspeed)
+			elseif KEY:lower() == 'd' then 
+				CONTROL.R = (vfly and vehicleflyspeed)
+			elseif QEfly and KEY:lower() == 'e' then
+				CONTROL.Q = (vfly and vehicleflyspeed)*2
+			elseif QEfly and KEY:lower() == 'q' then
+				CONTROL.E = -(vfly and vehicleflyspeed)*2
+			end
+			pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
+		end)
+		flyKeyUp = plrMouse.KeyUp:Connect(function(KEY)
+			if KEY:lower() == 'w' then
+				CONTROL.F = 0
+			elseif KEY:lower() == 's' then
+				CONTROL.B = 0
+			elseif KEY:lower() == 'a' then
+				CONTROL.L = 0
+			elseif KEY:lower() == 'd' then
+				CONTROL.R = 0
+			elseif KEY:lower() == 'e' then
+				CONTROL.Q = 0
+			elseif KEY:lower() == 'q' then
+				CONTROL.E = 0
+			end
+		end)
+		FLY()
+	end
+
+
+end
+
+function NOFLY()
+	vFLYING = false
+	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+	if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+		Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+	end
+	pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
+end
+
+characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox.MouseButton1Click:Connect(function()
+	if vFLYING_toggle == false 
+	then vFLYING_toggle = true 
+		checkboxHandler(characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox, true)
+		sFLY(true)
+	else vFLYING_toggle = false 
+		checkboxHandler(characterTab['3_vehicleOptions'].vFly_CheckBox.checkedBox, false)
+		NOFLY()
+	end
+end)
+
+local Slider = characterTab['3_vehicleOptions'].Slider
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Dragging = false
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+
+local MaxValue = 25
+local MinValue = 1
+
+local currentSlideValue = Instance.new("IntValue")
+currentSlideValue.Value = 1
+currentSlideValue.Parent = Slider
+
+local function Update_VFLYSPD()
+	local Character = Player.Character
+	if Dragging == true then
+		local MousePos = UserInputService:GetMouseLocation()
+		local MinPoint = (Slider.AbsolutePosition.X)
+		local MaxPoint = (Slider.AbsolutePosition.X + Slider.AbsoluteSize.X)
+
+		if MousePos.X < MinPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(0, 1), "Out", "Sine", 0.1, true)
+		elseif MousePos.X > MaxPoint then
+			Slider.Indicator:TweenSize(UDim2.fromScale(1, 1), "Out", "Sine", 0.1, true)
+		else
+			Slider.Indicator:TweenSize(UDim2.fromScale((MousePos.X - Slider.AbsolutePosition.X) / Slider.AbsoluteSize.X, 1), "Out", "Sine", 0.1, true)
+		end
+
+		wait(0.1)
+
+		local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+		Slider.Value.Value = Percent
+
+		if math.floor(Slider.Value.Value) < MinValue then
+			Slider.Value.Value = MinValue
+		elseif math.floor(Slider.Value.Value) > MaxValue then
+			Slider.Value.Value = MaxValue
+		end
+
+
+		Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+
+
+		local flySpeedValue = characterTab['3_vehicleOptions']:WaitForChild('vFlySpeed')
+		flySpeedValue.Value = Slider.Value.Value
+	end
+end
+
+Slider.MouseEnter:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 130, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+	end
+end)
+
+Slider.MouseLeave:Connect(function()
+	if Dragging == false then
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+	end	
+end)
+
+Slider.MouseButton1Down:Connect(function()
+	Dragging = true
+	TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 190, 0)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+	TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+	Update_VFLYSPD()
+end)
+
+UserInputService.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Dragging = false
+		TweenService:Create(Slider.Indicator, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(85, 170, 0)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(190, 190, 190)}):Play()
+		TweenService:Create(Slider.Indicator.HolderButton.Value, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+	end
+end)
+
+UserInputService.InputChanged:Connect(Update_VFLYSPD)
+
+local Percent = (Slider.Indicator.HolderButton.AbsolutePosition.X - Slider.AbsolutePosition.X) / (Slider.AbsoluteSize.X - Slider.Indicator.HolderButton.Size.X.Offset) * MaxValue
+
+
+
+if math.floor(Slider.Value.Value) < MinValue then
+	Slider.Value.Value = MinValue
+elseif math.floor(Slider.Value.Value) > MaxValue then
+	Slider.Value.Value = MaxValue
+end
+
+Slider.Indicator.HolderButton.Value.Text = tostring(math.floor(Slider.Value.Value))
+
+
+
+--CharacterTab>NoClip
+local noclip = false
+function noClip()
+	Clip = false
+	wait(0.1)
+	local function NoclipLoop()
+		if Clip == false and localPlr.Character ~= nil then
+			for _, child in pairs(localPlr.Character:GetDescendants()) do
+				if child:IsA("BasePart") and child.CanCollide == true then
+					child.CanCollide = false
+				end
+			end
+		end
+	end
+	Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+end
+
+function clip()
+	if Noclipping then
+		Noclipping:Disconnect()
+	end
+	Clip = true
+end
+
+characterTab['4_noClip'].checkBox.checkedBox.MouseButton1Click:Connect(function()
+	if noclip == false 
+	then noclip = true 
+		checkboxHandler(characterTab['4_noClip'].checkBox.checkedBox, true)
+		noClip()
+	else noclip = false 
+		checkboxHandler(characterTab['4_noClip'].checkBox.checkedBox, false)
+		clip()
+	end
+end)
+
+
+--CharacterTab>ClickTP
+
+local HoldingControl = false
+local clickTpEnabled = false
+
+plrMouse.Button1Down:connect(function()
+	if HoldingControl and clickTpEnabled then
+		Player.Character:MoveTo(plrMouse.Hit.p)
+	end
+end)
+
+UserInputService.InputBegan:connect(function(Input, Processed)
+	if Input.UserInputType == Enum.UserInputType.Keyboard then
+		if Input.KeyCode == Enum.KeyCode.LeftControl then
+			HoldingControl = true
+		elseif Input.KeyCode == Enum.KeyCode.RightControl then
+			HoldingControl = true 
+		end
+	end
+end)
+
+UserInputService.InputEnded:connect(function(Input, Processed)
+	if Input.UserInputType == Enum.UserInputType.Keyboard then
+		if Input.KeyCode == Enum.KeyCode.LeftControl then
+			HoldingControl = false
+		elseif Input.KeyCode == Enum.KeyCode.RightControl then
+			HoldingControl = false
+		end
+	end
+end)
+
+characterTab['5_clickTeleport'].checkBox.checkedBox.MouseButton1Click:Connect(function()
+	if clickTpEnabled == false 
+	then clickTpEnabled = true 
+		checkboxHandler(characterTab['5_clickTeleport'].checkBox.checkedBox, true)
+	else clickTpEnabled = false 
+		checkboxHandler(characterTab['5_clickTeleport'].checkBox.checkedBox, false)
+	end
+end)
+
+
+--CharacterTab>InfiniteJump
+infiniteJumpEnabled = false
+plrMouse.KeyDown:connect(function(k)
+	if infiniteJumpEnabled then
+		if k:byte() == 32 then
+			local Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+			Humanoid:ChangeState("Jumping")
+			wait(0.1)
+			Humanoid:ChangeState("Seated")
+		end
+	end
+end)
+characterTab['6_infiniteJump'].checkBox.checkedBox.MouseButton1Click:Connect(function()
+	if infiniteJumpEnabled == false 
+	then infiniteJumpEnabled = true 
+		checkboxHandler(characterTab['6_infiniteJump'].checkBox.checkedBox, true)
+	else infiniteJumpEnabled = false 
+		checkboxHandler(characterTab['6_infiniteJump'].checkBox.checkedBox, false)
+	end
+end)
+
+
+--CharacterTab>FishOutaWatuh
+local currentlySwimming = false
+function startSwim()
+	workspace.Gravity = 0
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+	localPlr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+end
+
+
+function endSwim()
+	workspace.Gravity = 198.2
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+	localPlr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+	localPlr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+end
+
+characterTab['7_swimInAir'].checkBox.checkedBox.MouseButton1Click:Connect(function()
+	if currentlySwimming == false 
+	then currentlySwimming = true 
+		checkboxHandler(characterTab['7_swimInAir'].checkBox.checkedBox, true)
+		startSwim()
+	else currentlySwimming = false 
+		checkboxHandler(characterTab['7_swimInAir'].checkBox.checkedBox, false)
+		endSwim()
+	end
+end)
+
+
+
+--CharacterTab>RandomSettings
+characterTab['99_randomSettings'].noFaceBtnBackground.noFaceBtnMain.MouseButton1Click:Connect(function()
+	for i,v in pairs(localPlr.Character:GetDescendants()) do
+		if v:IsA("Decal") and v.Name == 'face' then
+			v:Destroy()
+		end
+	end
+	rippleEffect(characterTab['99_randomSettings'].noFaceBtnBackground)
+end)
+
+characterTab['99_randomSettings'].squareHatBtnBackground.squareHatBtnMain.MouseButton1Click:Connect(function()
+	for _,v in pairs(Player.Character.Humanoid:GetAccessories()) do
+		for i,c in pairs(v:GetDescendants()) do
+			if c:IsA("SpecialMesh") then
+				c:Destroy()
+			end
+		end
+	end
+	rippleEffect(characterTab['99_randomSettings'].squareHatBtnBackground)
+end)
+
+characterTab['99_randomSettings'].squareHeadBtnBackground.squareHeadBtnMain.MouseButton1Click:Connect(function()
+	Player.Character.Head:FindFirstChildOfClass("SpecialMesh"):Destroy()
+	rippleEffect(characterTab['99_randomSettings'].squareHeadBtnBackground)
+end)	
+
+
+
+
+
+
+--GameTab>
