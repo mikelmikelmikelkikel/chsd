@@ -1335,9 +1335,29 @@ for _, player in pairs(currentPlayersInGame) do
 		local thumbSize = Enum.ThumbnailSize.Size420x420
 		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
 
+
 		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
 		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+		
 	end
+end
+
+for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
+
+	if instance.Name == 'teleportToBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			print(victimChar)
+			if victimChar ~= nil then
+
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
+
+			end
+			rippleEffect(instance.Parent)
+		end)
+	end 
+	
+	
 end
 
 
@@ -1368,20 +1388,21 @@ Players.PlayerRemoving:Connect(function(player)
 	playersTab.playersHolder[player.Name]:Destroy()
 end)
 
-for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
+	
 
+playersTab.playersHolder.DescendantAdded:Connect(function(instance)
+	
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 			print(victimChar)
 			if victimChar ~= nil then
-				
+
 				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
-				wait(.1) 
-				
+
 			end
 			rippleEffect(instance.Parent)
 		end)
 	end 
-
-end
+	
+end)
