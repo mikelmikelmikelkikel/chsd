@@ -1438,7 +1438,7 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 			print(victimChar)
 			if victimChar ~= nil then
-				if instance.Text == 'Spectate' and currentlySpectacting == nil then
+				if instance.Text == 'Spectate' then
 				workspace.Camera.CameraSubject = victimChar.Humanoid
 				workspace.Camera.CameraType = "Custom"
 				workspace.Camera.CFrame = victimChar.Head.CFrame
@@ -1448,6 +1448,7 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			else 
 				resetCamera()
 				currentlySpectacting = nil
+				instance.Text = 'Spectate'
 			end
 			rippleEffect(instance.Parent)
 		end)
