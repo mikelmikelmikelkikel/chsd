@@ -2,6 +2,7 @@ print('loaded_script')
 --VARIABLES
 local Players = game:GetService('Players')
 localPlr = Players.LocalPlayer
+localChar = localPlr.Character
 
 plrMouse = localPlr:GetMouse()
 tweenService = game:GetService('TweenService')
@@ -70,6 +71,12 @@ local function findValue(whichArray, itemName)
 			return currentIndex
 		end
 	end
+end
+
+function resetCamera()
+	workspace.CameraSubject = localChar.Humanoid
+	workspace.Camera.CameraType = "Custom"
+	workspace.Camera.CFrame = localChar.Head.CFrame
 end
 --FUNCTIONS
 
@@ -1314,6 +1321,7 @@ end
 --PlayerTab Scripts
 local currentPlayersInGame = Players:GetPlayers()
 local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
+currentlySpectacting = nil
 
 wait(1.5)
 
@@ -1350,13 +1358,32 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 			print(victimChar)
 			if victimChar ~= nil then
 
-				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
 
 			end
 			rippleEffect(instance.Parent)
 		end)
 	end 
-	
+
+	if instance.Name == 'spectateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			print(victimChar)
+			if victimChar ~= nil then
+				if instance.Text == 'Spectate' then
+					workspace.CameraSubject = victimChar.Humanoid
+					workspace.Camera.CameraType = "Custom"
+					workspace.Camera.CFrame = victimChar.Head.CFrame
+					instance.Text = 'Unspectate'
+					currentlySpectacting = instance.Parent.Parent.Parent.Name
+				end
+			else 
+				resetCamera()
+				currentlySpectacting = nil
+			end
+			rippleEffect(instance.Parent)
+		end)
+	end 
 	
 end
 
@@ -1386,6 +1413,7 @@ end)
 
 Players.PlayerRemoving:Connect(function(player)
 	playersTab.playersHolder[player.Name]:Destroy()
+	if currentlySpectacting == player.Name then resetCamera() currentlySpectacting = nil end
 end)
 
 	
@@ -1398,11 +1426,33 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			print(victimChar)
 			if victimChar ~= nil then
 
-				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
 
 			end
 			rippleEffect(instance.Parent)
 		end)
 	end 
 	
+	if instance.Name == 'spectateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			print(victimChar)
+			if victimChar ~= nil then
+				if instance.Text == 'Spectate' and currentlySpectacting == nil then
+				workspace.CameraSubject = victimChar.Humanoid
+				workspace.Camera.CameraType = "Custom"
+				workspace.Camera.CFrame = victimChar.Head.CFrame
+				instance.Text = 'Unspectate'
+				currentlySpectacting = instance.Parent.Parent.Parent.Name
+				end
+			else 
+				resetCamera()
+				currentlySpectacting = nil
+			end
+			rippleEffect(instance.Parent)
+		end)
+	end 
+	
 end)
+
+
