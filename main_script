@@ -1377,13 +1377,13 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 					workspace.Camera.CFrame = victimChar.Head.CFrame
 					instance.Text = 'Unspectate'
 					currentlySpectacting = instance.Parent.Parent.Parent.Name
+				else 
+					workspace.Camera.CameraSubject = localChar.Humanoid
+					workspace.Camera.CameraType = "Custom"
+					workspace.Camera.CFrame = localChar.Head.CFrame
+					currentlySpectacting = nil
+					instance.Text = 'Spectate'
 				end
-			else 
-				workspace.Camera.CameraSubject = localChar.Humanoid
-				workspace.Camera.CameraType = "Custom"
-				workspace.Camera.CFrame = localChar.Head.CFrame
-				currentlySpectacting = nil
-				instance.Text = 'Spectate'
 			end
 			rippleEffect(instance.Parent)
 		end)
@@ -1448,13 +1448,13 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 				workspace.Camera.CFrame = victimChar.Head.CFrame
 				instance.Text = 'Unspectate'
 				currentlySpectacting = instance.Parent.Parent.Parent.Name
-				end
 			else 
 				workspace.Camera.CameraSubject = localChar.Humanoid
 				workspace.Camera.CameraType = "Custom"
 				workspace.Camera.CFrame = localChar.Head.CFrame
 				currentlySpectacting = nil
 				instance.Text = 'Spectate'
+				end
 			end
 			rippleEffect(instance.Parent)
 		end)
