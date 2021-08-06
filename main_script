@@ -82,6 +82,10 @@ function resetCamera()
 	localPlr.CameraMode = "Classic"
 	localPlr.Character.Head.Anchored = false
 end
+
+function getCharacter(plr)
+	return plr.Character
+end
 --FUNCTIONS
 
 
@@ -97,7 +101,7 @@ function startup()
 	local fadeTween = tweenService:Create(topBar.welcomeLabel, fadeInfo, fadeGoals)
 	fadeTween:Play()
 	wait(2)
-	topBar.welcomeLabel:Destroy()
+	topBar.welcomeLabel.Transparency = 1
 end
 startup()
 
@@ -1094,7 +1098,6 @@ end
 	local Dragging = false
 
 	local Player = game.Players.LocalPlayer
-	local Character = Player.Character
 
 	local MaxValue = 1
 	local MinValue = 0
