@@ -374,7 +374,7 @@ searchBarIcon.Image = "rbxassetid://3192528333"
 
 -- Scripts:
 
-local function CEUJ_fake_script() -- SearchBar.searchBarHandler 
+local function NSQA_fake_script() -- SearchBar.searchBarHandler 
 	local script = Instance.new('LocalScript', SearchBar)
 
 	--[[ Made by @LuaBearyGood ]]--
@@ -425,4 +425,4 @@ local function CEUJ_fake_script() -- SearchBar.searchBarHandler
 		end
 	end)
 end
-coroutine.wrap(CEUJ_fake_script)()
+coroutine.wrap(NSQA_fake_script)()
