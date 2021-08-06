@@ -18,7 +18,7 @@ local backgroundFrames = mainFrame.backgroundFrames
 --Gui>Tabs
 	local characterTab = tabHolder['Character']
     local toolConfigTab = tabHolder['Tool Config']
-	local playersTab = tabHolder['Players']
+	local playersTab = tabHolder:WaitForChild('Players')
 
 
 
@@ -1372,13 +1372,13 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
-			local victimChar = instance.Parent.Parent.Name
+			local victimChar = workspace[instance.Parent.Parent.Name]
 			print(victimChar)
 			if victimChar ~= nil then
-				victimChar.HumanoidRootPart.Anchored = true
+				
 				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,-3)))  
 				wait(.1) 
-				victimChar.HumanoidRootPart.Anchored = false
+				
 			end
 			rippleEffect(instance.Parent)
 		end)
