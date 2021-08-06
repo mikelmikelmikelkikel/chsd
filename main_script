@@ -74,7 +74,7 @@ local function findValue(whichArray, itemName)
 end
 
 function resetCamera()
-	workspace.CameraSubject = localChar.Humanoid
+	workspace.Camera.CameraSubject = localChar.Humanoid
 	workspace.Camera.CameraType = "Custom"
 	workspace.Camera.CFrame = localChar.Head.CFrame
 end
@@ -1371,7 +1371,7 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 			print(victimChar)
 			if victimChar ~= nil then
 				if instance.Text == 'Spectate' then
-					workspace.CameraSubject = victimChar.Humanoid
+					workspace.Camera.CameraSubject = victimChar.Humanoid
 					workspace.Camera.CameraType = "Custom"
 					workspace.Camera.CFrame = victimChar.Head.CFrame
 					instance.Text = 'Unspectate'
@@ -1439,7 +1439,7 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			print(victimChar)
 			if victimChar ~= nil then
 				if instance.Text == 'Spectate' and currentlySpectacting == nil then
-				workspace.CameraSubject = victimChar.Humanoid
+				workspace.Camera.CameraSubject = victimChar.Humanoid
 				workspace.Camera.CameraType = "Custom"
 				workspace.Camera.CFrame = victimChar.Head.CFrame
 				instance.Text = 'Unspectate'
