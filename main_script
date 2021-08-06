@@ -1372,7 +1372,7 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Name]
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 			print(victimChar)
 			if victimChar ~= nil then
 				
