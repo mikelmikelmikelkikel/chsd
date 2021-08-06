@@ -74,10 +74,13 @@ local function findValue(whichArray, itemName)
 end
 
 function resetCamera()
-	local cam = (workspace.CurrentCamera)
-	
-	cam.CameraSubject = (localChar:FindFirstChild("Humanoid"))
-	cam.CameraType = Enum.CameraType.Custom
+	repeat wait() until localPlr.Character ~= nil
+	workspace.CurrentCamera.CameraSubject = localPlr.Character:FindFirstChildWhichIsA('Humanoid')
+	workspace.CurrentCamera.CameraType = "Custom"
+	localPlr.CameraMinZoomDistance = 0.5
+	localPlr.CameraMaxZoomDistance = 400
+	localPlr.CameraMode = "Classic"
+	localPlr.Character.Head.Anchored = false
 end
 --FUNCTIONS
 
@@ -1372,19 +1375,14 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 			print(victimChar)
 			if victimChar ~= nil then
 				if instance.Text == 'Spectate' then
-					workspace.Camera.CameraSubject = victimChar.Humanoid
-					workspace.Camera.CameraType = "Custom"
-					workspace.Camera.CFrame = victimChar.Head.CFrame
-					instance.Text = 'Unspectate'
+					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
+					instance.Text = 'Unsepctate'
 					currentlySpectacting = instance.Parent.Parent.Parent.Name
 				else 
-					workspace.Camera.CameraSubject = localChar.Humanoid
-					workspace.Camera.CameraType = "Custom"
-					workspace.Camera.CFrame = localChar.Head.CFrame
+					resetCamera()
 					currentlySpectacting = nil
 					instance.Text = 'Spectate'
-				end
-			end
+				end end
 			rippleEffect(instance.Parent)
 		end)
 	end 
@@ -1442,20 +1440,15 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 			print(victimChar)
 			if victimChar ~= nil then
-				if instance.Text == 'Spectate' then
-				workspace.Camera.CameraSubject = victimChar.Humanoid
-				workspace.Camera.CameraType = "Custom"
-				workspace.Camera.CFrame = victimChar.Head.CFrame
-				instance.Text = 'Unspectate'
-				currentlySpectacting = instance.Parent.Parent.Parent.Name
-			else 
-				workspace.Camera.CameraSubject = localChar.Humanoid
-				workspace.Camera.CameraType = "Custom"
-				workspace.Camera.CFrame = localChar.Head.CFrame
-				currentlySpectacting = nil
-				instance.Text = 'Spectate'
-				end
-			end
+					if instance.Text == 'Spectate' then
+					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
+					instance.Text = 'Unsepctate'
+					currentlySpectacting = instance.Parent.Parent.Parent.Name
+						else 
+					resetCamera()
+					currentlySpectacting = nil
+					instance.Text = 'Spectate'
+			end end
 			rippleEffect(instance.Parent)
 		end)
 	end 
