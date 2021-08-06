@@ -1317,12 +1317,8 @@ local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
 
 wait(1.5)
 
-local plrTable = {}
-
 for _, player in pairs(currentPlayersInGame) do
 	if player.Name ~= localPlr.Name then 
-		
-		table.insert(plrTable, player)
 		
 		local plrTempClone = plrTemp:Clone()
 	
@@ -1349,8 +1345,6 @@ end
 Players.PlayerAdded:Connect(function(player)
 	if player.Name ~= localPlr.Name then 
 		local plrTempClone = plrTemp:Clone()
-		
-		table.insert(plrTable, player)
 
 		plrTempClone.Name = player.Name
 		plrTempClone.playerRealName.Text = '@' .. player.Name
@@ -1372,15 +1366,13 @@ end)
 
 Players.PlayerRemoving:Connect(function(player)
 	playersTab.playersHolder[player.Name]:Destroy()
-	local plrIndex = findValue(plrTable, player)
-	table.remove(plrTable, plrIndex)
 end)
 
 for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
-			local victimChar = plrTable[findValue(instance.Parent.Parent.Name)]
+			local victimChar = instance.Parent.Parent.Name
 			print(victimChar)
 			if victimChar ~= nil then
 				victimChar.HumanoidRootPart.Anchored = true
