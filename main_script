@@ -3,6 +3,10 @@ print('loaded_script')
 local Players = game:GetService('Players')
 localPlr = Players.LocalPlayer
 localChar = localPlr.Character
+if not localChar or not localChar.Parent then
+	localChar = localPlr.CharacterAdded:wait()
+end
+
 
 plrMouse = localPlr:GetMouse()
 tweenService = game:GetService('TweenService')
