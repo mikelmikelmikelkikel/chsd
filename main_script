@@ -1422,192 +1422,192 @@ end
 
 
 --PlayerTab Scripts
-local currentPlayersInGame = Players:GetPlayers()
-local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
-currentlySpectacting = nil
+	local currentPlayersInGame = Players:GetPlayers()
+	local plrTemp = playersTab.playersHolder.UIListLayout.plrTemp
+	currentlySpectacting = nil
 
-wait(1.5)
+	wait(1.5)
 
-for _, player in pairs(currentPlayersInGame) do
-	if player.Name ~= localPlr.Name then 
+	for _, player in pairs(currentPlayersInGame) do
+		if player.Name ~= localPlr.Name then 
+			
+			local plrTempClone = plrTemp:Clone()
 		
-		local plrTempClone = plrTemp:Clone()
-	
-		plrTempClone.Name = player.Name
-		plrTempClone.playerRealName.Text = '@' .. player.Name
-		plrTempClone.playerDisplayName.Text = player.DisplayName
-	
-		if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
-	
-		plrTempClone.Parent = playersTab.playersHolder
+			plrTempClone.Name = player.Name
+			plrTempClone.playerRealName.Text = '@' .. player.Name
+			plrTempClone.playerDisplayName.Text = player.DisplayName
 		
-		local userId = player.UserId
-		local thumbType = Enum.ThumbnailType.AvatarBust
-		local thumbSize = Enum.ThumbnailSize.Size420x420
-		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+			if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
+		
+			plrTempClone.Parent = playersTab.playersHolder
+			
+			local userId = player.UserId
+			local thumbType = Enum.ThumbnailType.AvatarBust
+			local thumbSize = Enum.ThumbnailSize.Size420x420
+			local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
 
 
-		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
-		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
-		
+			plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
+			plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+			
+		end
 	end
-end
 
-for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
+	for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 
-	if instance.Name == 'teleportToBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			if victimChar ~= nil then
+		if instance.Name == 'teleportToBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				if victimChar ~= nil then
 
-				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
+					localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
 
-			end
-			rippleEffect(instance.Parent)
-		end)
-	end 
+				end
+				rippleEffect(instance.Parent)
+			end)
+		end 
 
-	if instance.Name == 'spectateBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			if victimChar ~= nil then
-				if instance.Text == 'Spectate' then
-					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
-					instance.Text = 'Unsepctate'
-					currentlySpectacting = instance.Parent.Parent.Parent.Name
-				else 
-					resetCamera()
-					currentlySpectacting = nil
-					instance.Text = 'Spectate'
-				end end
-			rippleEffect(instance.Parent)
-		end)
-	end 
-	
-	if instance.Name == 'locateBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			local victimPlr = Players[instance.Parent.Parent.Parent.Name]
-			if victimPlr ~= nil then
-				if instance.Text == 'Locate' then
-					Locate(victimPlr)
-					instance.Text = 'Unlocate'
-				else 
-					if victimPlr then
-						for i,v in pairs(Players) do
+		if instance.Name == 'spectateBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				if victimChar ~= nil then
+					if instance.Text == 'Spectate' then
+						workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
+						instance.Text = 'Unsepctate'
+						currentlySpectacting = instance.Parent.Parent.Parent.Name
+					else 
+						resetCamera()
+						currentlySpectacting = nil
+						instance.Text = 'Spectate'
+					end end
+				rippleEffect(instance.Parent)
+			end)
+		end 
+		
+		if instance.Name == 'locateBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				local victimPlr = Players[instance.Parent.Parent.Parent.Name]
+				if victimPlr ~= nil then
+					if instance.Text == 'Locate' then
+						Locate(victimPlr)
+						instance.Text = 'Unlocate'
+					else 
+						if victimPlr then
+							for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+								for i,c in pairs(COREGUI:GetChildren()) do
+									if c.Name == Players[v].Name..'_LC' then
+										c:Destroy()
+									end
+								end
+							end
+						else
 							for i,c in pairs(COREGUI:GetChildren()) do
-								if c.Name == Players[v].Name..'_LC' then
+								if string.sub(c.Name, -3) == '_LC' then
 									c:Destroy()
 								end
 							end
 						end
-					else
-						for i,c in pairs(COREGUI:GetChildren()) do
-							if string.sub(c.Name, -3) == '_LC' then
-								c:Destroy()
-							end
-						end
-					end
-					instance.Text = 'Locate'
-				end end
-			rippleEffect(instance.Parent)
-		end)
-	end 
-	
-end
-
-
-
-Players.PlayerAdded:Connect(function(player)
-	if player.Name ~= localPlr.Name then 
-		local plrTempClone = plrTemp:Clone()
-
-		plrTempClone.Name = player.Name
-		plrTempClone.playerRealName.Text = '@' .. player.Name
-		plrTempClone.playerDisplayName.Text = player.DisplayName
-
-		if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
-
-		plrTempClone.Parent = playersTab.playersHolder
-
-		local userId = player.UserId
-		local thumbType = Enum.ThumbnailType.AvatarBust
-		local thumbSize = Enum.ThumbnailSize.Size420x420
-		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
-
-		plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
-		plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+						instance.Text = 'Locate'
+					end end
+				rippleEffect(instance.Parent)
+			end)
+		end 
+		
 	end
-end)
 
-Players.PlayerRemoving:Connect(function(player)
-	playersTab.playersHolder[player.Name]:Destroy()
-	if currentlySpectacting == player.Name then resetCamera() currentlySpectacting = nil end
-end)
 
-	
 
-playersTab.playersHolder.DescendantAdded:Connect(function(instance)
-	
-	if instance.Name == 'teleportToBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			if victimChar ~= nil then
+	Players.PlayerAdded:Connect(function(player)
+		if player.Name ~= localPlr.Name then 
+			local plrTempClone = plrTemp:Clone()
 
-				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
+			plrTempClone.Name = player.Name
+			plrTempClone.playerRealName.Text = '@' .. player.Name
+			plrTempClone.playerDisplayName.Text = player.DisplayName
 
-			end
-			rippleEffect(instance.Parent)
-		end)
-	end 
+			if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
 
-	if instance.Name == 'spectateBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			if victimChar ~= nil then
-				if instance.Text == 'Spectate' then
-					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
-					instance.Text = 'Unsepctate'
-					currentlySpectacting = instance.Parent.Parent.Parent.Name
-				else 
-					resetCamera()
-					currentlySpectacting = nil
-					instance.Text = 'Spectate'
-				end end
-			rippleEffect(instance.Parent)
-		end)
-	end 
+			plrTempClone.Parent = playersTab.playersHolder
 
-	if instance.Name == 'locateBtnMAIN' then
-		instance.MouseButton1Click:Connect(function()
-			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			local victimPlr = Players[instance.Parent.Parent.Parent.Name]
-			if victimPlr ~= nil then
-				if instance.Text == 'Locate' then
-					Locate(victimPlr)
-					instance.Text = 'Unlocate'
-				else 
-					if victimPlr then
-						for i,v in pairs(Players) do
+			local userId = player.UserId
+			local thumbType = Enum.ThumbnailType.AvatarBust
+			local thumbSize = Enum.ThumbnailSize.Size420x420
+			local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+
+			plrTempClone.avatarBackground.playerAvatarBustImage.Image = content
+			plrTempClone.avatarBackground.playerAvatarBustImageDS.Image = content
+		end
+	end)
+
+	Players.PlayerRemoving:Connect(function(player)
+		playersTab.playersHolder[player.Name]:Destroy()
+		if currentlySpectacting == player.Name then resetCamera() currentlySpectacting = nil end
+	end)
+
+		
+
+	playersTab.playersHolder.DescendantAdded:Connect(function(instance)
+		
+		if instance.Name == 'teleportToBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				if victimChar ~= nil then
+
+					localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
+
+				end
+				rippleEffect(instance.Parent)
+			end)
+		end 
+
+		if instance.Name == 'spectateBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				if victimChar ~= nil then
+					if instance.Text == 'Spectate' then
+						workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
+						instance.Text = 'Unsepctate'
+						currentlySpectacting = instance.Parent.Parent.Parent.Name
+					else 
+						resetCamera()
+						currentlySpectacting = nil
+						instance.Text = 'Spectate'
+					end end
+				rippleEffect(instance.Parent)
+			end)
+		end 
+
+		if instance.Name == 'locateBtnMAIN' then
+			instance.MouseButton1Click:Connect(function()
+				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+				local victimPlr = Players[instance.Parent.Parent.Parent.Name]
+				if victimPlr ~= nil then
+					if instance.Text == 'Locate' then
+						Locate(victimPlr)
+						instance.Text = 'Unlocate'
+					else 
+						if victimPlr then
+							for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+								for i,c in pairs(COREGUI:GetChildren()) do
+									if c.Name == Players[v].Name..'_LC' then
+										c:Destroy()
+									end
+								end
+							end
+						else
 							for i,c in pairs(COREGUI:GetChildren()) do
-								if c.Name == Players[v].Name..'_LC' then
+								if string.sub(c.Name, -3) == '_LC' then
 									c:Destroy()
 								end
 							end
 						end
-					else
-						for i,c in pairs(COREGUI:GetChildren()) do
-							if string.sub(c.Name, -3) == '_LC' then
-								c:Destroy()
-							end
-						end
-					end
-					instance.Text = 'Locate'
-				end end
-			rippleEffect(instance.Parent)
-		end)
-	end 
-	
-end)
+						instance.Text = 'Locate'
+					end end
+				rippleEffect(instance.Parent)
+			end)
+		end 
+		
+	end)
 
 
