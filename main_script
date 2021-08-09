@@ -1428,7 +1428,7 @@ end
 
 	wait(1.5)
 
-	for _, player in pairs(currentPlayersInGame) do
+for _, player in pairs(currentPlayersInGame) do
 		if player.Name ~= localPlr.Name then 
 			
 			local plrTempClone = plrTemp:Clone()
@@ -1494,7 +1494,7 @@ end
 						instance.Text = 'Unlocate'
 					else 
 						if victimPlr then
-							for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+							for i,v in pairs(game.Players:GetDescendants()) do
 								for i,c in pairs(COREGUI:GetChildren()) do
 									if c.Name == Players[v].Name..'_LC' then
 										c:Destroy()
@@ -1514,7 +1514,7 @@ end
 			end)
 		end 
 		
-	end
+end
 
 
 
@@ -1547,67 +1547,67 @@ end
 
 		
 
-	playersTab.playersHolder.DescendantAdded:Connect(function(instance)
+playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 		
-		if instance.Name == 'teleportToBtnMAIN' then
-			instance.MouseButton1Click:Connect(function()
-				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-				if victimChar ~= nil then
+	if instance.Name == 'teleportToBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			if victimChar ~= nil then
 
-					localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
+				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
 
-				end
-				rippleEffect(instance.Parent)
-			end)
-		end 
+			end
+			rippleEffect(instance.Parent)
+		end)
+	end 
 
-		if instance.Name == 'spectateBtnMAIN' then
-			instance.MouseButton1Click:Connect(function()
-				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-				if victimChar ~= nil then
-					if instance.Text == 'Spectate' then
-						workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
-						instance.Text = 'Unsepctate'
-						currentlySpectacting = instance.Parent.Parent.Parent.Name
-					else 
-						resetCamera()
-						currentlySpectacting = nil
-						instance.Text = 'Spectate'
-					end end
-				rippleEffect(instance.Parent)
-			end)
-		end 
+	if instance.Name == 'spectateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			if victimChar ~= nil then
+				if instance.Text == 'Spectate' then
+					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
+					instance.Text = 'Unsepctate'
+					currentlySpectacting = instance.Parent.Parent.Parent.Name
+				else 
+					resetCamera()
+					currentlySpectacting = nil
+					instance.Text = 'Spectate'
+				end end
+			rippleEffect(instance.Parent)
+		end)
+	end 
 
-		if instance.Name == 'locateBtnMAIN' then
-			instance.MouseButton1Click:Connect(function()
-				local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-				local victimPlr = Players[instance.Parent.Parent.Parent.Name]
-				if victimPlr ~= nil then
-					if instance.Text == 'Locate' then
-						Locate(victimPlr)
-						instance.Text = 'Unlocate'
-					else 
-						if victimPlr then
-							for i,v in pairs(game:GetService('Players'):GetPlayers()) do
-								for i,c in pairs(COREGUI:GetChildren()) do
-									if c.Name == Players[v].Name..'_LC' then
-										c:Destroy()
-									end
-								end
-							end
-						else
+	if instance.Name == 'locateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			local victimPlr = Players[instance.Parent.Parent.Parent.Name]
+			if victimPlr ~= nil then
+				if instance.Text == 'Locate' then
+					Locate(victimPlr)
+					instance.Text = 'Unlocate'
+				else 
+					if victimPlr then
+						for i,v in pairs(game.Players:GetDescendants()) do
 							for i,c in pairs(COREGUI:GetChildren()) do
-								if string.sub(c.Name, -3) == '_LC' then
+								if c.Name == Players[v].Name..'_LC' then
 									c:Destroy()
 								end
 							end
 						end
-						instance.Text = 'Locate'
-					end end
-				rippleEffect(instance.Parent)
-			end)
-		end 
+					else
+						for i,c in pairs(COREGUI:GetChildren()) do
+							if string.sub(c.Name, -3) == '_LC' then
+								c:Destroy()
+							end
+						end
+					end
+					instance.Text = 'Locate'
+				end end
+			rippleEffect(instance.Parent)
+		end)
+	end 
 		
-	end)
+end)
 
 
