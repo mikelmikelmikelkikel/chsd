@@ -19,14 +19,14 @@ local teleportToBtnBG = Instance.new("ImageLabel")
 local teleportToBtnMAIN = Instance.new("TextButton")
 local spectateBtnBG = Instance.new("ImageLabel")
 local spectateBtnMAIN = Instance.new("TextButton")
+local locateBtnBG = Instance.new("ImageLabel")
+local locateBtnMAIN = Instance.new("TextButton")
 local blankBtn = Instance.new("ImageLabel")
 local blankBtnMain = Instance.new("TextButton")
 local blankBtn_2 = Instance.new("ImageLabel")
 local blankBtnMain_2 = Instance.new("TextButton")
 local blankBtn_3 = Instance.new("ImageLabel")
 local blankBtnMain_3 = Instance.new("TextButton")
-local blankBtn_4 = Instance.new("ImageLabel")
-local blankBtnMain_4 = Instance.new("TextButton")
 local roundBackground_2 = Instance.new("ImageLabel")
 local SearchBar = Instance.new("TextBox")
 local searchBarIcon = Instance.new("ImageLabel")
@@ -39,7 +39,6 @@ Players.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
 Players.BackgroundTransparency = 1.000
 Players.Position = UDim2.new(0.00847569946, 0, 0.0153375855, 0)
 Players.Size = UDim2.new(0.991524398, 0, 0.984662414, 0)
-Players.Visible = false
 
 playersHolder.Name = "playersHolder"
 playersHolder.Parent = Players
@@ -216,13 +215,41 @@ spectateBtnMAIN.TextScaled = true
 spectateBtnMAIN.TextSize = 14.000
 spectateBtnMAIN.TextWrapped = true
 
+locateBtnBG.Name = "locateBtnBG"
+locateBtnBG.Parent = btnHolder
+locateBtnBG.AnchorPoint = Vector2.new(0.5, 0.5)
+locateBtnBG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+locateBtnBG.BackgroundTransparency = 1.000
+locateBtnBG.ClipsDescendants = true
+locateBtnBG.Position = UDim2.new(0.838857293, 0, 0.359677225, 0)
+locateBtnBG.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
+locateBtnBG.ZIndex = 11
+locateBtnBG.Image = "rbxassetid://3570695787"
+locateBtnBG.ImageColor3 = Color3.fromRGB(0, 0, 0)
+locateBtnBG.ImageTransparency = 0.100
+locateBtnBG.ScaleType = Enum.ScaleType.Slice
+locateBtnBG.SliceCenter = Rect.new(100, 100, 100, 100)
+locateBtnBG.SliceScale = 0.120
+
+locateBtnMAIN.Name = "locateBtnMAIN"
+locateBtnMAIN.Parent = locateBtnBG
+locateBtnMAIN.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+locateBtnMAIN.BackgroundTransparency = 1.000
+locateBtnMAIN.Size = UDim2.new(1, 0, 1, 0)
+locateBtnMAIN.Font = Enum.Font.ArialBold
+locateBtnMAIN.Text = "Locate"
+locateBtnMAIN.TextColor3 = Color3.fromRGB(122, 122, 122)
+locateBtnMAIN.TextScaled = true
+locateBtnMAIN.TextSize = 14.000
+locateBtnMAIN.TextWrapped = true
+
 blankBtn.Name = "blankBtn"
 blankBtn.Parent = btnHolder
 blankBtn.AnchorPoint = Vector2.new(0.5, 0.5)
 blankBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 blankBtn.BackgroundTransparency = 1.000
 blankBtn.ClipsDescendants = true
-blankBtn.Position = UDim2.new(0.838857293, 0, 0.359677225, 0)
+blankBtn.Position = UDim2.new(0.164571539, 0, 0.795161128, 0)
 blankBtn.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
 blankBtn.Visible = false
 blankBtn.ZIndex = 11
@@ -251,7 +278,7 @@ blankBtn_2.AnchorPoint = Vector2.new(0.5, 0.5)
 blankBtn_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 blankBtn_2.BackgroundTransparency = 1.000
 blankBtn_2.ClipsDescendants = true
-blankBtn_2.Position = UDim2.new(0.164571539, 0, 0.795161128, 0)
+blankBtn_2.Position = UDim2.new(0.49885723, 0, 0.795161128, 0)
 blankBtn_2.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
 blankBtn_2.Visible = false
 blankBtn_2.ZIndex = 11
@@ -280,7 +307,7 @@ blankBtn_3.AnchorPoint = Vector2.new(0.5, 0.5)
 blankBtn_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 blankBtn_3.BackgroundTransparency = 1.000
 blankBtn_3.ClipsDescendants = true
-blankBtn_3.Position = UDim2.new(0.49885723, 0, 0.795161128, 0)
+blankBtn_3.Position = UDim2.new(0.838857293, 0, 0.795161128, 0)
 blankBtn_3.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
 blankBtn_3.Visible = false
 blankBtn_3.ZIndex = 11
@@ -302,35 +329,6 @@ blankBtnMain_3.TextColor3 = Color3.fromRGB(122, 122, 122)
 blankBtnMain_3.TextScaled = true
 blankBtnMain_3.TextSize = 14.000
 blankBtnMain_3.TextWrapped = true
-
-blankBtn_4.Name = "blankBtn"
-blankBtn_4.Parent = btnHolder
-blankBtn_4.AnchorPoint = Vector2.new(0.5, 0.5)
-blankBtn_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-blankBtn_4.BackgroundTransparency = 1.000
-blankBtn_4.ClipsDescendants = true
-blankBtn_4.Position = UDim2.new(0.838857293, 0, 0.795161128, 0)
-blankBtn_4.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
-blankBtn_4.Visible = false
-blankBtn_4.ZIndex = 11
-blankBtn_4.Image = "rbxassetid://3570695787"
-blankBtn_4.ImageColor3 = Color3.fromRGB(0, 0, 0)
-blankBtn_4.ImageTransparency = 0.100
-blankBtn_4.ScaleType = Enum.ScaleType.Slice
-blankBtn_4.SliceCenter = Rect.new(100, 100, 100, 100)
-blankBtn_4.SliceScale = 0.120
-
-blankBtnMain_4.Name = "blankBtnMain"
-blankBtnMain_4.Parent = blankBtn_4
-blankBtnMain_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-blankBtnMain_4.BackgroundTransparency = 1.000
-blankBtnMain_4.Size = UDim2.new(1, 0, 1, 0)
-blankBtnMain_4.Font = Enum.Font.ArialBold
-blankBtnMain_4.Text = "Teleport To"
-blankBtnMain_4.TextColor3 = Color3.fromRGB(122, 122, 122)
-blankBtnMain_4.TextScaled = true
-blankBtnMain_4.TextSize = 14.000
-blankBtnMain_4.TextWrapped = true
 
 roundBackground_2.Name = "roundBackground"
 roundBackground_2.Parent = Players
@@ -374,7 +372,7 @@ searchBarIcon.Image = "rbxassetid://3192528333"
 
 -- Scripts:
 
-local function GVMQXC_fake_script() -- SearchBar.searchBarHandler 
+local function BABDUA_fake_script() -- SearchBar.searchBarHandler 
 	local script = Instance.new('LocalScript', SearchBar)
 
 	--[[ Made by @LuaBearyGood ]]--
@@ -425,4 +423,4 @@ local function GVMQXC_fake_script() -- SearchBar.searchBarHandler
 		end
 	end)
 end
-coroutine.wrap(GVMQXC_fake_script)()
+coroutine.wrap(BABDUA_fake_script)()
