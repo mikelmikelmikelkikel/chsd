@@ -1,21 +1,24 @@
-print('loaded_script')
+script.Parent = game:GetService('Players').LocalPlayer.PlayerGui:FindFirstChild('dietLib')
+
 --VARIABLES
 local Players = game:GetService('Players')
 localPlr = Players.LocalPlayer
 localChar = localPlr.Character
-if not localChar or not localChar.Parent then
-	localChar = localPlr.CharacterAdded:wait()
-end
+
+localPlr.CharacterAdded:Connect(function(Character)
+	localChar = Character
+end)
 
 
 plrMouse = localPlr:GetMouse()
 tweenService = game:GetService('TweenService')
 UserInputService = game:GetService("UserInputService")
+COREGUI = game:GetService("CoreGui")
 --
 
 
 --GUI VARIALBES
-local mainFrame = localPlr.PlayerGui:WaitForChild('dietLib').mainFrame
+local mainFrame = script.Parent:WaitForChild('mainFrame')
 local topBar = mainFrame.topBar
 local sideBar = mainFrame.sideBar
 local tabHolder = mainFrame.tabHolder
@@ -87,9 +90,98 @@ function resetCamera()
 	localPlr.Character.Head.Anchored = false
 end
 
-function getCharacter(plr)
-	return plr.Character
+function Locate(plr)
+	spawn(function()
+		for i,v in pairs(COREGUI:GetChildren()) do
+			if v.Name == plr.Name..'_LC' then
+				v:Destroy()
+			end
+		end
+		wait()
+		if plr.Character and plr.Name ~= Players.LocalPlayer.Name and not COREGUI:FindFirstChild(plr.Name..'_LC') then
+			local ESPholder = Instance.new("Folder")
+			ESPholder.Name = plr.Name..'_LC'
+			ESPholder.Parent = COREGUI
+			repeat wait(1) until plr.Character and getRoot(plr.Character) and plr.Character:FindFirstChild('Humanoid')
+			for b,n in pairs (plr.Character:GetChildren()) do
+				if (n:IsA("BasePart")) then
+					local a = Instance.new("BoxHandleAdornment")
+					a.Name = plr.Name
+					a.Parent = ESPholder
+					a.Adornee = n
+					a.AlwaysOnTop = true
+					a.ZIndex = 10
+					a.Size = n.Size
+					a.Transparency = 0.3
+					a.Color = plr.TeamColor
+				end
+			end
+			if plr.Character and plr.Character:FindFirstChild('Head') then
+				local BillboardGui = Instance.new("BillboardGui")
+				local TextLabel = Instance.new("TextLabel")
+				BillboardGui.Adornee = plr.Character.Head
+				BillboardGui.Name = plr.Name
+				BillboardGui.Parent = ESPholder
+				BillboardGui.Size = UDim2.new(0, 100, 0, 150)
+				BillboardGui.StudsOffset = Vector3.new(0, 1, 0)
+				BillboardGui.AlwaysOnTop = true
+				TextLabel.Parent = BillboardGui
+				TextLabel.BackgroundTransparency = 1
+				TextLabel.Position = UDim2.new(0, 0, 0, -50)
+				TextLabel.Size = UDim2.new(0, 100, 0, 100)
+				TextLabel.Font = Enum.Font.SourceSansSemibold
+				TextLabel.TextSize = 20
+				TextLabel.TextColor3 = Color3.new(1, 1, 1)
+				TextLabel.TextStrokeTransparency = 0
+				TextLabel.TextYAlignment = Enum.TextYAlignment.Bottom
+				TextLabel.Text = 'Name: '..plr.Name
+				TextLabel.ZIndex = 10
+				local lcLoopFunc
+				local addedFunc
+				local teamChange
+				addedFunc = plr.CharacterAdded:Connect(function()
+					if ESPholder ~= nil and ESPholder.Parent ~= nil then
+						lcLoopFunc:Disconnect()
+						teamChange:Disconnect()
+						ESPholder:Destroy()
+						repeat wait(1) until getRoot(plr.Character) and plr.Character:FindFirstChild('Humanoid')
+						Locate(plr)
+						addedFunc:Disconnect()
+					else
+						teamChange:Disconnect()
+						addedFunc:Disconnect()
+					end
+				end)
+				teamChange = plr:GetPropertyChangedSignal("TeamColor"):Connect(function()
+					if ESPholder ~= nil and ESPholder.Parent ~= nil then
+						lcLoopFunc:Disconnect()
+						addedFunc:Disconnect()
+						ESPholder:Destroy()
+						repeat wait(1) until getRoot(plr.Character) and plr.Character:FindFirstChild('Humanoid')
+						Locate(plr)
+						teamChange:Disconnect()
+					else
+						teamChange:Disconnect()
+					end
+				end)
+				local function lcLoop()
+					if COREGUI:FindFirstChild(plr.Name..'_LC') then
+						if plr.Character and getRoot(plr.Character) and plr.Character:FindFirstChild('Humanoid') and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChild('Humanoid') then
+							local pos = math.floor((getRoot(Players.LocalPlayer.Character).Position - getRoot(plr.Character).Position).magnitude)
+							TextLabel.Text = 'Name: '..plr.Name..' | Health: '..round(plr.Character:FindFirstChildOfClass('Humanoid').Health, 1)..' | Studs: '..pos
+						end
+					else
+						teamChange:Disconnect()
+						addedFunc:Disconnect()
+						lcLoopFunc:Disconnect()
+					end
+				end
+				lcLoopFunc = game:GetService("RunService").RenderStepped:Connect(lcLoop)
+			end
+		end
+	end)
 end
+
 --FUNCTIONS
 
 
@@ -1366,7 +1458,6 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			print(victimChar)
 			if victimChar ~= nil then
 
 				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
@@ -1379,7 +1470,6 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 	if instance.Name == 'spectateBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			print(victimChar)
 			if victimChar ~= nil then
 				if instance.Text == 'Spectate' then
 					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
@@ -1389,6 +1479,36 @@ for _, instance in pairs(playersTab.playersHolder:GetDescendants()) do
 					resetCamera()
 					currentlySpectacting = nil
 					instance.Text = 'Spectate'
+				end end
+			rippleEffect(instance.Parent)
+		end)
+	end 
+	
+	if instance.Name == 'locateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			local victimPlr = Players[instance.Parent.Parent.Parent.Name]
+			if victimPlr ~= nil then
+				if instance.Text == 'Locate' then
+					Locate(victimPlr)
+					instance.Text = 'Unlocate'
+				else 
+					if victimPlr then
+						for i,v in pairs(Players) do
+							for i,c in pairs(COREGUI:GetChildren()) do
+								if c.Name == Players[v].Name..'_LC' then
+									c:Destroy()
+								end
+							end
+						end
+					else
+						for i,c in pairs(COREGUI:GetChildren()) do
+							if string.sub(c.Name, -3) == '_LC' then
+								c:Destroy()
+							end
+						end
+					end
+					instance.Text = 'Locate'
 				end end
 			rippleEffect(instance.Parent)
 		end)
@@ -1432,7 +1552,6 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 	if instance.Name == 'teleportToBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			print(victimChar)
 			if victimChar ~= nil then
 
 				localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
@@ -1441,21 +1560,50 @@ playersTab.playersHolder.DescendantAdded:Connect(function(instance)
 			rippleEffect(instance.Parent)
 		end)
 	end 
-	
+
 	if instance.Name == 'spectateBtnMAIN' then
 		instance.MouseButton1Click:Connect(function()
 			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-			print(victimChar)
 			if victimChar ~= nil then
-					if instance.Text == 'Spectate' then
+				if instance.Text == 'Spectate' then
 					workspace.CurrentCamera.CameraSubject = victimChar:FindFirstChildWhichIsA('Humanoid')
 					instance.Text = 'Unsepctate'
 					currentlySpectacting = instance.Parent.Parent.Parent.Name
-						else 
+				else 
 					resetCamera()
 					currentlySpectacting = nil
 					instance.Text = 'Spectate'
-			end end
+				end end
+			rippleEffect(instance.Parent)
+		end)
+	end 
+
+	if instance.Name == 'locateBtnMAIN' then
+		instance.MouseButton1Click:Connect(function()
+			local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+			local victimPlr = Players[instance.Parent.Parent.Parent.Name]
+			if victimPlr ~= nil then
+				if instance.Text == 'Locate' then
+					Locate(victimPlr)
+					instance.Text = 'Unlocate'
+				else 
+					if victimPlr then
+						for i,v in pairs(Players) do
+							for i,c in pairs(COREGUI:GetChildren()) do
+								if c.Name == Players[v].Name..'_LC' then
+									c:Destroy()
+								end
+							end
+						end
+					else
+						for i,c in pairs(COREGUI:GetChildren()) do
+							if string.sub(c.Name, -3) == '_LC' then
+								c:Destroy()
+							end
+						end
+					end
+					instance.Text = 'Locate'
+				end end
 			rippleEffect(instance.Parent)
 		end)
 	end 
