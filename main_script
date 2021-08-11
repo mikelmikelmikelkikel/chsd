@@ -181,6 +181,12 @@ function Locate(plr)
 	end)
 end
 
+function r15(plr)
+	if plr.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
+		return true
+	end
+end
+
 --FUNCTIONS
 
 
@@ -1458,9 +1464,9 @@ function createPlrTab(player)
 							local victimChar = workspace[instance.Parent.Parent.Parent.Name]
 							if victimChar.HumanoidRootPart ~= nil then
 								localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
-							else
-								rippleEffect(instance.Parent)
-								instance.Parent.Text = 'Nil HRP' wait(1) instance.Parent.Text = 'Teleport To'
+						--	else
+							--	rippleEffect(instance.Parent)
+								--instance.Parent.Text = 'Nil HRP' wait(1) instance.Parent.Text = 'Teleport To'
 							end
 							rippleEffect(instance.Parent)
 						end)
@@ -1514,7 +1520,52 @@ function createPlrTab(player)
 							rippleEffect(instance.Parent)
 						end)
 					end 
-				end
+				
+		
+				if instance.Name == 'balloonBtnMAIN' then
+					instance.MouseButton1Click:Connect(function()
+						local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+						if victimChar ~= nil then
+							if instance.Text == 'R4pe' then
+								instance.Text = 'Unr4pe'
+									if not r15(localPlr) then
+										wait()
+										--for i,v in pairs(players)do
+										bangAnim = Instance.new("Animation")
+										bangAnim.AnimationId = "rbxassetid://148840371"
+										bang = localPlr.Character.Humanoid:LoadAnimation(bangAnim)
+										bang:Play(.1, 1, 1)
+										bang:AdjustSpeed(3)
+										local bangplr = victimChar.Name
+										bangDied = localPlr.Character:FindFirstChildOfClass'Humanoid'.Died:Connect(function()
+											bangLoop:Disconnect()
+											bang:Stop()
+											bangAnim:Destroy()
+											bangDied:Disconnect()
+										end)
+										bangLoop = game:GetService('RunService').Stepped:Connect(function()
+											pcall(function()
+												getRoot(Players.LocalPlayer.Character).CFrame = getRoot(Players[bangplr].Character).CFrame
+											end)
+										end)
+										--end
+									else
+										rippleEffect(instance.Parent)
+										instance.Text = 'R6 Only' wait(1) instance.Text = 'R4pe'
+									end
+							else 
+								if bangLoop then
+									bangLoop:Disconnect()
+									bangDied:Disconnect()
+									bang:Stop()
+									bangAnim:Destroy()
+								end
+								instance.Text = 'R4pe'
+							end end
+						rippleEffect(instance.Parent)
+					end)
+				end 
+		end
 	end
 end
 
