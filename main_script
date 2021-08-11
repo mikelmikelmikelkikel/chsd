@@ -1451,19 +1451,22 @@ function createPlrTab(player)
 		
 		
 				for _, instance in pairs(playersTab.playersHolder[player.Name]:GetDescendants()) do
-
+			
+			
 					if instance.Name == 'teleportToBtnMAIN' then
 						instance.MouseButton1Click:Connect(function()
 							local victimChar = workspace[instance.Parent.Parent.Parent.Name]
-							if victimChar ~= nil then
-
+							if victimChar.HumanoidRootPart ~= nil then
 								localPlr.Character:SetPrimaryPartCFrame(victimChar.HumanoidRootPart.CFrame*CFrame.new(Vector3.new(0,0,3)))  
-
+							else
+								rippleEffect(instance.Parent)
+								instance.Parent.Text = 'Nil HRP' wait(1) instance.Parent.Text = 'Teleport To'
 							end
 							rippleEffect(instance.Parent)
 						end)
 					end 
-
+			
+			
 					if instance.Name == 'spectateBtnMAIN' then
 						instance.MouseButton1Click:Connect(function()
 							local victimChar = workspace[instance.Parent.Parent.Parent.Name]
@@ -1480,7 +1483,8 @@ function createPlrTab(player)
 							rippleEffect(instance.Parent)
 						end)
 					end 
-
+			
+			
 					if instance.Name == 'locateBtnMAIN' then
 						instance.MouseButton1Click:Connect(function()
 							local victimChar = workspace[instance.Parent.Parent.Parent.Name]
