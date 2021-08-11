@@ -1493,7 +1493,7 @@ function createPlrTab(player)
 									if victimChar then
 										for i,v in pairs(game.Players:GetPlayers()) do
 											for i,c in pairs(COREGUI:GetChildren()) do
-												if c.Name == Players[v].Name..'_LC' then
+												if c.Name == victimChar.Name..'_LC' then
 													c:Destroy()
 												end
 											end
