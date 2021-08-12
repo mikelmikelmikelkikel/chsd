@@ -14,6 +14,7 @@ local avatarBackground = Instance.new("ImageLabel")
 local playerAvatarBustImage = Instance.new("ImageLabel")
 local playerAvatarBustImageDS = Instance.new("ImageLabel")
 local premiumLogo = Instance.new("ImageLabel")
+local plrAccAge = Instance.new("TextLabel")
 local btnHolder = Instance.new("Frame")
 local teleportToBtnBG = Instance.new("ImageLabel")
 local teleportToBtnMAIN = Instance.new("TextButton")
@@ -23,10 +24,10 @@ local locateBtnBG = Instance.new("ImageLabel")
 local locateBtnMAIN = Instance.new("TextButton")
 local balloonBtnBG = Instance.new("ImageLabel")
 local balloonBtnMAIN = Instance.new("TextButton")
+local toolKillBtnBG = Instance.new("ImageLabel")
+local toolKillBtnMAIN = Instance.new("TextButton")
 local blankBtn = Instance.new("ImageLabel")
 local blankBtnMain = Instance.new("TextButton")
-local blankBtn_2 = Instance.new("ImageLabel")
-local blankBtnMain_2 = Instance.new("TextButton")
 local roundBackground_2 = Instance.new("ImageLabel")
 local SearchBar = Instance.new("TextBox")
 local searchBarIcon = Instance.new("ImageLabel")
@@ -149,9 +150,24 @@ premiumLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 premiumLogo.BackgroundTransparency = 1.000
 premiumLogo.Position = UDim2.new(-0.018787954, 0, -0.0183824301, 0)
 premiumLogo.Size = UDim2.new(0, 30, 0, 30)
-premiumLogo.Visible = false
 premiumLogo.ZIndex = 30
 premiumLogo.Image = "rbxassetid://5217928125"
+
+plrAccAge.Name = "plrAccAge"
+plrAccAge.Parent = avatarBackground
+plrAccAge.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+plrAccAge.BackgroundTransparency = 1.000
+plrAccAge.Position = UDim2.new(0.0200000424, 0, 0.907685518, 0)
+plrAccAge.Size = UDim2.new(0, 106, 0, 9)
+plrAccAge.ZIndex = 4
+plrAccAge.Font = Enum.Font.ArialBold
+plrAccAge.Text = "69 Days Old"
+plrAccAge.TextColor3 = Color3.fromRGB(172, 172, 172)
+plrAccAge.TextScaled = true
+plrAccAge.TextSize = 14.000
+plrAccAge.TextStrokeTransparency = 0.500
+plrAccAge.TextWrapped = true
+plrAccAge.TextXAlignment = Enum.TextXAlignment.Left
 
 btnHolder.Name = "btnHolder"
 btnHolder.Parent = plrTemp
@@ -272,13 +288,41 @@ balloonBtnMAIN.TextScaled = true
 balloonBtnMAIN.TextSize = 14.000
 balloonBtnMAIN.TextWrapped = true
 
+toolKillBtnBG.Name = "toolKillBtnBG"
+toolKillBtnBG.Parent = btnHolder
+toolKillBtnBG.AnchorPoint = Vector2.new(0.5, 0.5)
+toolKillBtnBG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toolKillBtnBG.BackgroundTransparency = 1.000
+toolKillBtnBG.ClipsDescendants = true
+toolKillBtnBG.Position = UDim2.new(0.49885723, 0, 0.795161128, 0)
+toolKillBtnBG.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
+toolKillBtnBG.ZIndex = 11
+toolKillBtnBG.Image = "rbxassetid://3570695787"
+toolKillBtnBG.ImageColor3 = Color3.fromRGB(0, 0, 0)
+toolKillBtnBG.ImageTransparency = 0.100
+toolKillBtnBG.ScaleType = Enum.ScaleType.Slice
+toolKillBtnBG.SliceCenter = Rect.new(100, 100, 100, 100)
+toolKillBtnBG.SliceScale = 0.120
+
+toolKillBtnMAIN.Name = "toolKillBtnMAIN"
+toolKillBtnMAIN.Parent = toolKillBtnBG
+toolKillBtnMAIN.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toolKillBtnMAIN.BackgroundTransparency = 1.000
+toolKillBtnMAIN.Size = UDim2.new(1, 0, 1, 0)
+toolKillBtnMAIN.Font = Enum.Font.ArialBold
+toolKillBtnMAIN.Text = "Tool Kill"
+toolKillBtnMAIN.TextColor3 = Color3.fromRGB(122, 122, 122)
+toolKillBtnMAIN.TextScaled = true
+toolKillBtnMAIN.TextSize = 14.000
+toolKillBtnMAIN.TextWrapped = true
+
 blankBtn.Name = "blankBtn"
 blankBtn.Parent = btnHolder
 blankBtn.AnchorPoint = Vector2.new(0.5, 0.5)
 blankBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 blankBtn.BackgroundTransparency = 1.000
 blankBtn.ClipsDescendants = true
-blankBtn.Position = UDim2.new(0.49885723, 0, 0.795161128, 0)
+blankBtn.Position = UDim2.new(0.838857293, 0, 0.795161128, 0)
 blankBtn.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
 blankBtn.Visible = false
 blankBtn.ZIndex = 11
@@ -300,35 +344,6 @@ blankBtnMain.TextColor3 = Color3.fromRGB(122, 122, 122)
 blankBtnMain.TextScaled = true
 blankBtnMain.TextSize = 14.000
 blankBtnMain.TextWrapped = true
-
-blankBtn_2.Name = "blankBtn"
-blankBtn_2.Parent = btnHolder
-blankBtn_2.AnchorPoint = Vector2.new(0.5, 0.5)
-blankBtn_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-blankBtn_2.BackgroundTransparency = 1.000
-blankBtn_2.ClipsDescendants = true
-blankBtn_2.Position = UDim2.new(0.838857293, 0, 0.795161128, 0)
-blankBtn_2.Size = UDim2.new(0.319188833, 0, 0.302069843, 0)
-blankBtn_2.Visible = false
-blankBtn_2.ZIndex = 11
-blankBtn_2.Image = "rbxassetid://3570695787"
-blankBtn_2.ImageColor3 = Color3.fromRGB(0, 0, 0)
-blankBtn_2.ImageTransparency = 0.100
-blankBtn_2.ScaleType = Enum.ScaleType.Slice
-blankBtn_2.SliceCenter = Rect.new(100, 100, 100, 100)
-blankBtn_2.SliceScale = 0.120
-
-blankBtnMain_2.Name = "blankBtnMain"
-blankBtnMain_2.Parent = blankBtn_2
-blankBtnMain_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-blankBtnMain_2.BackgroundTransparency = 1.000
-blankBtnMain_2.Size = UDim2.new(1, 0, 1, 0)
-blankBtnMain_2.Font = Enum.Font.ArialBold
-blankBtnMain_2.Text = "Teleport To"
-blankBtnMain_2.TextColor3 = Color3.fromRGB(122, 122, 122)
-blankBtnMain_2.TextScaled = true
-blankBtnMain_2.TextSize = 14.000
-blankBtnMain_2.TextWrapped = true
 
 roundBackground_2.Name = "roundBackground"
 roundBackground_2.Parent = Players
@@ -372,7 +387,7 @@ searchBarIcon.Image = "rbxassetid://3192528333"
 
 -- Scripts:
 
-local function KQLOA_fake_script() -- SearchBar.searchBarHandler 
+local function XSGGO_fake_script() -- SearchBar.searchBarHandler 
 	local script = Instance.new('LocalScript', SearchBar)
 
 	--[[ Made by @LuaBearyGood ]]--
@@ -423,4 +438,4 @@ local function KQLOA_fake_script() -- SearchBar.searchBarHandler
 		end
 	end)
 end
-coroutine.wrap(KQLOA_fake_script)()
+coroutine.wrap(XSGGO_fake_script)()
