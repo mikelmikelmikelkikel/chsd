@@ -187,6 +187,65 @@ function r15(plr)
 	end
 end
 
+function tools(plr)
+	if plr:FindFirstChildOfClass("Backpack"):FindFirstChildOfClass('Tool') or plr.Character:FindFirstChildOfClass('Tool') then
+		return true
+	end
+end
+
+function respawn(plr)
+	--if invisRunning then TurnVisible() end
+	local char = plr.Character
+	if char:FindFirstChildOfClass("Humanoid") then char:FindFirstChildOfClass("Humanoid"):ChangeState(15) end
+	char:ClearAllChildren()
+	local newChar = Instance.new("Model")
+	newChar.Parent = workspace
+	plr.Character = newChar
+	wait()
+	plr.Character = char
+	newChar:Destroy()
+end
+
+local refreshCmd = false
+function refresh(plr)
+	refreshCmd = true
+	local Human = plr.Character and plr.Character:FindFirstChildOfClass("Humanoid", true)
+	local pos = Human and Human.RootPart and Human.RootPart.CFrame
+	local pos1 = workspace.CurrentCamera.CFrame
+	respawn(plr)
+	spawn(function()
+		plr.CharacterAdded:Wait():WaitForChild("Humanoid").RootPart.CFrame, workspace.CurrentCamera.CFrame = pos, wait() and pos1
+		refreshCmd = false
+	end)
+end
+
+function attach(speaker,target)
+	if tools(speaker) then
+		local char = speaker.Character
+		local tchar = target.Character
+		local hum = speaker.Character:FindFirstChildOfClass("Humanoid")
+		local hrp = getRoot(speaker.Character)
+		local hrp2 = getRoot(target.Character)
+		hum.Name = "1"
+		local newHum = hum:Clone()
+		newHum.Parent = char
+		newHum.Name = "Humanoid"
+		wait()
+		hum:Destroy()
+		workspace.CurrentCamera.CameraSubject = char
+		newHum.DisplayDistanceType = "None"
+		local tool = speaker:FindFirstChildOfClass("Backpack"):FindFirstChildOfClass("Tool") or speaker.Character:FindFirstChildOfClass("Tool")
+		tool.Parent = char
+		hrp.CFrame = hrp2.CFrame * CFrame.new(0, 0, 0) * CFrame.new(math.random(-100, 100)/200,math.random(-100, 100)/200,math.random(-100, 100)/200)
+		local n = 0
+		repeat
+			wait(.1)
+			n = n + 1
+			hrp.CFrame = hrp2.CFrame
+		until (tool.Parent ~= char or not hrp or not hrp2 or not hrp.Parent or not hrp2.Parent or n > 250) and n > 2
+	end
+end
+
 --FUNCTIONS
 
 
@@ -1441,8 +1500,13 @@ function createPlrTab(player)
 				plrTempClone.Name = player.Name
 				plrTempClone.playerRealName.Text = '@' .. player.Name
 				plrTempClone.playerDisplayName.Text = player.DisplayName
+		
+				if player.AccountAge == '69' then plrTempClone.avatarBackground.plrAccAge.Text = '69 Days Old, Nice'
+				elseif player.AccountAge == '420' then plrTempClone.avatarBackground.plrAccAge.Text = '420 Days Old, Sheesh'	
+				else plrTempClone.avatarBackground.plrAccAge.Text = player.AccountAge .. ' Days Old'
+				end
 
-				if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else end
+				if player.MembershipType == Enum.MembershipType.Premium then plrTempClone.avatarBackground.premiumLogo.Visible = true else plrTempClone.avatarBackground.premiumLogo.Visible = false end
 
 				plrTempClone.Parent = playersTab.playersHolder
 
@@ -1566,6 +1630,38 @@ function createPlrTab(player)
 						rippleEffect(instance.Parent)
 					end)
 				end 
+			
+			
+				if instance.Name == 'toolKillBtnMAIn' then
+					instance.MouseButton1Click:Connect(function()
+						local victimChar = workspace[instance.Parent.Parent.Parent.Name]
+						if victimChar ~= nil then
+						if tools(localPlr) then
+							--if target ~= nil then
+								local NormPos = getRoot(localPlr.Character).CFrame
+								--if not fast then
+									refresh(localPlr)
+									wait()
+									repeat wait() until localPlr.Character ~= nil and getRoot(localPlr.Character)
+									wait(0.3)
+								--end
+								local hrp = getRoot(localPlr.Character)
+								attach(localPlr,game:GetService('Players')[victimChar.Name])
+								repeat
+									wait()
+									hrp.CFrame = CFrame.new(999999, workspace.FallenPartsDestroyHeight + 5,999999)
+								until not getRoot(victimChar) or not getRoot(localPlr.Character)
+								wait(1)
+								localPlr.CharacterAdded:Wait():WaitForChild("HumanoidRootPart").CFrame = NormPos
+							end
+						else
+							rippleEffect(instance.Parent) instance.Text = 'No Tool Found' wait(1) instance.Text = 'Tool Kill'
+						end
+						--end 
+						rippleEffect(instance.Parent)
+					end)
+				end 
+			
 		end
 	end
 end
@@ -1586,7 +1682,8 @@ Players.PlayerRemoving:Connect(function(player)
 	if currentlySpectacting == player.Name 
 	then 
 		resetCamera() 
-		currentlySpectacting = nil end
+		currentlySpectacting = nil
+	end
 end)
 
 		
